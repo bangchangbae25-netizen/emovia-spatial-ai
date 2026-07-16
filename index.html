@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="사람의 감정과 행동을 공간의 언어로 읽는 EMOVIA AI 공간 인식 시스템">
+  <title>EMOVIA 공간 인식 AI</title>
+  <link rel="stylesheet" href="app/globals.css">
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="EMOVIA 홈">EMOVIA<span class="brand-dot">.</span></a>
+      <nav aria-label="주요 메뉴"><a href="#philosophy">공간을 보는 방식</a><a href="#cases">활용 사례</a></nav>
+      <a class="header-cta" href="#cases">적용 분야 보기 <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="kicker"><span></span> EMOTION BASED SPATIAL INTELLIGENCE</p>
+        <h1>공간을 만들기 전에,<br><em>사람을 이해합니다.</em></h1>
+        <p class="hero-description">EMOVIA는 사람의 감정과 행동을 공간의 언어로 읽고, 더 편안하고 오래 머물고 싶은 경험으로 바꾸는 AI 공간 인식 시스템입니다.</p>
+        <div class="hero-actions"><a class="primary-button" href="#philosophy">EMOVIA 이해하기 <span aria-hidden="true">↓</span></a><span class="micro-copy">Human → Behavior → Space</span></div>
+      </div>
+      <div class="spatial-stage" aria-label="EMOVIA 공간 인식 그래픽">
+        <div class="light-orbit orbit-one"></div><div class="light-orbit orbit-two"></div>
+        <div class="room-plane room-floor"></div><div class="room-plane room-wall"></div>
+        <div class="focus-object"><span>FOCUS</span></div><div class="human-mark"><span></span><b>HUMAN</b></div>
+        <div class="signal signal-eye">시선</div><div class="signal signal-light">빛</div><div class="signal signal-material">재질</div>
+        <div class="analysis-card"><div><span>공간 느낌</span><strong>차분하고 따뜻함</strong></div><div class="meter"><i></i></div><div class="analysis-row"><span>시선 중심</span><b>안정</b></div><div class="analysis-row"><span>머무름</span><b>길어짐</b></div></div>
+      </div>
+      <p class="scroll-note">SCROLL TO EXPLORE <span>↓</span></p>
+    </section>
+
+    <section class="philosophy-section" id="philosophy">
+      <div class="section-heading"><p class="section-index">01 / HOW IT WORKS</p><h2>형태가 아니라<br><em>경험의 흐름</em>을 봅니다.</h2><p>EMOVIA는 예쁜 스타일을 먼저 고르지 않습니다. 사람이 공간을 보고, 움직이고, 느끼는 순서부터 이해합니다.</p></div>
+      <div class="process-list">
+        <article class="process-item"><span>01</span><div><h3>사람을 이해합니다</h3><p>누가, 언제, 왜 이 공간을 사용하는지 살펴봅니다.</p></div><i>→</i></article>
+        <article class="process-item"><span>02</span><div><h3>공간을 읽습니다</h3><p>동선·시선·빛·색·재질이 만드는 현재 경험을 분석합니다.</p></div><i>→</i></article>
+        <article class="process-item"><span>03</span><div><h3>경험을 설계합니다</h3><p>편안함과 목적에 맞는 공간 방향을 제안하고 검증합니다.</p></div><i>→</i></article>
+        <article class="process-item"><span>04</span><div><h3>결과로 연결합니다</h3><p>이미지·제안서·포트폴리오·시공 참고 자료로 이어갑니다.</p></div><i>✓</i></article>
+      </div>
+      <div class="principle-strip"><span>사람 중심</span><i>×</i><span>공간 인식</span><i>×</i><span>경험 설계</span><i>×</i><span>AI 학습</span></div>
+    </section>
+
+    <section class="cases-section" id="cases">
+      <div class="cases-top"><div><p class="section-index light">02 / USE CASES</p><h2>다른 공간,<br><em>같은 질문에서 시작합니다.</em></h2></div><p>“이 공간을 사용하는 사람에게 무엇이 더 좋아져야 하는가?”</p></div>
+      <div class="case-tabs" role="tablist" aria-label="활용 사례 선택">
+        <button type="button" role="tab" aria-selected="true" data-case="residential">주거공간</button>
+        <button type="button" role="tab" aria-selected="false" data-case="commercial">상업공간</button>
+        <button type="button" role="tab" aria-selected="false" data-case="public">공공·교육</button>
+      </div>
+      <div class="case-display" aria-live="polite">
+        <div class="case-summary"><p id="case-eyebrow"></p><h3 id="case-title"></h3><p class="case-description" id="case-description"></p><div class="tag-list" id="case-tags"></div></div>
+        <div class="before-after"><article><span>BEFORE</span><p id="case-before"></p></article><div class="change-arrow">→</div><article class="after-card"><span>WITH EMOVIA</span><p id="case-after"></p></article></div>
+      </div>
+      <footer><div><p>공간은 형태가 아니라<br><strong>감정이 흐르는 구조입니다.</strong></p></div><a href="mailto:hello@emovia.example">프로젝트 이야기 시작하기 <span>↗</span></a><p class="footer-note">EMOVIA · Affective Experience Architecture</p></footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
