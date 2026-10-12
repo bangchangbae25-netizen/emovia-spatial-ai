@@ -1,108 +1,77 @@
-# vinext-starter
+# EMOVIA 공간 인식 AI
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+사람의 감정과 행동을 공간의 언어로 읽는 EMOVIA를 소개하는 한국어 정적 홈페이지입니다. “공간을 만들기 전에, 사람을 이해합니다.”라는 메시지와 공간을 보는 방식, 주거·상업·공공·교육 활용 사례를 제공합니다.
 
-## Prerequisites
+현재 구현은 HTML, CSS, JavaScript로 구성된 소개 페이지입니다. 화면의 분석 문구와 활용 사례는 소스에 작성된 설명이며, 실제 AI 분석 API나 서버·데이터베이스 연동은 구현되어 있지 않습니다.
 
-- Node.js `>=22.13.0`
-- Linux with `flock`, `curl`, and GNU `timeout`
+## 실제 파일 구조
 
-## Sites Lifecycle
+| 경로 | 역할 |
+| --- | --- |
+| `index.html` | 홈페이지 진입점. 제목·설명 메타데이터, 메뉴, 메인 소개, 프로세스, 사례 탭, 하단 연락 링크를 정의합니다. |
+| `app.js` | 활용 사례 데이터와 탭 클릭 동작을 정의합니다. 처음에는 주거공간 사례를 표시합니다. |
+| `app/globals.css` | 색상, 글꼴, 레이아웃, CSS 공간 그래픽, 애니메이션과 반응형 스타일을 정의합니다. |
+| `.nojekyll` | GitHub Pages에서 Jekyll 처리를 생략하기 위한 파일입니다. 이 파일만으로 Pages 배포 활성화나 배포 대상을 확인할 수는 없습니다. |
+| `README.md` | 소스 구조, 수정·실행 방법과 배포 점검 안내입니다. |
 
-The Sites lifecycle CLI runs the locked dependency install before returning this checkout. Edit the source under `app/`, then checkpoint when a coherent milestone is ready to inspect or share. The remote Sites builder runs `npm run build` against the pushed commit. Do not repeat install or build as a normal pre-checkpoint step.
+`index.html`은 `app/globals.css`와 `app.js`를 상대 경로로 직접 불러옵니다. `app/` 폴더는 현재 CSS 파일을 보관하는 디렉터리입니다.
 
-This starter does not use `wrangler.jsonc`.
+현재 저장소에는 `package.json`, npm 잠금 파일, 빌드 스크립트, 서버 코드 및 배포 워크플로 파일이 없습니다. Node.js·npm 설치나 Vinext 빌드는 이 홈페이지의 실행 조건이 아니며, npm 실행·빌드 명령어와 Cloudflare D1·Drizzle 설정 안내는 현재 소스에 적용되지 않습니다.
 
-`install:ci` is intentionally a single, non-retrying `npm ci`. It refuses a concurrent install for the same project, consumes a matching image-seeded npm cache with `--prefer-offline` while retaining registry fallback for a missing cache object, otherwise downloads and verifies the complete vinext tarball recorded in `package-lock.json`, limits npm to one socket, and terminates a stalled install. `build` applies a short timeout and then validates the Sites artifact. These helpers target Linux and use GNU `timeout`; they are not native macOS scripts.
+## 홈페이지 수정 방법
 
-Scripts that need writable project-scoped home, npm, XDG, and temporary paths use `scripts/sites-env.sh`. The `dev` and `start` scripts honor the caller's runtime environment and keep Wrangler logs inside the checkout. The generated `.sites-runtime/` directory is disposable and ignored by Git.
+### 소개 문구와 메뉴: `index.html`
 
-## Included Shape
+- 브라우저 탭 제목은 `<title>`, 검색·공유용 설명은 `<meta name="description">`에서 수정합니다.
+- 첫 화면 제목과 소개는 `.hero-copy`, 공간을 보는 방식과 프로세스는 `#philosophy`에서 수정합니다.
+- 메뉴와 버튼은 `#top`, `#philosophy`, `#cases`로 이동합니다. 섹션의 `id`를 바꾸면 연결된 `href`도 함께 수정합니다.
+- 하단 프로젝트 연락 링크는 `mailto:hello@emovia.example`입니다. 공개 전에 실제로 사용하는 이메일 주소로 교체합니다.
 
-- edit site code under `app/`
-- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+### 활용 사례 내용과 탭: `app.js`, `index.html`
 
-## Workspace Auth Headers
+`app.js`의 `cases` 객체에서 사례 내용을 수정합니다.
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+| 키 | 화면 탭 |
+| --- | --- |
+| `residential` | 주거공간 |
+| `commercial` | 상업공간 |
+| `public` | 공공·교육 |
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+각 사례의 `eyebrow`, `title`, `description`, `before`, `after`, `tags`를 수정하면 해당 탭의 소제목, 제목, 설명, 전후 비교와 태그가 바뀝니다.
 
-Treat the full name as optional and fall back to email when it is absent:
+탭을 추가하거나 이름을 바꿀 때는 `index.html` 버튼의 `data-case` 값과 `cases`의 키를 일치시킵니다. 초기 표시를 바꾸려면 `showCase("residential")` 호출과 HTML 버튼의 초기 `aria-selected` 값도 함께 수정합니다.
 
-```tsx
-import { headers } from "next/headers";
+스크립트가 사용하는 `#case-eyebrow`, `#case-title`, `#case-description`, `#case-before`, `#case-after`, `#case-tags` 및 `.case-display`를 바꾸면 JavaScript의 선택자도 함께 수정해야 합니다. 스크립트는 현재 본문 끝에서 실행되므로, 위치를 옮길 때는 해당 요소가 생성된 뒤 실행되도록 유지합니다.
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+### 디자인과 반응형 화면: `app/globals.css`
 
-  const displayName = fullName ?? email;
-  // ...
-}
-```
+- `:root`의 CSS 변수에서 기본 색상을 수정합니다.
+- 각 섹션의 클래스에서 여백, 글자 크기와 배치를 수정합니다.
+- `900px`, `620px` 기준 미디어 쿼리에서 좁은 화면의 레이아웃을 수정합니다.
+- 공간 그래픽은 HTML 요소와 CSS로 구성되어 있습니다.
+- 움직임 최소화 설정은 `prefers-reduced-motion` 미디어 쿼리에서 처리합니다.
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+## 정적 웹사이트 실행 방식
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+별도의 의존성 설치나 빌드 과정 없이 저장소 파일을 그대로 사용합니다.
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+1. 저장소 파일을 내려받아 폴더 구조를 유지합니다.
+2. `index.html`을 브라우저에서 열어 화면과 사례 탭을 확인합니다. 현재 코드는 상대 경로의 CSS·JavaScript를 불러오며 API 요청이나 모듈 로딩을 사용하지 않아 파일을 직접 열어 확인할 수 있습니다.
+3. HTTP 환경으로 확인하려면 사용 중인 편집기나 로컬 정적 파일 서버에서 **저장소 루트 폴더**를 제공하고, 해당 서버의 주소로 접속합니다. 저장소 자체에 개발 서버 실행 스크립트는 없습니다.
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+수정 후에는 브라우저를 새로고침합니다. 이전 화면이 남으면 캐시를 비우거나 강력 새로고침으로 확인합니다.
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+## 배포 시 확인할 사항
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+배포할 파일은 루트의 `index.html`, `app.js`와 `app/globals.css`입니다. 경로와 폴더 구조를 유지하여 정적 파일로 제공해야 합니다. GitHub Pages를 사용한다면 `.nojekyll`도 배포 루트에 포함합니다.
 
-## Diagnostic Commands
+다음 항목을 배포 환경에서 확인합니다.
 
-- `npm run install:ci`: perform the one bounded lockfile install
-- `npm run dev`: start the Vite/Vinext development server
-- `npm run build`: build and validate the deployable Sites artifact
-- `npm run start`: start the built Vinext application
-- `npm test`: build, validate, and verify the rendered development-preview metadata
-- `npm run validate:artifact`: recheck an existing artifact's manifest and ESM `default.fetch` export
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+- 시작 문서가 루트의 `index.html`인지 확인합니다.
+- `app/globals.css`와 `app.js`가 정상 응답하며, 파일명 대소문자와 상대 경로가 유지되는지 확인합니다. 저장소 이름이 포함된 하위 경로로 서비스하는 경우에도 직접 접속해 점검합니다.
+- 세 가지 사례 탭의 내용과 선택 표시가 바뀌고, 메뉴·버튼의 섹션 이동이 작동하는지 확인합니다.
+- 데스크톱과 모바일 폭에서 글자·그래픽·전후 비교 카드가 잘리거나 겹치지 않는지 확인합니다.
+- 브라우저 개발자 도구에서 JavaScript 오류와 리소스 로딩 실패가 없는지 확인합니다.
+- 제목·설명 메타데이터와 실제 연락 이메일을 확인합니다.
 
-Use build and validation commands for targeted diagnosis after a remote failure, not as part of the normal checkpoint path.
-
-The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+현재 소스 파일만으로는 실제 호스팅 서비스, 공개 URL, 배포 브랜치·폴더, 사용자 지정 도메인 및 자동 배포 여부를 확인할 수 없습니다. GitHub Pages를 사용할 경우 저장소의 **Settings → Pages**에서 배포 방식과 대상을 확인하고, 다른 호스팅을 사용할 경우 해당 서비스에서 정적 파일 제공 경로를 확인합니다. `.nojekyll`의 존재를 배포 완료의 근거로 사용하지 않습니다.
