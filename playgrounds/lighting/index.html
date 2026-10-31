@@ -1,0 +1,61 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EMOVIA 조명놀이터 · 비츠조명 Source</title><style>*{box-sizing:border-box}body{margin:0;font:14px system-ui,"Apple SD Gothic Neo",sans-serif;background:#faf8f4;color:#332b23}.page{max-width:1140px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e6dbce;padding-bottom:17px;gap:10px}.logo{font-weight:850;letter-spacing:1px}.logo span{color:#ac7c4e}.flag{background:#f6eadd;color:#8b5c2f;font-size:10px;border-radius:30px;padding:5px 8px;white-space:nowrap}h1{font-size:clamp(25px,4vw,40px);margin:24px 0 8px;letter-spacing:-1px}h2{font-size:16px}h3{font-size:13px;line-height:1.5}.sub{color:#817366;line-height:1.7;font-size:12px}.layout{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin:20px 0}.panel,.product{border:1px solid #e7dcd0;border-radius:13px;background:white;padding:15px;min-width:0}.scene{--light:255,210,145;--strength:.7;--sky:#34485f;position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1.55;border-radius:10px;background:linear-gradient(#e8dfd2 0 68%,#ac9b88 68%)}.wall{position:absolute;inset:11% 7% 31%;background:#f4e9d8;clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}.window{position:absolute;left:19%;top:20%;width:22%;height:34%;background:var(--sky);border:9px solid #f0e6da}.sofa{position:absolute;top:59%;left:35%;width:41%;height:23%;border:9px solid #93816e;background:#c9b6a2;border-radius:15px 15px 5px 5px;box-shadow:7px 9px 9px #2223}.table{position:absolute;top:80%;left:47%;width:35%;height:9%;background:#a38d74;border-radius:50%}.glow{position:absolute;inset:0;background:radial-gradient(ellipse 39% 50% at 59% 30%,rgba(var(--light),var(--strength)),transparent 100%);mix-blend-mode:screen}.light-point{position:absolute;top:15%;left:53%;height:9px;width:9px;border-radius:50%;background:#fff8d9;box-shadow:0 0 28px 11px rgba(var(--light),var(--strength))}.scene-title{position:absolute;bottom:9px;left:9px;right:9px;background:#ffffffe8;border-radius:5px;font-size:10px;padding:7px;color:#6c543d}.buttons,.filters{display:flex;gap:6px;flex-wrap:wrap}.buttons button,.buttons a,.filters button{background:white;border:1px solid #dfd0be;border-radius:7px;padding:9px 12px;font-size:11px;color:#735738;text-decoration:none;cursor:pointer}.buttons button{background:#564235;color:white}.filters .on{background:#f5e8d7;border-color:#bf9164}.detail{background:#faf5ee;padding:12px;font-size:11px;white-space:pre-line;line-height:1.8;color:#69584a;border-radius:8px}.source-status{padding:10px;background:#edf3ec;border-radius:7px;font-size:11px;color:#47674c;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:15px 0}.product{display:flex;flex-direction:column}.product.sel{border-color:#a97e50}.product p{font-size:11px;line-height:1.7;color:#807164}.product .buttons{margin-top:auto}.meta{font-size:10px;color:#817367;display:flex;justify-content:space-between;align-items:center;gap:6px}.foot{border-top:1px solid #e3d9cd;margin-top:25px;padding:15px 0;color:#8a7c6b;line-height:1.8;font-size:11px}.stats{display:flex;gap:22px;color:#86776a;font-size:12px}.stats strong{font-size:21px;color:#715232}button:focus-visible,a:focus-visible{outline:2px solid #b3814e;outline-offset:2px}@media(max-width:810px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:490px){.page{padding:12px}.grid{grid-template-columns:1fr}.top{flex-wrap:wrap}}</style></head><body><main class="page"><div class="top"><div class="logo">EMOVIA <span>LIGHTING PLAYGROUND</span></div><div class="flag">VITTZ · SOURCE CANDIDATE</div></div><h1>같은 공간, 다른 빛의 경험</h1><p class="sub">공식 상품정보를 자동 로드한 조명놀이터 시제품입니다. 비츠조명 제품사진을 복제하지 않고, 고정된 예시 공간에서 조명의 느낌만 비교합니다.</p><div class="layout"><section class="panel"><h2>Lighting Experience</h2><div id="scene" class="scene"><div class="wall"></div><div class="window"></div><div class="sofa"></div><div class="table"></div><div class="glow"></div><div class="light-point"></div><div id="scene-title" class="scene-title">조명 선택 전</div></div><div class="buttons" style="margin-top:10px"><button id="phase">낮으로</button><button id="toggle">전/후 비교</button><button id="copy">선택 JSON 복사</button></div><p id="copymsg" class="sub"></p><p class="sub">실제 제품 외형·IES 배광·조도·시공 가능성을 표시하는 시뮬레이션이 아닙니다.</p></section><section class="panel"><h2>Source 자동등록 현황</h2><p id="status" role="status" class="source-status">후보 소스 불러오는 중…</p><div id="detail" class="detail">제품을 선택하면 공식 Source의 검증 상태가 표시됩니다.</div><p class="sub">FOUND → CANDIDATE. 등록 중복 방지 및 충돌 차단. 운영 DB·CURRENT_OFFICIAL·실제 적용으로 자동 승격하지 않습니다.</p><p class="sub">이미지 사용권과 IES/LDT는 미확보 상태이며 실제 제품 사양은 공식 페이지에서 확인합니다.</p></section></div><section><h2>비츠조명 공식 제품 Source</h2><div id="filters" class="filters"></div><p class="stats"><span>전체 <strong id="nall">0</strong>종</span><span>공간 후보 <strong id="nshow">0</strong>종</span></p><div class="grid" id="cards"></div></section><div class="foot">CH_EMOVIA_LIGHTING_PLAYGROUND_V1 · CH_EMOVIA_PLAYGROUND_COMMON_SOURCE_V1<br>등록 데이터는 GitHub 제안 브랜치에 보존되는 정적 Source 후보이며, 고객 운영 서버에 등록한 상태가 아닙니다.</div></main><script>(function application(){
+  const $=id=>document.getElementById(id), rooms={ALL:"전체",LIVING:"거실",KITCHEN:"주방",RETAIL:"리테일",BATHROOM:"욕실",ENTRANCE:"현관",EXTERIOR:"외부"};
+  let map=new Map(),room="ALL",chosen=null,day=false,before=false,events=[];
+  const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  function audit(type){events.push({type,at:new Date().toISOString()})}
+  function validate(pack){
+    if(pack.schema!=="EMOVIA_LIGHTING_SOURCE_PACK_V1"||pack.product_count!==12||!Array.isArray(pack.products))throw Error("스키마 또는 수량 오류");
+    let keys=new Set();
+    pack.products.forEach(p=>{
+      if(keys.has(p.source_key)||p.source_key!=="VITTZ:"+p.catalog_product_id||!p.official_source_url.includes("branduid="+p.catalog_product_id)||p.activation_status!=="INACTIVE"||p.applied_status!=="NOT_APPLIED"||!p.application_zones?.length)throw Error("중복·출처·적용상태 오류: "+p.catalog_product_id);
+      keys.add(p.source_key);
+    });
+    return pack.products;
+  }
+  function register(pack){
+    let added=0,same=0;
+    for(const p of validate(pack)){
+      const prior=map.get(p.source_key);
+      if(!prior){map.set(p.source_key,Object.freeze(p));added++}
+      else if(JSON.stringify(prior)===JSON.stringify(p))same++;
+      else throw Error("충돌: "+p.source_key);
+    }
+    audit("SOURCE_CANDIDATES_LOADED");
+    $("status").textContent="후보 "+added+"종 자동 등록 · 중복 "+same+"종 무시 · 활성화 0종 · 실제 적용 0종";
+    render();
+  }
+  function render(){
+    $("filters").innerHTML=Object.keys(rooms).map(k=>`<button data-room="${k}" class="${room===k?"on":""}" aria-pressed="${room===k}">${rooms[k]}</button>`).join("");
+    const list=[...map.values()].filter(p=>room==="ALL"||p.candidate_spaces.includes(room));
+    $("nall").textContent=map.size;$("nshow").textContent=list.length;
+    $("cards").innerHTML=list.map(p=>`<article class="product ${chosen===p.source_key?"sel":""}">
+      <div class="meta">VITTZ · ${safe(p.catalog_product_id)} <span class="flag">후보</span></div><h3>${safe(p.product_name)}</h3>
+      <p>설치 ${safe(p.mounting_type)} · ${safe(p.application_zones.join(" / "))}</p>
+      <p>전력 ${p.power_options_w.length?safe(p.power_options_w.join("/"))+"W":"상세 확인"} · CCT ${p.cct_options_kelvin.length?safe(p.cct_options_kelvin.join("/"))+"K":"옵션 확인"}</p>
+      <div class="buttons"><button data-select="${safe(p.source_key)}">체험 선택</button><a target="_blank" rel="noopener noreferrer" href="${safe(p.official_source_url)}">공식 상세</a></div></article>`).join("");
+    $("detail").textContent=chosen&&map.has(chosen)?(()=>{
+      const p=map.get(chosen);return `${p.product_name}\n제품번호: ${p.catalog_product_id} (제조사 모델번호 아님)\n설치 후보 Zone: ${p.application_zones.join(", ")}\n색온도 방식: ${p.cct_control}\n밝기 제어: ${p.dimming_capability}\n상세: ${p.source_spec_notes}\nStatus: CANDIDATE / INACTIVE / NOT_APPLIED\nIES: 미확보 · 이미지 사용권: 미확인`;
+    })():"제품을 선택하면 확인된 Source와 현재 검증 상태가 표시됩니다.";
+    const p=chosen&&map.get(chosen),kelvin=p?.cct_options_kelvin[0]||4000;
+    const light=before?"255,245,225":kelvin<=3000?"255,195,126":kelvin<=4000?"255,223,181":"219,235,255";
+    $("scene").style.setProperty("--light",light);
+    $("scene").style.setProperty("--strength",before?".1":day?".34":".78");
+    $("scene").style.setProperty("--sky",day?"#b4d8ec":"#34485f");
+    $("scene-title").textContent=before?"기본 조명 · 변경 전":(p?p.product_name:"조명 선택 전")+" · 체험용";
+    $("toggle").textContent=before?"현재 보기":"전/후 비교";
+    $("phase").textContent=day?"밤으로":"낮으로";
+  }
+  document.addEventListener("click",e=>{
+    const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.room){room=b.dataset.room;chosen=null;audit("SPACE_FILTER");render()}
+    if(b.dataset.select){chosen=b.dataset.select;before=false;audit("QUALITATIVE_PREVIEW_SELECT");render();$("scene").scrollIntoView({block:"nearest",behavior:"smooth"})}
+    if(b.id==="toggle"){before=!before;render()}
+    if(b.id==="phase"){day=!day;render()}
+    if(b.id==="copy"){
+      const selected=chosen&&map.get(chosen);
+      const data={selected_source_key:selected?.source_key||null,space_scope:room,render_mode:"GENERIC_QUALITATIVE",product_application:"NOT_APPLIED",physical_validation:"NOT_RUN"};
+      navigator.clipboard?.writeText(JSON.stringify(data,null,2)).then(()=>$("copymsg").textContent="선택정보를 복사했습니다.").catch(()=>$("copymsg").textContent="복사 권한이 없습니다.");
+    }
+  });
+  fetch("./data/vittz-products.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(register).catch(e=>{$("status").textContent="Source 등록 실패: "+e.message;$("cards").textContent="등록 데이터 및 서버 실행 환경을 점검해 주세요."});
+})();</script></body></html>
