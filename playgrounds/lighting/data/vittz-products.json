@@ -1,0 +1,461 @@
+{
+  "schema": "EMOVIA_LIGHTING_SOURCE_PACK_V1",
+  "version": "1.1.0",
+  "source_pack_id": "VITTZ_LIGHTING_V1",
+  "provider": "VITTZ (비츠조명)",
+  "source_owner": "VITTZ_OFFICIAL_CATALOG",
+  "source_hub": "CH_EMOVIA_PLAYGROUND_COMMON_SOURCE_V1",
+  "consumer_channel": "CH_EMOVIA_LIGHTING_PLAYGROUND_V1",
+  "registry_tier": "STAGING_GITHUB_ONLY",
+  "source_status": "FOUND",
+  "source_review": "OFFICIAL_DETAIL_CHECKED",
+  "rights": "PUBLIC_FACTS_AND_OFFICIAL_LINKS_ONLY",
+  "product_image_use": "NOT_AUTHORIZED",
+  "automatic_official_promotion": false,
+  "automatic_activation": false,
+  "automatic_b2b_publishing": false,
+  "live_database_registered": false,
+  "light_simulation_grade": "QUALITATIVE_GENERIC_ONLY",
+  "refresh_policy": {
+    "recheck_days": 30,
+    "auto_scraping": false,
+    "change_review_required": true
+  },
+  "registered_on": "2026-11-01",
+  "product_count": 12,
+  "products": [
+    {
+      "source_key": "VITTZ:1100007024",
+      "catalog_product_id": "1100007024",
+      "model_number": null,
+      "product_name": "루미핏 LED 다운라이트 8W",
+      "fixture_type": "DOWNLIGHT",
+      "mounting_type": "RECESSED",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        8
+      ],
+      "cct_options_kelvin": [
+        3000,
+        4000,
+        6500
+      ],
+      "cct_control": "FIXED_VARIANTS",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "Ø65×H42mm / 타공 Ø55mm",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bm50W14%3D&branduid=1100007024&current_category=056001014&mcode=001&scode=014&search=&sort=regdate&type=Y&xcode=056",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100007010",
+      "catalog_product_id": "1100007010",
+      "model_number": null,
+      "product_name": "방습 소렌 55mm 다운라이트 8W",
+      "fixture_type": "DOWNLIGHT",
+      "mounting_type": "RECESSED",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "BATHROOM"
+      ],
+      "power_options_w": [
+        8
+      ],
+      "cct_options_kelvin": [
+        4000
+      ],
+      "cct_control": "FIXED",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "66×45mm / 타공 Ø55mm · IP 미확인",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bm54W1Q%3D&branduid=1100007010&current_category=056012010&mcode=012&scode=010&search=&sort=manual&type=Y&xcode=056",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:2083379",
+      "catalog_product_id": "2083379",
+      "model_number": null,
+      "product_name": "COB 텐더 레일조명",
+      "fixture_type": "TRACK_SPOT",
+      "mounting_type": "TRACK",
+      "application_zones": [
+        "CEILING",
+        "DISPLAY"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        10,
+        20,
+        30
+      ],
+      "cct_options_kelvin": [
+        3000,
+        4000,
+        6500
+      ],
+      "cct_control": "FIXED_VARIANTS",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "스틸·아크릴 / 블랙·화이트",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?branduid=2083379",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100006803",
+      "catalog_product_id": "1100006803",
+      "model_number": null,
+      "product_name": "IOT 스마트 T7 루아 레일조명",
+      "fixture_type": "TRACK_LINEAR",
+      "mounting_type": "TRACK",
+      "application_zones": [
+        "CEILING",
+        "DISPLAY"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        10,
+        15,
+        20,
+        25
+      ],
+      "cct_options_kelvin": [
+        3000,
+        4000,
+        6500
+      ],
+      "cct_control": "SWITCHABLE_CONTROL_OPTION",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "300/600/900/1200mm · 리모컨 별도 옵션",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=amt3Uw%3D%3D&branduid=1100006803&current_category=056006&mcode=006&scode=001&search=&sort=manual&type=Y&xcode=056",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100006434",
+      "catalog_product_id": "1100006434",
+      "model_number": null,
+      "product_name": "LED 셀리아 슬림 마그네틱 레일조명",
+      "fixture_type": "MAGNETIC_TRACK",
+      "mounting_type": "MAGNETIC_TRACK",
+      "application_zones": [
+        "CEILING",
+        "DISPLAY"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        10,
+        20,
+        30
+      ],
+      "cct_options_kelvin": [],
+      "cct_control": "UNKNOWN",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "색온도 옵션 상세 확인 필요",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?branduid=1100006434",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100005642",
+      "catalog_product_id": "1100005642",
+      "model_number": null,
+      "product_name": "COB 플렉시블 스마트 라인조명 10M 24V",
+      "fixture_type": "STRIP",
+      "mounting_type": "ADHESIVE",
+      "application_zones": [
+        "CEILING",
+        "WALL",
+        "FURNITURE"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [],
+      "cct_options_kelvin": [],
+      "cct_control": "RANGE_CONTROLLER_REQUIRED",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "10m·폭10mm·DC24V·14W/m·CRI90·3000~6500K 범위",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bGt3UF4%3D&branduid=1100005642&current_category=048005001&mcode=005&scode=001&search=&sort=manual&type=Y&xcode=048",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100006938",
+      "catalog_product_id": "1100006938",
+      "model_number": null,
+      "product_name": "LED 베셀 엣지 슬림 욕실등 25W",
+      "fixture_type": "SURFACE_LIGHT",
+      "mounting_type": "SURFACE",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "BATHROOM"
+      ],
+      "power_options_w": [
+        25
+      ],
+      "cct_options_kelvin": [
+        4000
+      ],
+      "cct_control": "FIXED",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "640×180×34mm · 광속 ≥2000lm · IP 미확인",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bWp3Uw%3D%3D&branduid=1100006938&current_category=034&mcode=002&scode=&search=&sort=manual&type=Y&xcode=034",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100006939",
+      "catalog_product_id": "1100006939",
+      "model_number": null,
+      "product_name": "LED 베셀 엣지 슬림 주방등 50W",
+      "fixture_type": "SURFACE_LIGHT",
+      "mounting_type": "SURFACE",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "KITCHEN"
+      ],
+      "power_options_w": [
+        50
+      ],
+      "cct_options_kelvin": [
+        4000
+      ],
+      "cct_control": "FIXED",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "1285×180×34mm · 광속 ≥4500lm",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bm11W10%3D&branduid=1100006939&current_category=074001&mcode=001&scode=&search=&sort=manual&type=Y&xcode=074",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100007090",
+      "catalog_product_id": "1100007090",
+      "model_number": null,
+      "product_name": "루아벨 LED 플로어 스탠드",
+      "fixture_type": "FLOOR_LAMP",
+      "mounting_type": "PORTABLE",
+      "application_zones": [
+        "FLOOR"
+      ],
+      "candidate_spaces": [
+        "LIVING"
+      ],
+      "power_options_w": [
+        5
+      ],
+      "cct_options_kelvin": [
+        3000
+      ],
+      "cct_control": "FIXED",
+      "dimming_capability": "YES_3_STEPS",
+      "ip_rating": "IP44",
+      "source_spec_notes": "Ø200×H1470mm · 28~320lm",
+      "official_source_url": "https://www.vittz.co.kr/m/product.html?branduid=1100007090",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:2083047",
+      "catalog_product_id": "2083047",
+      "model_number": null,
+      "product_name": "LED 클린 펜던트 조명 20W",
+      "fixture_type": "PENDANT",
+      "mounting_type": "SUSPENDED",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        20
+      ],
+      "cct_options_kelvin": [
+        3000
+      ],
+      "cct_control": "FIXED",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "알루미늄 · 화이트 · 와이어 140cm",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?branduid=2083047",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100005389",
+      "catalog_product_id": "1100005389",
+      "model_number": null,
+      "product_name": "LED 뉴 시스템 매입 라인조명",
+      "fixture_type": "LINEAR_RECESSED",
+      "mounting_type": "RECESSED",
+      "application_zones": [
+        "CEILING"
+      ],
+      "candidate_spaces": [
+        "LIVING",
+        "KITCHEN",
+        "RETAIL"
+      ],
+      "power_options_w": [
+        7,
+        15,
+        25,
+        30,
+        40
+      ],
+      "cct_options_kelvin": [
+        3000,
+        4000,
+        5700,
+        6500
+      ],
+      "cct_control": "FIXED_VARIANTS",
+      "dimming_capability": "UNKNOWN",
+      "ip_rating": null,
+      "source_spec_notes": "알루미늄·화이트",
+      "official_source_url": "https://www.vittz.co.kr/m/product.html?GfDT=bm55W11N&branduid=1100005389&current_category=063013004&mcode=013&scode=004&search=&sort=new&type=X&xcode=063",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    },
+    {
+      "source_key": "VITTZ:1100004900",
+      "catalog_product_id": "1100004900",
+      "model_number": null,
+      "product_name": "LED 바젠 방수 직부조명 30W",
+      "fixture_type": "EXTERIOR_SURFACE",
+      "mounting_type": "SURFACE",
+      "application_zones": [
+        "CEILING",
+        "EXTERIOR"
+      ],
+      "candidate_spaces": [
+        "ENTRANCE",
+        "EXTERIOR"
+      ],
+      "power_options_w": [
+        30
+      ],
+      "cct_options_kelvin": [
+        3000,
+        4000,
+        6500
+      ],
+      "cct_control": "PHYSICAL_SWITCH",
+      "dimming_capability": "NO",
+      "ip_rating": "IP65",
+      "source_spec_notes": "스위치 3색 변환 · 밝기조절 불가",
+      "official_source_url": "https://www.vittz.co.kr/shop/shopdetail.html?GfDT=bm94W15D&branduid=1100004900&current_category=056011001&mcode=011&scode=001&search=&sort=manual&type=Y&xcode=056",
+      "source_status": "FOUND",
+      "registry_status": "CANDIDATE",
+      "activation_status": "INACTIVE",
+      "applied_status": "NOT_APPLIED",
+      "image_permission": "NOT_VERIFIED",
+      "ies_file_url": null,
+      "identity_lock": true,
+      "checked_on": "2026-11-01"
+    }
+  ]
+}
