@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f6f2">
+<meta name="description" content="EMOVIA 현관놀이터 — 예림 중문과 현대리바트 현관장을 조합하고 비교하는 비제휴 B2B 제안용 시연 페이지">
+<meta name="robots" content="noindex,nofollow">
+<title>EMOVIA 현관놀이터 | 브랜드 제안용 데모</title>
+<style>
+:root{--ink:#292d2b;--sub:#6c736e;--line:#e4e3dd;--panel:#f6f5f1;--warm:#d9c1a4;--accent:#526b5b;--accentsoft:#eaf1eb;--white:#fff;--r:17px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f8f7f4;color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",Arial,sans-serif}
+button,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #79ab8c;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.45}
+a{color:var(--accent);text-underline-offset:3px}
+.wrap{max-width:1170px;margin:auto;padding:0 22px}
+.top{background:#fff;border-bottom:1px solid var(--line)}
+.top-inner{height:67px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:20px;font-weight:850;letter-spacing:-1px;color:#253d31;text-decoration:none}
+.brand small{margin-left:10px;font-size:10px;letter-spacing:2px;color:var(--sub);font-weight:700;vertical-align:middle}
+.status{border:1px solid #d6d8d3;padding:6px 11px;border-radius:999px;font-size:11px;color:#5e665f;background:#f6f8f4;white-space:nowrap}
+.hero{padding:42px 0 26px;display:flex;gap:20px;justify-content:space-between;align-items:end}
+.kicker{font-size:11px;color:#697d6c;letter-spacing:2.2px;font-weight:800;margin:0 0 9px}
+.hero h1{font-size:clamp(27px,4vw,44px);letter-spacing:-2px;line-height:1.24;margin:0 0 12px;font-weight:800}
+.hero h1 span{color:#748677}
+.hero p{color:var(--sub);margin:0;max-width:680px;font-size:14px;line-height:1.9}
+.hero-side{font-size:11px;text-align:right;white-space:nowrap;color:var(--sub);padding-bottom:4px}
+.tabs{display:flex;gap:7px;border-bottom:1px solid var(--line);overflow:auto;padding-bottom:12px;scrollbar-width:thin}
+.tab,.scene-btn,.btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 15px;color:#3d4941;font-size:13px;white-space:nowrap}
+.tab[aria-selected=true],.scene-btn[aria-pressed=true],.btn.active{background:var(--accentsoft);border-color:#8eab98;color:#284c36;font-weight:750}
+.notice{margin:18px 0;background:#eef1eb;color:#4f6354;border:1px solid #dce5da;padding:13px 15px;border-radius:11px;font-size:12px;line-height:1.8}
+.section-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 13px}
+.section-top h2{font-size:18px;letter-spacing:-.5px;margin:0}
+.section-top p{font-size:11px;color:var(--sub);margin:0}
+.scene-choices{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.scene-btn{font-size:12px}
+.gallery{display:grid;grid-template-columns:1.15fr .95fr;gap:14px}
+.card{border:1px solid var(--line);background:#fff;border-radius:var(--r);overflow:hidden;min-width:0}
+.visual{position:relative;height:340px;background:#ebe9e3;overflow:hidden}
+.visual img{width:100%;height:100%;object-fit:cover;display:block}
+.visual svg{width:100%;height:100%;display:block}
+.overlay-label{position:absolute;top:14px;left:14px;border-radius:8px;background:rgba(29,36,30,.82);color:#fff;font-size:10px;letter-spacing:.5px;padding:7px 10px}
+.missing-photo{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;background:#ebe9e3;padding:30px;color:#6d6d68;font-size:13px;line-height:1.8}
+.card-caption{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:62px;font-size:12px}
+.card-caption div{max-width:72%}
+.card-caption strong{display:block;font-weight:700}
+.card-caption span{display:block;font-size:11px;color:var(--sub)}
+.card-caption a{font-size:11px;white-space:nowrap}
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.product{background:#fff;border:1px solid var(--line);padding:13px 14px;text-align:left;border-radius:12px;min-width:0;transition:border-color .12s,background .12s}
+.product[aria-pressed=true]{background:var(--accentsoft);border-color:#86a590;box-shadow:inset 0 0 0 1px #86a590}
+.product b,.product small{display:block}
+.product b{font-size:13px;line-height:1.5}
+.product small{font-size:11px;color:var(--sub);margin-top:5px;line-height:1.5}
+.product .id{font:700 10px/1.4 ui-monospace,monospace;color:#638570;letter-spacing:.5px;margin-bottom:5px}
+.meta-row{display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;gap:10px;font-size:11px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}
+.controls label{color:var(--sub);font-size:11px;display:flex;flex-direction:column;gap:5px}
+.controls select{min-width:137px;padding:9px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px}
+.summary{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:15px}
+.summary h2{font-size:17px;margin:0 0 12px}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.summary-item{border-radius:10px;background:var(--panel);padding:11px 12px;min-height:64px}
+.summary-item small{display:block;font-size:10px;color:var(--sub);margin-bottom:4px}
+.summary-item strong{display:block;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.button-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.btn{font-size:12px;padding:10px 13px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.tip{font-size:11px;color:var(--sub);margin:10px 0 0;line-height:1.7}
+.saves{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.saves button{background:#f8f8f5;border:1px solid var(--line);border-radius:8px;padding:8px;font-size:11px}
+.compare{display:none;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.compare.active{display:grid}
+.compare figure{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#ece9e3}
+.compare svg{width:100%;height:175px;display:block}
+.compare figcaption{font-size:11px;color:var(--sub);padding:9px 11px;background:#fff}
+.audit{display:none}
+.audit.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi{border:1px solid var(--line);background:#fff;border-radius:12px;padding:18px;text-align:center}
+.kpi b{display:block;font-size:27px}.kpi span{font-size:11px;color:var(--sub)}
+table{width:100%;border-collapse:collapse;font-size:12px;background:#fff}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--sub);font-size:11px}
+.detail{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+pre{overflow:auto;background:#edf0eb;padding:15px;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;color:#36523e;font-size:11px;line-height:1.5}
+.footer{border-top:1px solid var(--line);margin-top:40px;padding:23px 0 35px;color:var(--sub);font-size:11px;line-height:1.9}
+.footer b{color:var(--ink)}.footer a{margin-right:10px}
+.hidden{display:none!important}
+[data-live]{min-height:22px}
+@media(max-width:780px){.hero-side{display:none}.gallery,.cards-grid{grid-template-columns:1fr}.visual{height:320px}.hero{padding:29px 0 20px}.top-inner{height:59px}.summary-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:475px){.wrap{padding:0 14px}.hero h1{font-size:29px;letter-spacing:-1.3px}.status{font-size:9px;padding:5px 7px}.brand{font-size:17px}.brand small{font-size:9px;letter-spacing:.5px;margin-left:4px}.visual{height:250px}.product{padding:11px 10px}.product b{font-size:12px}.product small{font-size:10px}.summary-grid{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.card-caption{padding:10px}.compare svg{height:135px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap top-inner">
+  <a class="brand" href="#top" aria-label="EMOVIA 현관놀이터">EMOVIA <small>ENTRANCE PLAYGROUND</small></a>
+  <span class="status">B2B 제안용 · 미제휴 시제품</span>
+ </div>
+</header>
+<main class="wrap" id="top">
+ <div class="hero"><div>
+  <p class="kicker">PLAY · COMPARE · DISCOVER</p>
+  <h1>현관의 첫인상,<br><span>직접 조합해 보세요.</span></h1>
+  <p>중문과 신발장을 고르고 비교하는 EMOVIA 체험형 제안 시안입니다. 실제 공간 사진과 제품 구조 개념도를 구분하여 보여드립니다.</p>
+ </div><div class="hero-side">CONCEPT DEMONSTRATION<br>V2.2 · 2026</div></div>
+ <div class="tabs" role="tablist" aria-label="체험 유형">
+  <button class="tab" role="tab" data-view="combined" aria-selected="true">통합 조합 체험</button>
+  <button class="tab" role="tab" data-view="yerim" aria-selected="false">예림도어 제안</button>
+  <button class="tab" role="tab" data-view="livart" aria-selected="false">리바트 제안</button>
+  <button class="tab" role="tab" data-view="audit" aria-selected="false">운영 검증</button>
+ </div>
+ <div class="notice" id="mode-description">두 브랜드의 개별 제품을 함께 살펴보는 비제휴 내부 데모입니다. 제조사가 참여·보증하거나 실제 시공을 확정한 서비스가 아닙니다.</div>
+ <div id="work">
+  <div class="section-top"><h2>01. 샘플 현관 선택</h2><p>원본 실사 · 공간 구조 불변</p></div>
+  <div class="scene-choices" aria-label="샘플 현관">
+   <button class="scene-btn" data-scene="A" aria-pressed="true">A · 일반 아파트</button>
+   <button class="scene-btn" data-scene="B" aria-pressed="false">B · 수납·거울형</button>
+   <button class="scene-btn" data-scene="C" aria-pressed="false">C · 중문 전용 준비</button>
+  </div>
+  <div class="gallery">
+   <div class="card"><div class="visual">
+    <img id="scene-photo" src="https://images.pexels.com/photos/6636315/pexels-photo-6636315.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="샘플 현관 A 실사 사진">
+    <div class="missing-photo" id="photo-fallback">사진 표시가 제한되거나 승인된 실사가 아직 없습니다. 아래 원본 출처에서 확인해 주세요.</div>
+    <span class="overlay-label">BASE PHOTO · ORIGINAL</span></div>
+    <div class="card-caption"><div><strong id="scene-title">일반 아파트 현관</strong><span id="scene-meta">현관 A · 원본 무수정</span></div><a id="photo-source" target="_blank" rel="noopener noreferrer" href="https://www.pexels.com/photo/corridor-of-minimalist-styled-apartment-with-white-furniture-6636315/">사진 출처</a></div>
+   </div>
+   <div class="card"><div class="visual"><svg id="concept-svg" viewBox="0 0 580 340" role="img" aria-label="선택 조합의 비실측 개념 구조도"></svg><span class="overlay-label">STRUCTURE CONCEPT · NOT TO SCALE</span></div>
+    <div class="card-caption"><div><strong>선택 조합 구조도</strong><span>실제 브랜드 제품 사진·실사 합성 아님</span></div></div>
+   </div>
+  </div>
+  <div class="section-top"><h2>02. 제품 선택</h2><p>모델명·공식 제품 페이지 연결</p></div>
+  <div class="cards-grid">
+   <section id="door-section"><div class="section-top" style="margin:0 0 10px"><h2>예림 중문</h2><p>4개 제품 페이지</p></div><div class="product-grid" id="door-grid"></div><div class="meta-row"><span>공식 정보 확인 · 규격은 상담 후 결정</span><a id="door-source" href="#" target="_blank" rel="noopener noreferrer">선택 제품 상세</a></div></section>
+   <section id="cabinet-section"><div class="section-top" style="margin:0 0 10px"><h2>리바트 현관장</h2><p>2개 공식 상품</p></div><div class="product-grid" id="cabinet-grid"></div>
+   <div class="controls">
+    <label>도어 기본 마감<select id="finish"><option value="white">매트화이트</option><option value="sand">매트샌드</option></select></label>
+    <label id="lighting-holder">갤러리 조명 시연<select id="lighting"><option value="off">끄기</option><option value="on">켜기</option></select></label>
+   </div><div class="meta-row"><span>제품별 실제 구성은 상담·실측 필요</span><a id="cabinet-source" href="#" target="_blank" rel="noopener noreferrer">선택 제품 상세</a></div></section>
+  </div>
+  <section class="summary"><h2>03. 현재 조합</h2><div class="summary-grid" id="summary-grid"></div>
+   <div class="button-row">
+    <button class="btn primary" id="save">이 조합 저장</button>
+    <button class="btn" id="compare">조합 비교</button>
+    <button class="btn" id="share">선택 링크 복사</button>
+    <button class="btn" id="reset">초기화</button>
+   </div>
+   <div id="compare-wrap" class="compare">
+    <figure><svg id="compare-base" viewBox="0 0 580 340"></svg><figcaption>비교 기준 조합</figcaption></figure>
+    <figure><svg id="compare-current" viewBox="0 0 580 340"></svg><figcaption>현재 선택 조합</figcaption></figure>
+   </div>
+   <div class="saves" id="saved-list"></div>
+   <p class="tip" id="live-status" role="status" aria-live="polite">선택한 조합은 개념도에서만 변경됩니다. 실제 제품 적용·견적·시공 가능성은 미확인입니다.</p>
+  </section>
+ </div>
+ <section id="audit-panel" class="audit">
+  <div class="section-top"><h2>시연 이벤트</h2><p>이 브라우저 세션 한정 · 서버 전송 없음</p></div>
+  <div class="kpis" id="stats"></div>
+  <div class="section-top"><h2>검증 및 배포 제한</h2><p>공식성 자동 승격 금지</p></div>
+  <div class="detail">
+   <table><thead><tr><th>영역</th><th>검증 상태</th></tr></thead><tbody>
+    <tr><td>예림 중문</td><td>공식 모델·페이지 참조 확인 / 이미지·3D 사용권 미확인</td></tr>
+    <tr><td>리바트 현관장</td><td>공식 상품 정보 확인 / 브랜드 제품 이미지 사용권 미확인</td></tr>
+    <tr><td>현관 A·B</td><td>무료 실사 출처 확인 / 정밀 Mask·시공치수 없음</td></tr>
+    <tr><td>현관 C</td><td>중문 개구부 사진 미확보 / 실사 합성 비활성</td></tr>
+    <tr><td>제품 적용·시공</td><td>실측·공식 자산·호환성 검증 전까지 NOT_APPLIED</td></tr>
+    <tr><td>브랜드 관계</td><td>PROPOSAL_ONLY / 양사 공식 제휴 아님</td></tr>
+    <tr><td>영업 분석</td><td>클라이언트 세션 이벤트 예시 / 중앙 데이터베이스 없음</td></tr>
+    <tr><td>+95 검증</td><td>PENDING · 실제 제품/공간 회귀 검증 전</td></tr>
+   </tbody></table>
+  </div>
+  <div class="button-row"><button class="btn" id="show-events">최근 이벤트 조회</button></div>
+ </section>
+ <section class="summary"><div class="section-top" style="margin:0 0 12px"><h2>연결 데이터</h2><p>Source ID · 적용 상태 확인</p></div>
+  <div class="button-row"><button class="btn" id="show-json">현재 조합 JSON 보기</button></div><pre id="data-box" class="hidden" aria-label="현관 조합 소스 기록"></pre>
+ </section>
+</main>
+<footer class="footer"><div class="wrap">
+ <b>EMOVIA · Entrance Playground / B2B Proposal Demo</b><br>
+ 예림·현대리바트의 공식 공동 제작물이나 제휴 페이지가 아닙니다. 브랜드 제품은 공식 공개 자료의 식별 정보만 참고하며, 제품 렌더링·도면·공식 로고를 사용하지 않습니다.
+ 제품 시공 가능성·치수·가격은 별도의 실측 및 브랜드/시공사 확인이 필요합니다. 저장 기능은 현재 브라우저에 한정되며 개인정보나 실제 상담 신청을 수집하지 않습니다.<br>
+ 실사 사진: <a href="https://www.pexels.com/photo/corridor-of-minimalist-styled-apartment-with-white-furniture-6636315/" target="_blank" rel="noopener noreferrer">현관 A</a><a href="https://www.pexels.com/photo/interior-of-corridor-with-mirror-wardrobe-6492387/" target="_blank" rel="noopener noreferrer">현관 B</a>
+ · Photography by Max Vakhtbovych / Pexels
+</div></footer>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.from(document.querySelectorAll(s))};
+var door=[
+{id:'YERIM_1389',model:'YSS-111',title:'이지 슈퍼슬림 3연동',finish:'오크마일드 · 일반투명',color:'#aa8b6c',glass:'#cbdad8',uid:1389,url:'https://www.yerim.net/kor/products/products-view.html?uid=1389'},
+{id:'YERIM_161',model:'YSS-111',title:'에센셜 3연동',finish:'메탈그레이 · 투명+새틴',color:'#626b70',glass:'#c5d1d4',uid:161,url:'https://www.yerim.net/kor/products/products-view.html?depth1=2&depth2=34&uid=161'},
+{id:'YERIM_1388',model:'YSS-100',title:'이지 슈퍼슬림 3연동',finish:'블랙 · 미스트',color:'#333937',glass:'#b9c8c8',uid:1388,url:'https://www.yerim.net/kor/products/products-view.html?depth1=2&depth2=34&depth3=197&uid=1388'},
+{id:'YERIM_167',model:'YGS-101',title:'A/L 심플 연동형',finish:'진그레이 · 미스트',color:'#777574',glass:'#cbd0d0',uid:167,url:'https://www.yerim.net/kor/products/products-view.html?depth1=2&depth2=34&depth3=99&uid=167'}
+];
+var cabinet=[
+{id:'LIVART_P200158826',code:'P200158826',title:'스페이스코디 갤러리',sub:'갤러리 공간 · 조명 선택 옵션',kind:'gallery',url:'https://www.hyundailivart.co.kr/p/P200158826'},
+{id:'LIVART_P200158822',code:'P200158822',title:'스페이스코디 거울장식',sub:'거울장식 · 4000K 상부 조명',kind:'mirror',url:'https://www.hyundailivart.co.kr/p/P200158822'}
+];
+var scenes={
+A:{name:'일반 아파트 현관',id:'6636315',size:'7360×4912',url:'https://images.pexels.com/photos/6636315/pexels-photo-6636315.jpeg?auto=compress&cs=tinysrgb&w=1600',source:'https://www.pexels.com/photo/corridor-of-minimalist-styled-apartment-with-white-furniture-6636315/'},
+B:{name:'거울·수납형 현관',id:'6492387',size:'6685×4462',url:'https://images.pexels.com/photos/6492387/pexels-photo-6492387.jpeg?auto=compress&cs=tinysrgb&w=1600',source:'https://www.pexels.com/photo/interior-of-corridor-with-mirror-wardrobe-6492387/'}
+};
+var storageKey='EMOVIA_ENTRANCE_PROPOSAL_V22';
+var state={view:'combined',scene:'A',d:0,c:0,finish:'white',light:'off'};
+var saved=[],events=[],comparison=false,compareBasis=null,openedData=false,openedEvents=false,storageOK=true;
+function clamp(v,max){var n=Number(v);return Number.isInteger(n)&&n>=0&&n<max?n:0}
+function validScene(s){return ['A','B','C'].includes(s)?s:'A'}
+function parseOption(s){return ['white','sand'].includes(s)?s:'white'}
+function snapshot(){return {scene:state.scene,d:state.d,c:state.c,finish:state.finish,light:state.light}}
+function note(t){$('#live-status').textContent=t}
+function auditEvent(type,extra){events.push(Object.assign({type:type,mode:state.view,scene:state.scene},extra||{}));if(events.length>75)events.shift()}
+try{var existing=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(existing)){saved=existing.slice(-12).filter(function(s){return s&&['A','B','C'].includes(s.scene)}).map(function(s){return {scene:validScene(s.scene),d:clamp(s.d,door.length),c:clamp(s.c,cabinet.length),finish:parseOption(s.finish),light:s.light==='on'?'on':'off'}})}}catch(e){storageOK=false}
+var qs=new URLSearchParams(location.search);
+if(qs.has('scene'))state.scene=validScene(qs.get('scene'));
+if(qs.has('door'))state.d=clamp(qs.get('door'),door.length);
+if(qs.has('cabinet'))state.c=clamp(qs.get('cabinet'),cabinet.length);
+if(qs.has('finish'))state.finish=parseOption(qs.get('finish'));
+if(qs.has('light'))state.light=qs.get('light')==='on'?'on':'off';
+function e(tag,attributes,parent){var item=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attributes).forEach(function(k){item.setAttribute(k,String(attributes[k]))});parent.appendChild(item);return item}
+function rect(parent,x,y,w,h,color,other){return e('rect',Object.assign({x:x,y:y,width:w,height:h,fill:color},other||{}),parent)}
+function line(parent,x1,y1,x2,y2,stroke,w){return e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:stroke,'stroke-width':w||1},parent)}
+function label(parent,x,y,val,size,color){var t=e('text',{x:x,y:y,fill:color||'#646863','font-size':size||12,'font-family':'Arial,sans-serif'},parent);t.textContent=val}
+function concept(target,config,mode){
+target.replaceChildren();
+var d=door[config.d],c=cabinet[config.c];var neutralDoor=mode==='livart',neutralCab=mode==='yerim';
+rect(target,0,0,580,340,'#eae8e2');
+rect(target,0,274,580,66,'#cbc6bf');
+for(var k=0;k<8;k++)line(target,0,277+k*8,580,277+k*8,'#bbb8af',.6);
+rect(target,26,37,315,237,'#9b9c97');rect(target,30,41,307,229,'#f5f5f0');
+var frame=neutralDoor?'#aaa9a1':d.color;
+var glass=neutralDoor?'#d0d7d4':d.glass;
+for(var i=0;i<3;i++){
+var x=37+i*97;rect(target,x,49,94,211,frame);rect(target,x+7,56,80,197,glass);
+rect(target,x+7,56,80,77,'#fff',{opacity:.14});rect(target,x+6,252,82,1,'#fff',{opacity:.65});
+}
+rect(target,36,46,287,6,frame);rect(target,36,259,287,6,frame);
+rect(target,303,144,3,32,frame);
+rect(target,368,37,185,237,'#a9a39b');
+var front=neutralCab?'#ddd7ca':config.finish==='sand'?'#c9b8a5':'#e9e8e0';
+rect(target,373,42,175,225,front);
+if(neutralCab){rect(target,461,43,2,223,'#b0ada5');line(target,373,159,549,159,'#b0ada5',2)}
+else if(c.kind==='gallery'){
+rect(target,377,132,167,63,'#b49d85');rect(target,382,137,157,52,'#d4bea6');
+if(config.light==='on'){rect(target,382,137,157,4,'#ffdf9d');rect(target,382,141,157,9,'#ffe7bd',{opacity:.64})}
+rect(target,460,42,2,90,'#b6b1a9');rect(target,460,195,2,71,'#b6b1a9');
+}else{
+rect(target,384,55,151,104,'#adbcc0');rect(target,391,63,137,88,'#d5e0e1');
+rect(target,386,55,149,4,'#fff1c5');rect(target,460,160,2,106,'#b6b1a9');
+}
+label(target,26,25,neutralDoor?'NEUTRAL DOOR':d.model+' / UID '+d.uid,13,'#565d57');
+label(target,369,25,neutralCab?'NEUTRAL CABINET':c.code,13,'#565d57');
+label(target,22,325,'SCHEMATIC ONLY · NO DIMENSIONS · NO BRAND ASSETS',11,'#767570');
+}
+function drawCards(){
+function card(id,title,sub,selected,click,extra){
+var b=document.createElement('button');b.className='product';b.type='button';b.setAttribute('aria-pressed',String(selected));
+var small=document.createElement('span');small.className='id';small.textContent=id;
+var strong=document.createElement('b');strong.textContent=title;
+var p=document.createElement('small');p.textContent=sub;
+b.append(small,strong,p);b.addEventListener('click',click);return b;
+}
+$('#door-grid').replaceChildren();$('#cabinet-grid').replaceChildren();
+door.forEach(function(v,i){$('#door-grid').appendChild(card(v.model+' · '+v.uid,v.title,v.finish,state.d===i,function(){state.d=i;auditEvent('PRODUCT_SELECTED',{brand:'YERIM',source:v.id});draw();note('예림 중문이 선택되었습니다. 구조도만 변경되며 실제 제품 합성은 아닙니다.')}))});
+cabinet.forEach(function(v,i){$('#cabinet-grid').appendChild(card(v.code,v.title,v.sub,state.c===i,function(){state.c=i;auditEvent('PRODUCT_SELECTED',{brand:'LIVART',source:v.id});draw();note('리바트 현관장이 선택되었습니다. 구조도만 변경되며 실제 제품 합성은 아닙니다.')}))});
+}
+function summary(){
+var items=[
+['공간','현관 '+state.scene],
+['예림 중문',state.view==='livart'?'중립 개념 구성':door[state.d].model+' · UID '+door[state.d].uid],
+['리바트 현관장',state.view==='yerim'?'중립 개념 구성':cabinet[state.c].title],
+['도어 마감',state.view==='yerim'?'시연 대상 아님':state.finish==='white'?'매트화이트':'매트샌드'],
+['실제 제품 적용','차단 / 미검증'],
+['관계 상태','제안 전용 · 미제휴']
+];
+$('#summary-grid').replaceChildren();
+items.forEach(function(item){var el=document.createElement('div');el.className='summary-item';var a=document.createElement('small');a.textContent=item[0];var b=document.createElement('strong');b.textContent=item[1];el.append(a,b);$('#summary-grid').appendChild(el)});
+}
+function renderSaves(){
+$('#saved-list').replaceChildren();
+if(!saved.length)return;
+saved.forEach(function(s,i){
+var b=document.createElement('button');b.type='button';b.textContent='저장 '+(i+1)+' · 현관 '+s.scene+' · '+door[s.d].model+' / '+cabinet[s.c].title;
+b.addEventListener('click',function(){state.scene=s.scene;state.d=s.d;state.c=s.c;state.finish=s.finish;state.light=s.light;compareBasis=Object.assign({},s);auditEvent('COMBINATION_LOADED');draw();note('저장된 조합을 불러왔습니다.')});$('#saved-list').appendChild(b);
+});
+}
+function renderStats(){
+var data=[['선택','PRODUCT_SELECTED'],['저장','COMBINATION_SAVED'],['비교','COMPARISON_VIEWED'],['링크','SHARE_LINK_CREATED']];
+$('#stats').replaceChildren();
+data.forEach(function(v){var box=document.createElement('div');box.className='kpi';var b=document.createElement('b');b.textContent=events.filter(function(a){return a.type===v[1]}).length;var span=document.createElement('span');span.textContent=v[0]+' 이벤트';box.append(b,span);$('#stats').appendChild(box)});
+}
+function payload(){
+var visible={};
+if(state.view!=='livart')visible.yerim={source_id:door[state.d].id,model:door[state.d].model,official_uid:door[state.d].uid,official_url:door[state.d].url};
+if(state.view!=='yerim')visible.livart={source_id:cabinet[state.c].id,product_code:cabinet[state.c].code,official_url:cabinet[state.c].url,door_finish:state.finish,gallery_lighting:cabinet[state.c].kind==='gallery'?state.light:'NOT_APPLICABLE'};
+return {
+schema:'EMOVIA_ENTRANCE_PROPOSAL_V2_2',channel_id:'CH_EMOVIA_ENTRANCE_PLAYGROUND_V1',mode:state.view,relationship:'PROPOSAL_ONLY_NON_PARTNER',
+scene:{id:'ENT_'+state.scene,photo_id:scenes[state.scene]?scenes[state.scene].id:null,same_space_lock:'BASE_PHOTO_ONLY',zone_mask:'NOT_VERIFIED'},
+products:visible,
+preview_type:'SCHEMATIC_REFERENCE_NOT_PRODUCT_RENDER',
+source_status:'PUBLIC_PRODUCT_PAGES_REFERENCED',
+brand_asset_permission:'NOT_GRANTED',
+actual_product_applied:false,installation_feasibility:'FIELD_VERIFY',
+local_save:storageOK?'LOCAL_BROWSER_ONLY':'UNAVAILABLE',
+validation_95:'PENDING',
+sales_data:'SESSION_ONLY_NO_NETWORK_COLLECTION'
+};
+}
+function dataDisplay(){if(openedData){$('#data-box').textContent=JSON.stringify(payload(),null,2)}else if(openedEvents){$('#data-box').textContent=JSON.stringify(events.slice(-20),null,2)}}
+function draw(){
+$$('[data-view]').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.view===state.view))});
+$$('[data-scene]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.scene===state.scene))});
+var audit=state.view==='audit';$('#work').classList.toggle('hidden',audit);$('#audit-panel').classList.toggle('active',audit);
+var descriptions={
+combined:'두 브랜드의 개별 제품을 함께 살펴보는 비제휴 내부 데모입니다. 제조사가 참여·보증하거나 실제 시공을 확정한 서비스가 아닙니다.',
+yerim:'예림 중문만 선택하는 단독 제안 화면입니다. 수납장은 브랜드 없는 중립 개념 구성으로 표시합니다.',
+livart:'현대리바트 현관장만 선택하는 단독 제안 화면입니다. 중문은 브랜드 없는 중립 개념 구성으로 표시합니다.',
+audit:'시연 품질과 Source 상태를 점검하는 내부 검증 화면입니다. 통계는 실제 고객 성과가 아닙니다.'
+};
+$('#mode-description').textContent=descriptions[state.view];
+if(!audit){
+$('#door-section').classList.toggle('hidden',state.view==='livart');
+$('#cabinet-section').classList.toggle('hidden',state.view==='yerim');
+var p=scenes[state.scene],img=$('#scene-photo'),fallback=$('#photo-fallback'),source=$('#photo-source');
+if(p){
+img.style.display='block';fallback.style.display='none';
+if(img.getAttribute('src')!==p.url)img.src=p.url;
+$('#scene-title').textContent=p.name;
+$('#scene-meta').textContent='현관 '+state.scene+' · 원본 '+p.size+'px · 무수정';
+source.href=p.source;source.style.display='inline';
+}else{
+img.style.display='none';fallback.style.display='flex';
+fallback.textContent='중문이 보이는 현관 사진의 권리·개구부 정보를 확보한 후 활성화합니다.';
+$('#scene-title').textContent='중문 전용 실사 준비 중';$('#scene-meta').textContent='ENT_C · SOURCE_GAP';source.style.display='none';
+}
+drawCards();$('#finish').value=state.finish;$('#lighting').value=state.light;
+$('#lighting-holder').classList.toggle('hidden',cabinet[state.c].kind!=='gallery');
+$('#door-source').href=door[state.d].url;$('#cabinet-source').href=cabinet[state.c].url;
+concept($('#concept-svg'),snapshot(),state.view);
+$('#compare-wrap').classList.toggle('active',comparison);
+$('#compare').classList.toggle('active',comparison);
+if(comparison){concept($('#compare-base'),compareBasis||{d:0,c:0,finish:'white',light:'off',scene:'A'},state.view);concept($('#compare-current'),snapshot(),state.view)}
+summary();renderSaves();
+}
+renderStats();dataDisplay();
+}
+$('#scene-photo').addEventListener('error',function(){if(state.scene==='C')return;this.style.display='none';$('#photo-fallback').style.display='flex';$('#photo-fallback').textContent='외부 실사 사진 로딩이 제한되었습니다. 원본 출처 링크를 이용해 주세요.'});
+$$('[data-view]').forEach(function(b){b.addEventListener('click',function(){state.view=b.dataset.view;auditEvent('VIEW_CHANGED',{view:state.view});draw()})});
+$$('[data-scene]').forEach(function(b){b.addEventListener('click',function(){state.scene=b.dataset.scene;auditEvent('SCENE_SELECTED');draw()})});
+$('#finish').addEventListener('change',function(){state.finish=this.value;auditEvent('FINISH_SELECTED');draw()});
+$('#lighting').addEventListener('change',function(){state.light=this.value;auditEvent('LIGHTING_PREVIEW_SELECTED');draw()});
+$('#door-source').addEventListener('click',function(){auditEvent('DETAIL_OPENED',{brand:'YERIM'})});
+$('#cabinet-source').addEventListener('click',function(){auditEvent('DETAIL_OPENED',{brand:'LIVART'})});
+$('#save').addEventListener('click',function(){
+var s=snapshot();saved.push(s);if(saved.length>12)saved.shift();
+try{localStorage.setItem(storageKey,JSON.stringify(saved));storageOK=true}catch(e){storageOK=false}
+auditEvent('COMBINATION_SAVED');draw();
+note(storageOK?'현재 브라우저에 조합을 저장했습니다. 서버나 다른 기기에 동기화되지는 않습니다.':'현재 세션에는 저장했지만 브라우저 영구 저장 기능이 제한되었습니다.');
+});
+$('#compare').addEventListener('click',function(){comparison=!comparison;auditEvent('COMPARISON_VIEWED');draw()});
+$('#reset').addEventListener('click',function(){state.scene='A';state.d=0;state.c=0;state.finish='white';state.light='off';comparison=false;compareBasis=null;draw();note('기본 조합으로 초기화했습니다.')});
+$('#share').addEventListener('click',function(){
+var u=new URL(location.href);u.searchParams.set('scene',state.scene);u.searchParams.set('door',state.d);u.searchParams.set('cabinet',state.c);u.searchParams.set('finish',state.finish);u.searchParams.set('light',state.light);
+var val=u.toString();auditEvent('SHARE_LINK_CREATED');
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(val).then(function(){note('현재 조합 링크를 복사했습니다. 외부 사진은 접속 환경에 따라 표시가 제한될 수 있습니다.')},function(){note('조합 링크: '+val)})}
+else note('조합 링크: '+val);
+});
+$('#show-json').addEventListener('click',function(){openedData=!openedData;openedEvents=false;$('#data-box').classList.toggle('hidden',!openedData);dataDisplay()});
+$('#show-events').addEventListener('click',function(){openedEvents=!openedEvents;openedData=false;$('#data-box').classList.toggle('hidden',!openedEvents);dataDisplay();$('#data-box').scrollIntoView({behavior:'smooth',block:'nearest'})});
+auditEvent('DEMO_STARTED');draw();
+})();
+</script>
+</body>
+</html>
