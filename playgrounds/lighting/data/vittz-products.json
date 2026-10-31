@@ -10,7 +10,7 @@
   "source_status": "FOUND",
   "source_review": "OFFICIAL_DETAIL_CHECKED",
   "rights": "PUBLIC_FACTS_AND_OFFICIAL_LINKS_ONLY",
-  "product_image_use": "NOT_AUTHORIZED",
+  "product_image_use": "NO_PRODUCT_IMAGES_COPIED",
   "automatic_official_promotion": false,
   "automatic_activation": false,
   "automatic_b2b_publishing": false,
@@ -59,7 +59,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "DOWNLIGHT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100007010",
@@ -92,7 +96,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "DOWNLIGHT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:2083379",
@@ -132,7 +140,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "TRACK_SPOT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100006803",
@@ -173,7 +185,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "TRACK_LINEAR",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100006434",
@@ -209,7 +225,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "MAGNETIC_TRACK",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100005642",
@@ -242,7 +262,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "STRIP",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100006938",
@@ -275,7 +299,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "SURFACE_LIGHT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100006939",
@@ -308,7 +336,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "SURFACE_LIGHT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100007090",
@@ -341,7 +373,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "FLOOR_LAMP",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:2083047",
@@ -376,7 +412,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "PENDANT",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100005389",
@@ -418,7 +458,11 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "LINEAR_RECESSED",
+      "product_image_url": null
     },
     {
       "source_key": "VITTZ:1100004900",
@@ -455,7 +499,20 @@
       "image_permission": "NOT_VERIFIED",
       "ies_file_url": null,
       "identity_lock": true,
-      "checked_on": "2026-11-01"
+      "checked_on": "2026-11-01",
+      "manufacturer_brand": null,
+      "source_merchant": "비츠조명",
+      "public_playground_label": "EXTERIOR_SURFACE",
+      "product_image_url": null
     }
-  ]
+  ],
+  "provider_role": "RETAILER_AND_SOURCE_REFERENCE",
+  "retailer": {
+    "name": "비츠조명",
+    "website": "https://www.vittz.co.kr/"
+  },
+  "manufacturer_identity_status": "UNKNOWN_FOR_GENERIC_PRODUCTS",
+  "product_brand_identity_policy": "DO_NOT_LABEL_GENERIC_RETAIL_CATALOG_ITEMS_AS_VITTZ_MANUFACTURED",
+  "playground_product_policy": "GENERIC_LIGHTING_FIXTURE_TYPES_ONLY",
+  "live_beta_mode": "VISIBLE_INTERACTIVE_QUALITATIVE_BETA"
 }
