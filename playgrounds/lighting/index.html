@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="EMOVIA 조명놀이터 베타: 실제 공간 사진에서 범용 조명 유형과 빛의 분위기를 즉시 체험해 보세요.">
+<title>EMOVIA LIGHTING PLAYGROUND | 눈에 보이는 조명 베타</title>
+<link rel="stylesheet" href="./beta.css">
+</head><body>
+<header><div class="brand">EMOVIA <em>LIGHTING</em> PLAYGROUND</div><div class="head-right"><span class="text">SPACE × MATERIAL × COLOR × LIGHT</span><span class="beta-label">VISUAL BETA · 0.2</span></div></header>
+<main class="shell">
+<section class="intro"><div><div class="eyebrow">LIVE LIGHTING EXPERIENCE</div><h1>공간은 그대로, 빛의 느낌을 바꾸세요.</h1><p>실제 공간 사진에서 조명 유형·빛의 색감·밝기·강조 지점을 자유롭게 비교하는 체험 베타입니다.</p></div>
+<div class="roomnav" id="roomnav" role="group" aria-label="공간 선택">
+<button data-room="LIVING" class="active">거실</button><button data-room="KITCHEN">주방</button><button data-room="RETAIL">리테일</button>
+<label for="my-photo">+ 내 공간 사진</label><input type="file" id="my-photo" accept="image/*" hidden>
+</div></section>
+<section class="grid-main">
+<div class="stage-card">
+<div class="stage-heading"><h2>LIGHTING STUDIO <span id="room-name">/ LIVING</span></h2><div class="meta">Same Space · Camera Lock</div></div>
+<div class="stage" id="stage" aria-label="조명이 변경되는 공간 사진">
+<div class="visual after" id="after"><img id="main-photo" alt="조명 효과를 적용하는 공간 사진" referrerpolicy="no-referrer"><div class="shade"></div><div class="wash"></div><div class="secondarylight"></div><div class="focuslight"></div></div>
+<div class="visual before" id="before-layer"><img id="before-photo" alt="조명 변경 전 동일 공간 사진" referrerpolicy="no-referrer"><div class="shade" id="before-shade"></div><div class="wash" id="before-wash"></div><div class="secondarylight" id="before-secondary"></div><div class="focuslight" id="before-focus"></div></div>
+<div class="split-line" id="split-line"></div><div class="badge">● LIVE LIGHT EXPERIENCE</div><div class="disc" id="daylabel">EVENING · AFTER</div>
+<div id="hotspots"></div>
+<div class="bottom-hud"><div class="hud-info"><strong id="stage-mood">따뜻한 저녁</strong><small id="stage-subtitle">간접조명 · 따뜻한 빛 · 편안한 밝기</small></div><div class="hud-trust">제품 스펙 아닌 시각적 체험</div></div></div>
+<div class="stage-foot"><div class="toggles" role="group" aria-label="비교 및 낮 밤 모드">
+<button id="btn-phase" class="soft-btn">☀ 낮으로</button><button id="btn-compare" class="soft-btn">↔ 전/후 비교</button><button id="btn-a" class="soft-btn">A 기준 저장</button>
+</div><div class="toggles"><button id="btn-save" class="action-btn secondary">☆ 조합 저장</button><button id="btn-copy" class="action-btn">선택 복사</button></div></div>
+<div class="compare-slider" id="compare-slider"><span>기준안 A</span><input type="range" id="split" min="5" max="95" value="50" aria-label="비교 슬라이더"><span>현재 B</span></div>
+<div class="stage-note">조명 변경 시 동일 사진과 동일 카메라를 사용합니다. 빛 효과는 색상·명암 레이어의 즉시 미리보기이며, 실제 제품의 조도·배광을 계산한 결과가 아닙니다.</div>
+</div>
+<div class="rightcol">
+<section class="controls" aria-label="조명 조작 패널">
+<div class="card-head"><h2>나의 조명 조합</h2><span>01 · PLAY FIRST</span></div>
+<div class="group"><div class="group-title">원하는 분위기 <em>QUICK MOOD</em></div><div class="moods" id="moods"></div></div>
+<div class="group"><div class="group-title">조명 유형 선택 <em>GENERIC FIXTURE</em></div><div class="fixtures" id="fixtures"></div></div>
+<div class="group"><div class="group-title">빛의 색감 <em>체감 색온도 · 정확한 Kelvin 아님</em></div><div class="tones" id="tones"></div></div>
+<div class="group"><div class="group-title">빛의 강도와 강조 <em>상대 조절값</em></div>
+<div class="range-row"><label for="brightness">밝기 느낌</label><input id="brightness" type="range" min="15" max="100" value="60"><output id="brightness-val">60%</output></div>
+<div class="range-row"><label for="focus">강조 정도</label><input id="focus" type="range" min="0" max="100" value="40"><output id="focus-val">40%</output></div></div>
+<div class="under-note" id="zone-status">선택한 조명이 허용된 공간 영역에 연결됩니다. 실제 설치 가능성은 별도 확인이 필요합니다.</div>
+</section>
+<section class="references"><h2>참고 판매상품 <span id="source-count" class="flag">공식 판매처 링크</span></h2>
+<p class="source-disclosure">현재 상품 링크의 <b>판매처는 비츠조명</b>입니다. 제조사·브랜드는 확인되지 않았으므로 EMOVIA 화면에서는 <b>범용 조명 유형</b>으로만 사용합니다.</p>
+<div id="source-results"><p class="source-disclosure">공식 상품정보 연결 중…</p></div>
+</section>
+<section class="references"><h2>저장된 조합 <span class="flag">이 브라우저에만 저장</span></h2><div id="saved-list" class="source-disclosure">저장된 조합이 없습니다.</div></section>
+</div>
+</section>
+<section class="summarybar" aria-label="베타 범위">
+<article><strong>03</strong><span>기본 공간 사진</span></article><article><strong>07</strong><span>범용 조명 유형</span></article><article><strong>05</strong><span>즉시 분위기</span></article>
+</section>
+<footer class="footer"><div>© EMOVIA · LIGHTING VISUAL BETA 0.2<br>시각적 참고 시제품이며 실측 조도, 조명기구 적용 정확성, 전기설계·시공 적합성을 보증하지 않습니다.</div>
+<div>공간 이미지 출처: <a href="https://unsplash.com/photos/modern-living-room-with-minimalist-furniture-and-decor-e0oJLc5FYsg" target="_blank" rel="noopener noreferrer">GoodLifeConstruction</a> · <a href="https://unsplash.com/photos/modern-kitchen-with-island-and-bar-stools-qslhV6cdYGw" target="_blank" rel="noopener noreferrer">GoodLifeConstruction</a> · <a href="https://unsplash.com/photos/modern-retail-store-interior-with-display-shelves-and-products-lkDZJL5psKU" target="_blank" rel="noopener noreferrer">Zooey Li</a><br>사진: Unsplash License · 제조사 제품이미지 미사용</div></footer>
+</main><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./beta.js" defer></script>
+</body></html>
