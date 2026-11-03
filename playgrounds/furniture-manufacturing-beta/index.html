@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="EMOVIA B2B 가구 스타일 선택·2D 배치·3D 검토·도면 이미지 출력 시험용 편집기">
+  <title>EMOVIA | B2B Furniture Playground V0.1</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="mark">E</div><div><strong>EMOVIA</strong><span>B2B FURNITURE PLAYGROUND · V0.1</span></div></div>
+    <div class="status"><b>INTERNAL BETA</b><span>검토용 · 제작 승인 아님</span></div>
+    <div class="topactions">
+      <button id="saveJson" class="btn outline">구성 JSON 저장</button>
+      <button id="newRevision" class="btn outline">새 리비전</button>
+      <button id="approveDesign" class="btn primary">고객 디자인 승인</button>
+    </div>
+  </header>
+  <div class="notice">EMOVIA 독립 웹앱 편집 실험판입니다. 모든 샘플 치수와 자재 구성은 검토 후보이며 현장 실측·제조사 규격·공장 가공 규칙을 대신하지 않습니다. 고객 승인은 제작 승인이 아닙니다.</div>
+  <main class="workspace">
+    <aside class="left">
+      <section class="section">
+        <div class="eyebrow">01 / SAMPLE SPACE</div>
+        <h2>가상 공간 선택</h2>
+        <label for="spaceType" class="field">공간 유형</label>
+        <select id="spaceType" class="control"><option value="KITCHEN">주방</option><option value="SHOES">현관 신발장</option><option value="WARDROBE">침실 붙박이장</option></select>
+        <button id="loadSample" class="btn block subtle">선택 공간 샘플 불러오기</button>
+        <p class="helper">고객의 실제 공간 업로드는 디자인 승인 이후 단계입니다. 이 버전에서는 아직 연결되지 않았습니다.</p>
+      </section>
+      <section class="section">
+        <div class="eyebrow">02 / CATALOG-INSPIRED STYLES</div>
+        <h2>스타일 선택</h2>
+        <label for="styleSelect" class="field">전체 스타일</label>
+        <select id="styleSelect" class="control"></select>
+        <div id="styleSwatch" class="swatchbox"></div>
+        <div class="buttonpair"><button id="applyStyleAll" class="btn subtle">전체 적용</button><button id="applyStyleSelected" class="btn outline">선택 가구만</button></div>
+        <p class="helper">한샘·대형 가구 브랜드 카탈로그에서 추출한 디자인 특징을 EMOVIA 독립 후보로 정리했습니다. 해당 브랜드의 공식 제품·스타일이 아닙니다.</p>
+      </section>
+      <section class="section">
+        <div class="eyebrow">03 / CABINET MODULES</div>
+        <h2>가구 모듈</h2>
+        <p class="helper">추가 버튼을 누르거나 모듈을 2D 배치 화면으로 끌어놓으세요.</p>
+        <div id="library" class="library"></div>
+      </section>
+      <details class="section advanced">
+        <summary>원본 Source / F&amp;B 연결 (검토)</summary>
+        <p class="helper">F&amp;B V3.2의 원본 파일은 변경하지 않습니다. F&amp;B Layout JSON은 참고 객체로만 읽어오며 가구 제작 객체로 자동 전환하지 않습니다.</p>
+        <button id="importFnb" class="btn outline block">F&amp;B 배치 JSON 참조 불러오기</button>
+        <button id="clearFnb" class="btn subtle block">참조 레이어 제거</button>
+        <div id="sourceStatus" class="source-status">참조 연결 없음</div>
+      </details>
+    </aside>
+    <section class="center">
+      <div class="heading">
+        <div><div class="eyebrow">LIVE EDITOR / SAME CABINET OBJECT</div><h1>가구 구성 · 디자인 편집</h1><p id="projectMeta" class="helper"></p></div>
+        <div class="toolbar">
+          <button id="undoBtn" class="btn iconbtn" title="실행 취소">↶</button>
+          <button id="redoBtn" class="btn iconbtn" title="다시 실행">↷</button>
+          <button id="rotateBtn" class="btn iconbtn" title="선택 가구 90도 회전">↻</button>
+          <button id="duplicateBtn" class="btn iconbtn">복제</button>
+          <button id="deleteBtn" class="btn iconbtn danger">삭제</button>
+        </div>
+      </div>
+      <div class="viewhead"><strong>2D · 평면 배치 (mm)</strong><span>50mm 스냅 · 벽·문·고정 구조 변경 금지</span></div>
+      <div id="stageHost" class="stage" aria-label="가구 이동 및 배치 편집기">
+        <div id="stage"></div>
+        <div id="fallbackStage" class="fallback" hidden>Konva 2D 라이브러리 연결을 확인해 주세요. 온라인 환경에서 새로고침하면 로드됩니다.</div>
+      </div>
+      <div class="metrics"><span id="unitCount">모듈 0개</span><span id="geometryStatus">검토 대기</span><span id="lockStatus">디자인 미승인</span></div>
+      <div class="viewhead"><strong>3D · 동일 객체 미리보기</strong><span>형상 검토용 질량 모델 · 실사 이미지 아님</span></div>
+      <div id="preview3d" class="preview3d"><div id="preview3dFallback">Three.js 3D 모듈 연결 중…</div></div>
+      <div class="note">2D와 3D는 같은 Cabinet Object 데이터를 공유합니다. 이 미리보기는 실제 판재 두께·경첩·재단 결과를 재현하지 않습니다.</div>
+      <section class="outputs">
+        <div><div class="eyebrow">04 / DOCUMENT EXPORT</div><h2>도면 내보내기</h2></div>
+        <div class="exportgrid">
+          <div class="exportcard"><strong>고객 전달용</strong><p>스타일·배치·주요 외형치수 / 디자인 승인용</p><button id="customerPng" class="btn primary">PNG 이미지</button><button id="customerPdf" class="btn outline">PDF 인쇄</button></div>
+          <div class="exportcard"><strong>업체 내부용</strong><p>배치·모듈 치수·소스 상태 / 제작 검토용</p><button id="internalPng" class="btn primary">PNG 이미지</button><button id="internalPdf" class="btn outline">PDF 인쇄</button></div>
+        </div>
+        <p class="helper">업체용 출력도 Factory Profile·현장 치수·자재 규격 검증 전에는 PRELIMINARY_DRAWING이며 FABRICATION_READY가 아닙니다.</p>
+      </section>
+    </section>
+    <aside class="right">
+      <div class="eyebrow">05 / OBJECT INSPECTOR</div>
+      <h2>선택 가구 속성</h2>
+      <div id="inspectorEmpty" class="empty">2D 화면의 가구를 선택해<br>위치·크기·스타일을 편집하세요.</div>
+      <div id="inspector" hidden>
+        <div class="minihead"><strong id="objectName">가구</strong><span id="objectId"></span></div>
+        <div class="twocol">
+          <label>위치 X (mm)<input id="fieldX" type="number" min="0" step="50"></label>
+          <label>위치 Y (mm)<input id="fieldY" type="number" min="0" step="50"></label>
+          <label>폭 W (mm)<input id="fieldW" type="number" min="100" step="50"></label>
+          <label>깊이 D (mm)<input id="fieldD" type="number" min="100" step="50"></label>
+          <label>높이 H (mm)<input id="fieldH" type="number" min="100" step="50"></label>
+          <label>설치 하단 (mm)<input id="fieldElevation" type="number" min="0" step="50"></label>
+        </div>
+        <label class="field">개별 스타일</label><select id="unitStyle" class="control"></select>
+        <label class="field">도어/전면 디자인</label><select id="doorType" class="control"><option value="FLAT">평판 도어</option><option value="FRAME">프레임 도어</option><option value="GLASS">글래스 도어</option><option value="OPEN">오픈 수납</option><option value="EXTERNAL">제품/설비 인터페이스</option></select>
+        <label class="field">손잡이</label><select id="handleType" class="control"><option value="PUSH">푸시/핸들리스</option><option value="BAR">바 손잡이</option><option value="KNOB">노브 손잡이</option><option value="GROOVE">매입 손잡이</option><option value="NONE">해당 없음</option></select>
+        <button id="applyUnit" class="btn primary block">변경 적용 및 검증</button>
+        <div id="objSource" class="source-status"></div>
+      </div>
+      <section class="section readouts"><h2>제작 준비 상태</h2>
+        <div class="checkrow"><span>고객 디자인 승인</span><b id="designGate">PENDING</b></div>
+        <div class="checkrow"><span>현장 실측</span><b>FIELD_VERIFY</b></div>
+        <div class="checkrow"><span>Factory Profile</span><b>SOURCE_GAP</b></div>
+        <div class="checkrow"><span>제작도면 확정</span><b>HOLD</b></div>
+      </section>
+    </aside>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="printArea"></div>
+  <input id="fnbFile" type="file" accept=".json,application/json" hidden>
+  <script src="https://cdn.jsdelivr.net/npm/konva@10.9.0/konva.min.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="./three-view.js"></script>
+</body>
+</html>
