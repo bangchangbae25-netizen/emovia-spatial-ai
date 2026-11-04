@@ -1,0 +1,399 @@
+{
+  "schema_id": "EMOVIA_PACK06_V4_KITCHEN_REGISTRY_CANDIDATE_V1",
+  "control": {
+    "structure_signature": "6.5.30.7.210",
+    "pack06_version": "FINAL_V4",
+    "pack06_status": "REVIEW_REQUIRED",
+    "current_official": false,
+    "common_memory_approved": false,
+    "capability_approved": false,
+    "final_95": "PENDING",
+    "purpose": "Public metadata-only execution candidate; no raw source copying",
+    "source_owner_rewrite": false
+  },
+  "project_registry": [
+    {
+      "project_id": "EMOVIA_RESIDENTIAL_SPACE",
+      "display_alias_resolution": "REVIEW_REQUIRED",
+      "status": "CANDIDATE"
+    }
+  ],
+  "channel_registry": [
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "project_id": "EMOVIA_RESIDENTIAL_SPACE",
+      "role": "KITCHEN_SPECIALIST",
+      "purpose": "Object-based kitchen plan, unit W/D/H and installation feasibility research",
+      "status": "PROVISIONAL"
+    }
+  ],
+  "role_registry": [
+    {
+      "role": "KITCHEN_SPECIALIST",
+      "tasks": [
+        "RESEARCH_DIMENSION_REPLAY",
+        "SOURCE_AUDIT"
+      ],
+      "generation_permission": false
+    }
+  ],
+  "binding_profile": [
+    {
+      "binding_profile_id": "BP_KITCHEN_PACK06_V4_CANDIDATE",
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "required_source_ids": [
+        "PACK06_FINAL_V4",
+        "KITCHEN_MASTER_V2",
+        "KITCHEN_INTERNAL_INDEX_V1",
+        "KITCHEN_B50",
+        "KITCHEN_B58"
+      ],
+      "optional_source_ids": [
+        "CADLIKE_V011_LINK",
+        "KITCHEN_B82_DELTA"
+      ],
+      "auto_bind": true,
+      "auto_apply": false
+    }
+  ],
+  "source_registry": [
+    {
+      "source_id": "PACK06_FINAL_V4",
+      "source_name": "PACK06_FINAL_V4",
+      "owner_project": null,
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "FINAL_V4",
+      "status": "REVIEW_REQUIRED",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/pack06_final_v4"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": false
+    },
+    {
+      "source_id": "KITCHEN_MASTER_V2",
+      "source_name": "KITCHEN_MASTER_V2",
+      "owner_project": "EMOVIA_RESIDENTIAL_SPACE",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "2.0.0",
+      "status": "REVIEW_REQUIRED",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_master_v2"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": false
+    },
+    {
+      "source_id": "KITCHEN_INTERNAL_INDEX_V1",
+      "source_name": "KITCHEN_INTERNAL_INDEX_V1",
+      "owner_project": "EMOVIA_RESIDENTIAL_SPACE",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "V1",
+      "status": "NORMALIZED_CANDIDATE",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_internal_index_v1"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": false
+    },
+    {
+      "source_id": "KITCHEN_B50",
+      "source_name": "KITCHEN_B50",
+      "owner_project": "EMOVIA_RESIDENTIAL_SPACE",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "2026-10-14",
+      "status": "RESEARCH_CANDIDATE_NOT_CURRENT_OFFICIAL",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b50"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": false
+    },
+    {
+      "source_id": "KITCHEN_B58",
+      "source_name": "KITCHEN_B58",
+      "owner_project": "EMOVIA_RESIDENTIAL_SPACE",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "2026-10-14",
+      "status": "CANDIDATE_NOT_OFFICIAL",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b58"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": false
+    },
+    {
+      "source_id": "CADLIKE_V011_LINK",
+      "source_name": "CADLIKE_V011_LINK",
+      "owner_project": "EMOVIA_CADLIKE_SOURCE_OWNER",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "0.11.0",
+      "status": "SCOPED_REFERENCE_CANDIDATE",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/cadlike_v011_link"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": true
+    },
+    {
+      "source_id": "KITCHEN_B82_DELTA",
+      "source_name": "KITCHEN_B82_DELTA",
+      "owner_project": "EMOVIA_RESIDENTIAL_SPACE",
+      "owner_channel": null,
+      "owner_verification": "PENDING",
+      "version": "2026-10-19",
+      "status": "NON_PROMOTED_RESEARCH_DELTA",
+      "freshness": "RECHECK_REQUIRED",
+      "last_delta_id": null,
+      "latest_delta_status": "UNVERIFIED",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b82_delta"
+      },
+      "application_state": "NOT_APPLIED_BY_RUNTIME",
+      "validation_state": "REVIEW_REQUIRED",
+      "optional": true
+    }
+  ],
+  "binding_table": [
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "PACK06_FINAL_V4",
+      "required": true,
+      "permission": "ROLE_REQUIRED_READ",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "KITCHEN_MASTER_V2",
+      "required": true,
+      "permission": "ROLE_REQUIRED_READ",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "KITCHEN_INTERNAL_INDEX_V1",
+      "required": true,
+      "permission": "ROLE_REQUIRED_READ",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "KITCHEN_B50",
+      "required": true,
+      "permission": "ROLE_REQUIRED_READ",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "KITCHEN_B58",
+      "required": true,
+      "permission": "ROLE_REQUIRED_READ",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "CADLIKE_V011_LINK",
+      "required": false,
+      "permission": "SCOPED_READ_ONLY",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    },
+    {
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "source_id": "KITCHEN_B82_DELTA",
+      "required": false,
+      "permission": "SCOPED_READ_ONLY",
+      "application_state": "NOT_APPLIED_BY_RUNTIME"
+    }
+  ],
+  "data_center_index": [
+    {
+      "source_id": "PACK06_FINAL_V4",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/pack06_final_v4"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "KITCHEN_MASTER_V2",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_master_v2"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "KITCHEN_INTERNAL_INDEX_V1",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_internal_index_v1"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "KITCHEN_B50",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b50"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "KITCHEN_B58",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b58"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "CADLIKE_V011_LINK",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/cadlike_v011_link"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    },
+    {
+      "source_id": "KITCHEN_B82_DELTA",
+      "data_center_location": {
+        "type": "PRIVATE_SOURCE_ALIAS",
+        "alias": "pack06/kitchen/kitchen_b82_delta"
+      },
+      "authenticated_provider_required": true,
+      "resolved_in_external_gateway": false
+    }
+  ],
+  "version_registry": {
+    "pack06": "FINAL_V4_REVIEW_REQUIRED",
+    "kitchen_master": "2.0.0",
+    "kitchen_index": "V1",
+    "B50": "2026-10-14",
+    "B58": "2026-10-14",
+    "B82": "2026-10-19",
+    "official_control_index": "NOT_VERIFIED"
+  },
+  "delta_log": [
+    {
+      "delta_id": "RD_KITCHEN_20261103_02",
+      "delta_type": "VALIDATION_CHANGE",
+      "source_payload_changed": false,
+      "status": "REVIEW_REQUIRED",
+      "note": "Historical library trace only"
+    }
+  ],
+  "checkpoint": {
+    "checkpoint_id": "CP_KITCHEN_20261103_02",
+    "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+    "source_ids": [
+      "KITCHEN_B50",
+      "KITCHEN_B58"
+    ],
+    "last_loaded_version": {
+      "KITCHEN_B50": "2026-10-14",
+      "KITCHEN_B58": "2026-10-14"
+    },
+    "last_applied_version": "RESEARCH_REPLAY_ONLY",
+    "last_delta_id": "RD_KITCHEN_20261103_02",
+    "validation_state": "REPLAY_PASS_REAL_GEOMETRY_HOLD",
+    "next_required_version": "OWNER_AND_DELTA_RECHECK",
+    "last_verified": "2026-11-03",
+    "storage_state": "LIBRARY_FOLDER_METADATA_NOT_DB",
+    "external_ack": false
+  },
+  "application_trace": [
+    {
+      "run_id": "TR_KITCHEN_20261103_02",
+      "channel_id": "CH_EMOVIA_RESIDENTIAL_KITCHEN_V2",
+      "applied_source_ids": [
+        "KITCHEN_B50",
+        "KITCHEN_B58"
+      ],
+      "applied_stage": [
+        "ANALYSIS",
+        "VALIDATION"
+      ],
+      "applied_fields": [
+        "NOMINAL_RUN",
+        "XYZ_OCCUPANCY",
+        "FRIDGE_WHD"
+      ],
+      "validation_result": "HISTORICAL_REPLAY_26_MATCHES_NOT_SITE_APPROVAL",
+      "storage_state": "LIBRARY_FOLDER_METADATA"
+    }
+  ],
+  "failure_index": [
+    {
+      "code": "LIVE_SOURCE_PROVIDER_NOT_CONNECTED",
+      "status": "OPEN"
+    }
+  ],
+  "lineage_index": [
+    {
+      "origin_source_ids": [
+        "KITCHEN_B50",
+        "KITCHEN_B58"
+      ],
+      "output_id": "TR_KITCHEN_20261103_02",
+      "owner_preserved": true
+    }
+  ],
+  "source_gap": [
+    {
+      "code": "SOURCE_OWNER_AND_DELTA_FRESHNESS",
+      "status": "HOLD"
+    },
+    {
+      "code": "PRIVATE_LIBRARY_PROVIDER",
+      "status": "HOLD"
+    },
+    {
+      "code": "PRODUCTION_GENERATOR_NOT_CONNECTED",
+      "status": "HOLD"
+    }
+  ],
+  "archive_index": []
+}
