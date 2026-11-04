@@ -78,9 +78,10 @@ function readerFactory({missing=null,poison=false,readLog=[]}={}){
  return {async load({source_id,location,expected_version}){
   readLog.push({source_id,alias:location?.alias,expected_version});
   if(source_id===missing)return null;
-  if(source_id==="KITCHEN_B50"||source_id==="KITCHEN_B58")
-    return poison&&source_id==="KITCHEN_B58"?{batch_id:"BAD"}:copy(syntheticSources[source_id]);
-  return {source_id,expected_version,source_status:"SOURCE_METADATA_SIMULATED"};
+  const content = source_id==="KITCHEN_B50"||source_id==="KITCHEN_B58"
+    ? poison&&source_id==="KITCHEN_B58"?{batch_id:"BAD"}:copy(syntheticSources[source_id])
+    : {source_id,source_status:"SOURCE_METADATA_SIMULATED"};
+  return {source_id,version:expected_version,verified_source:true,content};
  }};
 }
 const params=(other={})=>({registry,sourceReader:readerFactory(),store:storeFactory(),runId:"SYNTH_TEST_1",now:"2026-11-04",...other});
@@ -130,9 +131,9 @@ test("authenticated-alias compatible fake provider and checkpoint readback",asyn
  assert.equal(r.status,"PARTIAL_PASS");
  assert.equal(r.tests.tests,26);assert.equal(r.tests.failed,0);
  assert.equal(r.checkpoint_verified,true);
- assert.equal(r.applied_source_ids.length,2);
+ assert.equal(r.applied_source_ids.length,2);assert.equal(r.source_count,5);
  assert.equal(store.traces.length,1);assert.equal(store.deltas.length,1);
- assert.equal(readLog.filter(x=>x.source_id==="KITCHEN_B50"||x.source_id==="KITCHEN_B58").length,2);
+ assert.equal(readLog.length,5);
  assert.equal(r.tests.site_approval,false);
 });
 test("failed checkpoint readback is not confirmed",async()=>{
@@ -146,6 +147,25 @@ test("failed store write is not confirmed",async()=>{
 test("unreadable source returns source gap",async()=>{
  const r=await runKitchenReplay(params({sourceReader:readerFactory({missing:"KITCHEN_B58"})}));
  assert.equal(r.status,"SOURCE_GAP");
+});
+test("source version mismatch blocks before replay",async()=>{
+ const store=storeFactory();
+ const sourceReader={async load({source_id,expected_version}){
+  const content=syntheticSources[source_id]||{source_id};
+  return {source_id,version:"WRONG_VERSION",verified_source:true,content};
+ }};
+ const r=await runKitchenReplay(params({store,sourceReader}));
+ assert.equal(r.status,"HOLD");
+ assert(r.errors.some(x=>x.startsWith("SOURCE_VERSION_OR_PROVENANCE_NOT_VERIFIED")));
+ assert.equal(store.traces.length,0);
+});
+test("source without verified provenance blocks before replay",async()=>{
+ const store=storeFactory();
+ const sourceReader={async load({source_id,expected_version}){
+  return {source_id,version:expected_version,verified_source:false,content:syntheticSources[source_id]||{source_id}};
+ }};
+ const r=await runKitchenReplay(params({store,sourceReader}));
+ assert.equal(r.status,"HOLD");assert.equal(store.traces.length,0);
 });
 test("source batch mutation blocks trace writes",async()=>{
  const store=storeFactory();
