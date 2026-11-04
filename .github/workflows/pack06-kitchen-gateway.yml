@@ -1,0 +1,25 @@
+name: Pack06 Kitchen Candidate Gateway Tests
+on:
+  pull_request:
+    paths:
+      - "pack06/kitchen/**"
+      - ".github/workflows/pack06-kitchen-gateway.yml"
+  push:
+    branches:
+      - "feat/pack06-kitchen-registry-gateway-v4-20261103"
+    paths:
+      - "pack06/kitchen/**"
+      - ".github/workflows/pack06-kitchen-gateway.yml"
+permissions:
+  contents: read
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Pack06 candidate source and gate tests
+        run: node --test pack06/kitchen/gateway-core.test.mjs
