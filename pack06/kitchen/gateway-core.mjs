@@ -168,12 +168,24 @@ export async function runKitchenReplay({ registry, sourceReader, store, runId, n
   try {
     result.checkpoint_before = await store.readCheckpoint(CHANNEL_ID);
     const reads = {};
-    for (const id of ["KITCHEN_B50", "KITCHEN_B58"]) {
-      const src = required.find(s => s.source_id === id);
-      if (!src) { result.status = "SOURCE_GAP"; result.errors.push("REPLAY_SOURCE_NOT_BOUND:" + id); return result; }
-      const loaded = await sourceReader.load({ source_id: id, location: src.data_center_location, expected_version: src.version });
-      if (!loaded || typeof loaded !== "object") { result.status = "SOURCE_GAP"; result.errors.push("SOURCE_NOT_READ:" + id); return result; }
-      reads[id] = loaded;
+    // Read all Role-required sources, not only the two task datasets. The provider
+    // must return a verified source envelope; an alias or arbitrary JSON is insufficient.
+    for (const src of required) {
+      const loaded = await sourceReader.load({
+        source_id: src.source_id, location: src.data_center_location, expected_version: src.version
+      });
+      if (!loaded || typeof loaded !== "object") {
+        result.status = "SOURCE_GAP"; result.errors.push("SOURCE_NOT_READ:" + src.source_id); return result;
+      }
+      if (loaded.source_id !== src.source_id || loaded.version !== src.version ||
+          loaded.verified_source !== true || !loaded.content || typeof loaded.content !== "object") {
+        result.status = "HOLD";
+        result.errors.push("SOURCE_VERSION_OR_PROVENANCE_NOT_VERIFIED:" + src.source_id);
+        return result;
+      }
+      if (src.source_id === "KITCHEN_B50" || src.source_id === "KITCHEN_B58") {
+        reads[src.source_id] = loaded.content;
+      }
       result.source_count++;
     }
     result.tests = replayKitchenCases(reads.KITCHEN_B50, reads.KITCHEN_B58);
