@@ -1,0 +1,544 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EMOVIA MATERIAL101 V3 | AI Assisted Spatial Material Mapper</title><style>*{box-sizing:border-box}.mv-app{font:13px/1.45 -apple-system,BlinkMacSystemFont,'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#20262a;background:#fafaf8;padding:14px;border:1px solid #e1e3e3;border-radius:16px;max-width:1120px;margin:0 auto}.mv-app h2,.mv-app h3,.mv-app p{margin:0}.mv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:2px 3px 12px;border-bottom:1px solid #e1e3e3}.mv-eyebrow{font-size:10px;letter-spacing:.18em;color:#69757b;font-weight:800}.mv-head h2{font-size:20px;letter-spacing:-.04em;margin:4px 0}.mv-caption{color:#6b7578;font-size:12px}.mv-badge{font-size:10px;border-radius:12px;padding:5px 9px;color:#5b615e;background:#e8ece9;white-space:nowrap}.mv-options{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:8px;padding:12px 1px}.mv-options label{display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:700;color:#657075;min-width:0}.mv-options select,.mv-row select{width:100%;min-height:35px;border:1px solid #d3d9db;border-radius:8px;padding:7px;color:#273038;background:white;font:inherit}.mv-moods{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:0 1px 10px}.mv-moods button,.mv-button{border:1px solid #d5d8d9;background:white;color:#46565c;border-radius:9px;padding:8px 11px;font:inherit;font-weight:600;cursor:pointer}.mv-moods button[aria-pressed=true]{background:#29383a;color:white;border-color:#29383a}.mv-moods .mv-hint{font-size:11px;color:#899092;margin-left:auto}.mv-layout{display:grid;grid-template-columns:1.43fr 1fr;gap:12px}.mv-stage{border:1px solid #dee2e2;border-radius:13px;background:white;overflow:hidden}.mv-stage-title{padding:12px 13px 6px;display:flex;align-items:center;justify-content:space-between;gap:8px}.mv-stage-title strong{font-size:13px}.mv-stage-title small{color:#7b8586}.mv-scene{display:block;width:100%;max-height:390px;aspect-ratio:1.5/1;background:#f4f1ed}.mv-scene [data-zone]{cursor:pointer;transition:filter .12s}.mv-scene [data-zone]:hover{filter:brightness(1.07)}.mv-stage-note{padding:8px 12px;background:#f4f5f3;color:#5e6b6c;font-size:11px;line-height:1.6}.mv-mat-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 7px}.mv-mat-head strong{font-size:13px}.mv-mat-head span{font-size:10px;color:#788185}.mv-cards{display:grid;grid-template-columns:1fr;gap:7px}.mv-card{border:1px solid #dce0e0;background:white;border-radius:10px;padding:9px;cursor:pointer}.mv-card.selected{border-color:#536e6c;box-shadow:0 0 0 2px #cad8d2}.mv-row{display:flex;gap:9px;align-items:start}.mv-swatch{flex:0 0 59px;height:56px;border-radius:7px;border:1px solid #0001;position:relative;overflow:hidden}.mv-swatch::after{content:'';position:absolute;inset:0;background:var(--tex);opacity:.27;pointer-events:none}.mv-swatch.maru{--tex:repeating-linear-gradient(2deg,transparent 0 10px,#463d372b 11px 12px,transparent 13px 24px)}.mv-swatch.carpet,.mv-swatch.fabric,.mv-swatch.acoustic{--tex:repeating-linear-gradient(90deg,#fff4 0 1px,transparent 1px 4px),repeating-linear-gradient(0deg,#0004 0 1px,transparent 1px 4px)}.mv-swatch.wall_tile,.mv-swatch.floor_tile,.mv-swatch.wet_tile{--tex:repeating-linear-gradient(0deg,transparent 0 16px,#e9e6e6 17px 19px),repeating-linear-gradient(90deg,transparent 0 23px,#e9e6e6 24px 26px)}.mv-swatch.wood_veneer{--tex:repeating-linear-gradient(90deg,transparent 0 6px,#33231a4d 7px 8px,transparent 8px 14px)}.mv-card-top{display:flex;gap:5px;align-items:baseline;justify-content:space-between}.mv-card-top strong{font-size:12px}.mv-card-top code{font-size:10px;color:#627076}.mv-card-desc{font-size:11px;color:#627174;margin:3px 0 7px}.mv-card select{padding:5px 7px;font-size:11px;min-height:29px}.mv-footbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding-top:11px}.mv-footbar .mv-button{padding:8px 10px;font-size:12px}.mv-footbar .mv-emphasis{background:#29383a;color:white;border-color:#29383a}.mv-message{color:#6c777a;font-size:11px;flex:1;min-width:150px}.mv-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mv-comparebox{border:1px dashed #c6cbcc;border-radius:9px;background:white;padding:9px;min-height:62px;display:grid;gap:3px}.mv-comparebox strong{font-size:11px}.mv-comparebox small{font-size:10px;color:#69747a}.mv-bar{display:flex;gap:2px;height:11px;border-radius:4px;overflow:hidden}.mv-bar i{display:block;flex:1}.mv-legend{font-size:10px;color:#7a8386;padding:12px 1px 2px;line-height:1.6}.mv-validation{margin-top:7px;font-size:11px;color:#585e63;line-height:1.6}.mv-validate-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#6b9282;margin-right:5px}.mv-note{font-size:10px;color:#788284;margin-top:4px}.mv-scene-zone{font-size:16px;fill:#26373c;pointer-events:none;font-weight:700;paint-order:stroke;stroke:#fff9;stroke-width:2px}.mv-error{color:#ab4d45}.mv-success{color:#316659}@media(max-width:780px){.mv-app{padding:10px;border-radius:12px}.mv-head h2{font-size:17px}.mv-options{grid-template-columns:1fr 1fr}.mv-options label:first-child{grid-column:span 2}.mv-layout{grid-template-columns:1fr}.mv-cards{grid-template-columns:1fr 1fr}.mv-swatch{flex-basis:46px;height:55px}.mv-row{gap:7px}.mv-moods .mv-hint{display:none}}@media(max-width:440px){.mv-cards{grid-template-columns:1fr}.mv-compare{grid-template-columns:1fr 1fr}}
+
+.mv-mini{max-height:180px;overflow:hidden;background:#f4f2ef;border-radius:6px}.mv-mini svg{width:100%;height:150px;display:block;pointer-events:none}.mv-mini [data-zone]{cursor:default}
+
+/* V2 additive skin */
+.mv-stage-modes{display:flex;gap:5px;padding:4px 10px 9px;align-items:center;flex-wrap:wrap}
+.mv-stage-modes button{border:1px solid #d8dfdd;border-radius:8px;padding:6px 12px;background:white;color:#485658;font:inherit;font-size:11px;cursor:pointer}
+.mv-stage-modes button[aria-pressed=true]{color:#fff;background:#344d4b;border-color:#344d4b}
+#mv-photo-wrap{background:#dce0e0;width:100%;overflow:hidden}
+#mv-photo-canvas{width:100%;aspect-ratio:1000/620;display:block;cursor:crosshair;touch-action:manipulation}
+#mv-photo-tools{padding:11px;background:#f9faf8;border-top:1px solid #e0e5e2}
+.mv-photo-form{display:flex;gap:7px;flex-wrap:wrap;align-items:end}
+.mv-photo-form label{font-weight:650;display:flex;flex-direction:column;gap:5px;color:#5a6868;font-size:10px;min-width:78px;flex:1}
+.mv-photo-form input[type=file]{width:100%;min-width:160px;max-width:240px;font-size:11px}
+.mv-photo-form select{border:1px solid #d6dddb;padding:8px;border-radius:8px;min-width:85px;background:white;color:#2c3536;font:inherit;font-size:11px;height:35px}
+.mv-photo-form input[type=range]{max-width:110px}
+.mv-poly-actions{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 6px}
+.mv-poly-actions button,.mv-photo-save button{background:#fff;border:1px solid #d6dedb;border-radius:8px;padding:8px 10px;color:#364649;font-weight:650;font-size:11px;cursor:pointer}
+.mv-poly-actions button:first-child{background:#334c49;color:#fff;border-color:#334c49}
+.mv-photo-help{font-size:10px;color:#758181;line-height:1.6}
+.mv-photo-progress{background:#edf0ec;padding:8px 11px;font-size:11px;color:#52635d;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.mv-extended{background:#fff;border:1px solid #e0e5e3;border-radius:12px;padding:16px;margin-top:12px}
+.mv-ext-title{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.mv-ext-title strong{font-size:14px}.mv-ext-title small{color:#778483;font-size:11px}
+.mv-safe,.mv-alert{font-weight:650;font-size:12px;margin:10px 0 6px}.mv-safe{color:#486c61}.mv-alert{color:#ba4b38}
+.mv-muted{font-size:11px;color:#73807d;line-height:1.7}
+.mv-prod-heading{border-top:1px solid #e5e9e5;padding-top:15px;margin-top:15px}
+.mv-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.mv-product{display:flex;flex-direction:column;gap:5px;align-items:flex-start;min-width:0;border:1px solid #e1e5e2;border-radius:9px;padding:12px;background:#fbfcfa}
+.mv-product strong{font-size:12px;letter-spacing:-.02em}.mv-product small{font-size:10px;color:#697473;line-height:1.6;word-break:break-word}
+.mv-product-tag{font-size:9px;background:#edf0eb;color:#5f756c;padding:3px 7px;border-radius:6px}
+.mv-product a{font-size:11px;font-weight:700;color:#2a5750;margin-top:auto;text-decoration:underline}
+.mv-photo-save{border-top:1px solid #e7ebea;margin-top:12px;padding-top:13px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mv-photo-save>div{display:flex;flex-direction:column;gap:5px;border-radius:9px;background:#f8f9f8;border:1px solid #e3e6e3;padding:10px}
+.mv-photo-save strong{font-size:11px}.mv-photo-save img{display:block;width:100%;object-fit:contain;aspect-ratio:1000/620;border-radius:5px;background:#ebeceb}
+.mv-photo-save small{font-size:10px;color:#667575}
+.mv-heading-flag{margin-left:auto;border-radius:30px;border:1px solid #dde1dd;color:#647772;font-size:10px;padding:4px 8px;white-space:nowrap}
+@media(max-width:880px){.mv-product-grid{grid-template-columns:1fr 1fr}.mv-photo-form label{flex:0 1 auto}.mv-ext-title strong{font-size:13px}}
+@media(max-width:510px){.mv-product-grid{grid-template-columns:1fr}.mv-extended{padding:11px}.mv-photo-save{grid-template-columns:1fr 1fr}.mv-photo-form label{flex:1;min-width:43%}.mv-photo-form input[type=file]{min-width:0}.mv-stage-modes button{flex:1}}
+
+.mv-photo-save img:not([src]){display:none}
+
+/* V3: assisted recognition & validation */
+.mv3-auto{margin-top:12px;padding:12px;background:#f2f5f2;border:1px solid #d8e1dc;border-radius:11px}
+.mv3-auto-header{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mv3-auto-header strong{font-size:12px}.mv3-auto-header span{color:#6c7e78;font-size:10px}
+.mv3-auto-actions,.mv3-correction{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:9px 0}
+.mv3-auto-actions button,.mv3-correction button,.mv3-auto-list button{border-radius:8px;border:1px solid #c8d4cc;background:#fff;color:#35483f;font-size:11px;font-weight:700;padding:7px 10px;cursor:pointer}
+.mv3-auto-actions button:first-child{background:#38594c;border-color:#38594c;color:#fff}
+.mv3-auto-actions button:disabled,.mv3-auto-list button:disabled{opacity:.45;cursor:not-allowed}
+.mv3-ai-status{color:#496359;font-size:11px;line-height:1.6;padding:1px 0 4px}
+.mv3-auto-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mv3-auto-item{background:white;border:1px solid #dce5df;border-radius:9px;padding:9px;display:grid;gap:7px;min-width:0}
+.mv3-auto-item.is-accepted{border-color:#628a77;background:#f8fcf9}
+.mv3-auto-item.is-selected{outline:2px solid #a6c2b3}
+.mv3-auto-item strong{font-size:11px}.mv3-auto-item small{font-size:10px;color:#77837d}
+.mv3-auto-item select{font:inherit;font-size:11px;min-width:0;width:100%;padding:6px 4px;background:white;border:1px solid #d7ded9;border-radius:6px}
+.mv3-auto-item .mv3-item-actions{display:flex;gap:5px;flex-wrap:wrap}
+.mv3-correction{border-top:1px solid #d4dcd7;margin-top:9px}
+.mv3-correction span{font-weight:700;font-size:11px;margin-right:3px}
+.mv3-correction button[aria-pressed=true]{background:#e2ece5;border-color:#71907e}
+.mv3-correction label{font-size:10px;color:#647870;display:inline-flex;align-items:center;gap:7px}
+.mv3-correction input[type=range]{width:86px}
+.mv3-quality{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px}
+.mv3-check{background:#f8faf9;border:1px solid #e0e6e2;border-radius:9px;padding:10px;display:flex;flex-direction:column;gap:4px}
+.mv3-check strong{font-size:11px}.mv3-check small{font-size:10px;line-height:1.45;color:#66766d}
+.mv3-check[data-state=check]{background:#fcf9f0;border-color:#e6dcc1}.mv3-check[data-state=block]{background:#fff4f2;border-color:#efd2cc}
+.mv3-check b{font-size:11px;color:#466d57}.mv3-check[data-state=check] b{color:#997d3c}.mv3-check[data-state=block] b{color:#a4473d}
+@media(max-width:700px){.mv3-auto-list{grid-template-columns:1fr}.mv3-quality{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.mv3-quality{grid-template-columns:1fr}}
+</style></head><body>
+<div class="mv-app">
+  <header class="mv-head"><div><div class="mv-eyebrow">EMOVIA · MATERIAL PLAYGROUND</div><h2>101개 팔레트 × 공간 재질 인식·배치 V3</h2><p class="mv-caption">4배색을 실제 공간 영역에 함께 배치하는 후보 조합 · 404개 색상 슬롯 보존</p></div><span class="mv-badge">시뮬레이션 · 시공 승인 전</span></header>
+  <div class="mv-options"><label>팔레트<select id="mv-palettes"></select></label><label>공간<select id="mv-room"></select></label><label>바닥<select id="mv-floor"></select></label><label>조명<select id="mv-light"></select></label></div>
+  <div class="mv-moods"><button type="button" data-mood="soft" aria-pressed="false">부드러운 마감</button><button type="button" data-mood="natural" aria-pressed="true">자연적인 마감</button><button type="button" data-mood="contrast" aria-pressed="false">강한 대비 마감</button><small class="mv-hint">공간에 맞지 않는 재질은 자동 제외</small></div>
+  <div class="mv-layout"><section class="mv-stage"><div class="mv-stage-title"><strong id="mv-room-name">COLOR101</strong><small>4색 공동 배치</small></div><div class="mv-stage-modes"><button type="button" id="mv-mode-diagram" aria-pressed="true">공간 도식</button><button type="button" id="mv-mode-photo" aria-pressed="false">내 공간 사진에 적용</button><span class="mv-heading-flag">AI 인식 후보 · 사용자 보정 필수</span></div><div id="mv-scene-wrap" aria-label="재질 시각화"></div><div id="mv-photo-wrap" hidden><canvas id="mv-photo-canvas" width="1000" height="620" role="img" aria-label="내 공간 사진에 네 가지 재질을 적용하는 편집 캔버스"></canvas><div class="mv-photo-progress"><strong id="mv-polygon-count"></strong><span>AI 후보는 승인 후 적용됩니다.</span></div></div>
+<div id="mv-photo-tools" hidden>
+ <div class="mv-photo-form"><label>공간 사진 (로컬)<input type="file" id="mv-photo-upload" accept="image/png,image/jpeg,image/webp"></label><label>적용할 색상<select id="mv-photo-slot"><option value="1">C1</option><option value="2">C2</option><option value="3">C3</option><option value="4">C4</option></select></label><label>영역 유형<select id="mv-photo-zone"></select></label></div>
+ <div class="mv-photo-form" style="padding-top:10px"><label>재질 표현 강도<input id="mv-photo-opacity" type="range" min="30" max="90" value="77"></label><label>패턴 크기<input id="mv-photo-scale" type="range" min="50" max="190" value="100"></label><label>결 방향<select id="mv-photo-direction"><option value="0">0°</option><option value="45">45°</option><option value="90">90°</option><option value="-45">-45°</option></select></label></div>
+ <section class="mv3-auto" aria-label="AI 공간 영역 후보 인식">
+    <div class="mv3-auto-header"><strong>AI 공간 영역 후보</strong><span>브라우저에서 추론 · 모델 다운로드 시 인터넷 필요</span></div>
+    <div class="mv3-auto-actions"><button type="button" id="mv3-ai-run">AI 영역 분석</button><button type="button" id="mv3-ai-assign" disabled>4배색 자동 배치</button><button type="button" id="mv3-ai-clear">자동 후보 제거</button></div>
+    <p class="mv3-ai-status" id="mv3-ai-status" role="status" aria-live="polite">사진 등록 후 [AI 영역 분석]을 눌러 주세요. 결과는 자동 확정되지 않습니다.</p>
+    <div class="mv3-auto-list" id="mv3-ai-list"></div>
+    <div class="mv3-correction"><span>수동 보정</span><button type="button" id="mv3-mode-polygon" aria-pressed="true">다각형 추가</button><button type="button" id="mv3-mode-erase" aria-pressed="false">자동 마스크 지우개</button><label>지우개 크기 <input id="mv3-erase-size" type="range" min="10" max="70" value="32"></label></div>
+    <p class="mv-photo-help">AI가 인식한 벽·바닥·가구·패브릭 후보를 선택해 적용합니다. 잘못 인식한 부분은 해당 후보의 [보정] 후 지우개로 삭제하거나 수동 다각형을 추가해 주세요. AI 후보는 시공 적합성의 근거가 아닙니다.</p>
+  </section>
+  <div class="mv-poly-actions"><button type="button" id="mv-poly-finish">영역 확정</button><button type="button" id="mv-poly-undo">꼭짓점/영역 취소</button><button type="button" id="mv-poly-clear">전체 초기화</button></div>
+ <p class="mv-photo-help" id="mv-photo-message">사진 등록 후 AI 영역 후보 분석 또는 직접 다각형 지정을 선택하세요.</p></div><p class="mv-stage-note" id="mv-foot-text"></p></section><section class="mv-mat"><div class="mv-mat-head"><strong>4배색 → 재질·적용 위치</strong><span>색상과 재질 선택 / 공간 터치</span></div><div class="mv-cards" id="mv-materials"></div></section></div>
+  <div class="mv-validation"><span class="mv-validate-dot"></span><span id="mv-valid"></span><p class="mv-note" id="mv-warnings"></p></div>
+  <div class="mv-footbar"><button class="mv-button mv-emphasis" id="mv-save-a">A안 저장</button><button class="mv-button mv-emphasis" id="mv-save-b">B안 저장</button><button class="mv-button" id="mv-reset">직접 변경 초기화</button><span class="mv-message" id="mv-status"></span></div>
+  <div class="mv-compare"><div id="mv-A" class="mv-comparebox"></div><div id="mv-B" class="mv-comparebox"></div></div>
+  <div class="mv-extended"><div class="mv-ext-title"><strong>공간 조화 · 사진 적용 검증</strong><small>미적 평가의 자동 최종 승인 아님</small></div><p id="mv-photo-status" class="mv-safe"></p><p id="mv-safety-list" class="mv-muted"></p><div class="mv3-quality" id="mv3-quality" aria-live="polite"></div><div class="mv-photo-save"><div id="mv-photo-save-A"><strong>사진 A안</strong><img class="mv-saved-image" alt="사진 A안 저장 이미지" /><small class="mv-saved-meta">미저장</small><button type="button" id="mv-photo-store-A">사진 결과 A에 저장</button></div><div id="mv-photo-save-B"><strong>사진 B안</strong><img class="mv-saved-image" alt="사진 B안 저장 이미지" /><small class="mv-saved-meta">미저장</small><button type="button" id="mv-photo-store-B">사진 결과 B에 저장</button></div></div>
+ <div class="mv-prod-heading"><div class="mv-ext-title"><strong>제조사 제품 자료 후보</strong><small>실제 제품 확인 / 색상 매칭·현장 승인 아님</small></div><p class="mv-muted" id="mv-product-intro"></p><div class="mv-product-grid" id="mv-product-grid"></div></div></div><p class="mv-legend">* 표면결·줄눈·반사·조명은 도식적 시각화입니다. Color101의 대부분 HEX는 이미지에서 추정된 값입니다. 이 화면은 제조사 SKU의 정확한 색상 일치, AI 자동 영역 인식 정확성 검증, 방수·미끄럼·방염·내마모 성능 인증을 대체하지 않습니다.</p>
+</div>
+<script>'use strict';
+// EMOVIA MATERIAL PLAYGROUND: prototype-level, visual color/material candidate mapping.
+// Real SKU-color fidelity and site-specific suitability remain unverified.
+const ROOMS={
+ living:{label:'거실',floor:['maru','carpet','tile'],note:'마루·카펫 모두 후보. 실제 바탕·습도·난방·마감재 인증 확인'},
+ bedroom:{label:'침실',floor:['maru','carpet'],note:'마루·카펫 모두 후보. 카펫 유지관리·알레르겐 관리 고려'},
+ office:{label:'사무실',floor:['carpet','maru','tile'],note:'카펫타일은 상업용 등급·의자 바퀴 내구·방염 검토'},
+ retail:{label:'상업공간',floor:['tile','carpet','maru'],note:'바닥은 보행량·오염·청소·방염 요건에 맞는 제품만'},
+ kitchen:{label:'주방',floor:['tile'],note:'일반 카펫 제외. 마루는 현 제품별 내수성 검증 없으면 제외'},
+ bath:{label:'욕실',floor:['tile'],note:'마루·카펫 불가. 젖은 바닥용 제품과 미끄럼 저항 검증 필수'}
+};
+const MOODS={soft:'부드러운',natural:'자연적인',contrast:'강한 대비'};
+const LIGHTS={day:'자연광',north:'북향 확산광',warm:'전구색',neutral:'주백색',cool:'주광색',indirect:'간접조명',dim:'저조도'};
+const FAMILIES={
+ paint:{label:'저광택 도장',rough:.85,reflect:.12,scale:'없음'},
+ mineral:{label:'미네랄 질감 마감',rough:.94,reflect:.08,scale:'미세 표면결'},
+ wallpaper:{label:'기능성 벽지',rough:.91,reflect:.06,scale:'미세 직물결'},
+ wall_tile:{label:'컬러 벽타일',rough:.62,reflect:.25,scale:'줄눈 2~3mm 예시'},
+ floor_tile:{label:'건식 바닥용 포세린',rough:.82,reflect:.12,scale:'600×600 예시'},
+ wet_tile:{label:'습식 바닥용 포세린',rough:.9,reflect:.09,scale:'줄눈·구배 별도 검토'},
+ maru:{label:'마루(우드계)',rough:.7,reflect:.18,scale:'판폭·나뭇결'},
+ carpet:{label:'카펫타일',rough:.98,reflect:.03,scale:'50×50cm 예시'},
+ hpl:{label:'HPL 가구패널',rough:.7,reflect:.18,scale:'패턴·엣지'},
+ wood_veneer:{label:'무늬목 가구패널',rough:.8,reflect:.10,scale:'세로 결'},
+ compact:{label:'내수형 컴팩트 라미네이트 후보',rough:.76,reflect:.16,scale:'제품별 검증'},
+ fabric:{label:'실내용 직물/업홀스터리',rough:.97,reflect:.04,scale:'직조결'},
+ acoustic:{label:'흡음 패브릭 패널',rough:.98,reflect:.03,scale:'조직·방염 확인'},
+ steel:{label:'분체도장 금속',rough:.55,reflect:.33,scale:'무늬 없음'},
+ stainless:{label:'내식성 금속 마감',rough:.48,reflect:.42,scale:'헤어라인 결'}
+};
+const RULES={
+ living:{floor:['maru','carpet','floor_tile'],wall:['paint','mineral','wallpaper'],cabinet:['hpl','wood_veneer'],feature:['paint','mineral','wall_tile','hpl'],textile:['fabric'],trim:['steel','stainless']},
+ bedroom:{floor:['maru','carpet'],wall:['paint','mineral','wallpaper'],cabinet:['hpl','wood_veneer'],feature:['paint','wallpaper','hpl'],textile:['fabric'],trim:['steel','stainless']},
+ office:{floor:['carpet','maru','floor_tile'],wall:['paint','mineral'],cabinet:['hpl','wood_veneer'],feature:['acoustic','paint','hpl'],textile:['fabric','acoustic'],trim:['steel','stainless']},
+ retail:{floor:['carpet','maru','floor_tile'],wall:['paint','mineral','wallpaper'],cabinet:['hpl','wood_veneer'],feature:['hpl','paint','wall_tile'],textile:['fabric','acoustic'],trim:['steel','stainless']},
+ kitchen:{floor:['floor_tile'],wall:['paint','wall_tile'],cabinet:['hpl','compact'],feature:['wall_tile'],textile:['fabric'],trim:['steel','stainless']},
+ bath:{floor:['wet_tile'],wall:['wall_tile'],cabinet:['compact'],feature:['wall_tile'],textile:['fabric'],trim:['stainless']}
+};
+const ZONELABEL={floor:'바닥',wall:'주벽',cabinet:'가구·수납',feature:'포인트 마감',textile:'패브릭',trim:'금속 디테일'};
+const DISTRIBUTION={
+ living:{base:'wall',balance:'cabinet',accent:'feature',anchor:'trim'},
+ bedroom:{base:'wall',balance:'cabinet',accent:'textile',anchor:'feature'},
+ office:{base:'wall',balance:'cabinet',accent:'feature',anchor:'trim'},
+ retail:{base:'wall',balance:'cabinet',accent:'feature',anchor:'trim'},
+ kitchen:{base:'cabinet',balance:'wall',accent:'feature',anchor:'trim'},
+ bath:{base:'wall',balance:'cabinet',accent:'feature',anchor:'trim'}
+};
+const neutral='#E8E2DA';
+function rgb(hex){const n=parseInt(hex.replace('#',''),16);return [(n>>16)&255,(n>>8)&255,n&255];}
+function metrics(hex){const [rr,gg,bb]=rgb(hex),r=rr/255,g=gg/255,b=bb/255;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b),delta=max-min;
+  let h=0;if(delta){if(max===r)h=((g-b)/delta)%6;else if(max===g)h=(b-r)/delta+2;else h=(r-g)/delta+4;h=(h*60+360)%360;}
+  const sat=max?delta/max:0;const linear=x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4;
+  const lum=.2126*linear(r)+.7152*linear(g)+.0722*linear(b);
+  return {h,s:sat,v:max,lum};
+}
+function cluster(c){const q=metrics(c);const band=q.lum>.55?'light':q.lum<.13?'deep':'mid';let family='neutral';
+ if(q.s>=.16){const h=q.h;family=h<15||h>=350?'red':h<45?'terracotta':h<75?'amber':h<155?'green':h<195?'teal':h<250?'blue':h<295?'violet':'rose';}
+ return family+'-'+band;
+}
+function roleMap(hexes){const xs=hexes.map((hex,i)=>({...metrics(hex),i}));
+ const pick=(pool,compare)=>pool.reduce((best,x)=>best==null||compare(x,best)<0?x:best,null);
+ let left=xs.slice();const base=pick(left,(a,b)=>(a.s*.85+Math.abs(a.v-.78)*.35)-(b.s*.85+Math.abs(b.v-.78)*.35));left=left.filter(x=>x.i!==base.i);
+ const accent=pick(left,(a,b)=>-(a.s+.16*Math.abs(a.v-.5))+b.s+.16*Math.abs(b.v-.5));left=left.filter(x=>x.i!==accent.i);
+ const anchor=pick(left,(a,b)=>a.lum-b.lum);left=left.filter(x=>x.i!==anchor.i);
+ return {base:base.i,balance:left[0].i,accent:accent.i,anchor:anchor.i};
+}
+function floorCandidate(palette,floor){if(floor==='tile')return -1;
+ const choices=palette.hex.map((hex,i)=>({...metrics(hex),i})).filter(q=>q.v>.27&&q.v<.95&&(floor==='carpet'?q.s<.40:(q.s<.19||((q.h>=17&&q.h<61)&&q.s<.49))));
+ choices.sort((a,b)=>a.s-b.s);return choices[0]?.i??-1;
+}
+function normFloor(room,request){const r=ROOMS[room];return r.floor.includes(request)?request:r.floor[0];}
+function materialChoice(room,zone,mood,floor){if(zone==='floor')return room==='bath'?'wet_tile':floor==='maru'?'maru':floor==='carpet'?'carpet':'floor_tile';
+ const defaults={wall:mood==='natural'?'mineral':'paint',cabinet:mood==='natural'&&room!=='bath'&&room!=='kitchen'?'wood_veneer':room==='bath'?'compact':'hpl',feature:mood==='natural'?'mineral':'paint',textile:'fabric',trim:room==='bath'?'stainless':mood==='natural'?'stainless':'steel'};
+ let target=defaults[zone];if(room==='bath'&&(zone==='wall'||zone==='feature'))target='wall_tile';
+ if(room==='kitchen'&&zone==='feature')target='wall_tile';
+ if(room==='office'&&zone==='feature')target='acoustic';
+ if(room==='retail'&&zone==='feature')target='hpl';
+ if(room==='bedroom'&&zone==='feature')target='wallpaper';
+ if(!RULES[room][zone].includes(target))target=RULES[room][zone][0];return target;
+}
+function recommend(palette,room='living',floorRequest='maru',mood='natural'){
+ const floor=normFloor(room,floorRequest),roles=roleMap(palette.hex),nVivid=palette.hex.filter(x=>metrics(x).s>.54).length,
+ allVivid=nVivid>=3,reverse=Object.fromEntries(Object.entries(roles).map(([k,v])=>[v,k])),floorIdx=(room==='bath'||room==='kitchen')?-1:floorCandidate(palette,floor);
+ const slots=palette.hex.map((hex,i)=>{
+   const role=reverse[i];let zone=DISTRIBUTION[room][role];
+   if(i===floorIdx)zone='floor';
+   if((room==='living'||room==='bedroom'||room==='office'||room==='retail')&&role==='base'&&zone==='wall'&&(metrics(hex).s>.50||metrics(hex).v<.27))zone='textile';
+   // When vivid primary is relocated to fabric, retain unoccupied feature as priority only for residential.
+   const family=materialChoice(room,zone,mood,floor),area=zone==='floor'?30:zone==='wall'?(allVivid?14:39):zone==='cabinet'?15:zone==='feature'?(mood==='contrast'?11:7):zone==='textile'?12:3;
+   return {slot:i+1,id:palette.id+'-C'+(i+1),hex,cluster:cluster(hex),role,zone,family,area:allVivid?Math.min(area,18):area,source:palette.confidence};
+ });
+ const chosen=slots.map(x=>x.zone);if(new Set(chosen).size!==chosen.length){
+   for(let i=0;i<slots.length;i++)if(chosen.indexOf(chosen[i])!==i){const alt=Object.keys(RULES[room]).find(z=>!slots.some((x,j)=>j!==i&&x.zone===z)&&z!=='floor');if(alt){slots[i].zone=alt;slots[i].family=materialChoice(room,alt,mood,floor);slots[i].area=alt==='textile'?10:8;}}
+ }
+ const floorSlot=slots.find(x=>x.zone==='floor');const allColorsRepresented=slots.length===4&&new Set(slots.map(x=>x.id)).size===4;
+ const warnings=[];
+ if(floor!==floorRequest)warnings.push('선택하신 바닥재는 이 공간에 적용하지 않고, 안전한 기본재로 전환했습니다.');
+ if(!floorSlot)warnings.push('4배색에 적합한 바닥색이 없어 중립 바닥재를 추가했습니다.');
+ if(allVivid)warnings.push('고채도 3색 이상: 벽·바닥 전체 도색을 피하고 소면적 위주로 배치했습니다.');
+ if(room==='bath')warnings.push('욕실 바닥: 젖은 상태 미끄럼저항·방수·구배 확인 전 시공 불가.');
+ if(room==='kitchen')warnings.push('주방: 바닥 카펫 제외, 벽타일·가구패널의 세척성 및 내수성 확인.');
+ if(!allColorsRepresented)warnings.push('4색 적용 누락');
+ return {room,floor,floorRequest,mood,slots,warnings,roles,allVivid,floorSlot:floorSlot?.slot??null,wallNeutral:!slots.some(x=>x.zone==='wall'),floorNeutral:!floorSlot,sourceColor:palette.confidence};
+}
+function verifyDesign(palette,room,floor,mood){const x=recommend(palette,room,floor,mood);const failures=[];
+ if(x.slots.length!==4||new Set(x.slots.map(s=>s.slot)).size!==4)failures.push('slots');
+ for(const s of x.slots){if(!RULES[room][s.zone]?.includes(s.family))failures.push('incompatible:'+s.zone+':'+s.family);
+ if(s.zone==='floor'&&(room==='bath'||room==='kitchen'))failures.push('colored wet/kitchen floor');}
+ if(room==='bath'&&x.floor!=='tile')failures.push('bath floor');
+ if(room==='kitchen'&&x.floor!=='tile')failures.push('kitchen floor');
+ if(x.allVivid&&x.slots.some(s=>s.area>18))failures.push('vivid area');
+ return failures;
+}
+if(typeof module!=='undefined')module.exports={ROOMS,MOODS,LIGHTS,FAMILIES,RULES,ZONELABEL,roleMap,recommend,verifyDesign,metrics,cluster,normFloor};
+</script><script>'use strict';
+const PALETTES=[["001","고요한 도시의 결","G01","DED1C8,A18D7F,B26155,2F3E51","E"],["002","햇살의 잔향","G02","FDCA3F,DEA148,F68815,653505","E"],["003","정원에 머문 숨","G07","D1E5DC,90BFAB,149670,074725","E"],["004","고요한 청록 벽","G07","C8D6D6,86AFB8,2C6D88,233C43","E"],["005","따뜻한 흙의 층","G02","E2D8CD,D0AD8D,B96226,330D00","E"],["006","연둣빛 쉼표","G07","C2D5C2,8EAC78,6E988E,082D26","E"],["007","새벽의 붉은 점","G02","FBB6B6,F0605F,DC0F1D,120001","E"],["008","솜사탕 안개","G04","ECE1DF,FFCFCD,FCD0EF,FE808B","E"],["009","보랏빛 심야","G08","D2B5E5,A547A7,6D2089,1C0232","E"],["010","어두운 구리의 시간","G03","A97A36,885A42,426465,261209","E"],["011","산호빛 수면","G01","E09997,C55F6C,2CACB0,014556","E"],["012","침착한 바위 그림자","G01","ABAAAD,5F819A,D08045,2E3E57","E"],["013","깊은 청록 장막","G05","94877E,0D2D46,286465,012227","E"],["014","브릭의 저녁","G03","AA7A63,883B3D,431F27,0C0D10","E"],["015","호두빛 모래","G01","DBC2AB,946F54,4C475B,051428","E"],["016","장미 잉크","G02","D1D2D6,FACCCF,851A20,2C110A","E"],["017","푸른 금박의 기억","G02","E7DACA,DEAC49,537A97,650D02","E"],["018","석류색 금빛 울림","G08","F6D47A,9A1E29,73729C,35294F","E"],["019","해변의 대비","G09","0355A4,21A097,E8DBCB,C4834C","E"],["020","푸른 자갈과 황토","G09","A7B9C5,95888F,E5B874,586C95","E"],["021","해초의 낮은 음","G07","9CB7A9,488669,275352,202A45","E"],["022","연무 속의 정적","G01","DAC0AF,839AA9,8B6E72,3C2F43","E"],["023","산호를 품은 민트","G01","AAC6BA,EE5950,0D5449,4E3845","E"],["024","복숭아 블루밍","G09","DDE7F3,F0A496,F8BD87,157AB0","E"],["025","다층 물빛","G07","90CDC6,40AE8F,3A78A7,0D3552","E"],["026","산호빛 호수","G01","1D94AB,035A78,F3A7A2,DC2C3B","E"],["027","솔잎과 붉은 토기","G01","7D949C,749367,A34A1D,13384A","E"],["028","분홍빛 재즈","G01","D4577F,E89860,05586C,065346","E"],["029","달빛 이끼","G09","C0B6CF,A5B8B8,A5BD6D,4F6A7F","E"],["030","어둠 속 불씨","G01","2B4151,597E6C,CD7A29,D15427","E"],["031","코랄 리듬","G08","FF8D76,648CC0,7461A0,572139","E"],["032","절벽의 겨울","G01","D3D3DC,96A7B4,50574F,4B403D","E"],["033","초록 유리 정원","G07","C4E4FB,879A43,087651,464415","E"],["034","분홍 섬의 정오","G09","DD787C,F29652,9FAFC7,063860","E"],["035","무화과 색 천","G01","79868E,B56737,A36361,7B6859","E"],["036","라일락 그늘","G01","F5D3E1,D0C0DA,516771,0D142E","E"],["037","창가의 미색","G09","EFEEE9,CDE3F0,EEB537,060709","E"],["038","모직의 온도","G02","CEB9A7,B77A38,A66F72,60303C","E"],["039","모래와 물의 경계","G09","EAD5C5,E2A360,AAD2E1,0A5261","E"],["040","사막의 세이지","G07","C5CFD8,396C7F,B1BC77,0F503C","E"],["041","늦여름 오브제","G10","7FABA6,B77734,DE7F4F,CB9A3E","E"],["042","누른 들판","G10","B5B8C1,DFAB23,747030,D4B98C","E"],["043","허브와 녹슨 철","G01","717C5A,8F8C93,BD4E38,2F1B25","E"],["044","조용한 꽃의 결","G10","C1D0A5,A0BFC2,D9513D,283E1D","E"],["045","밝은 바람의 색","G10","A4BAB7,DCC39B,A7AE81,DFC87C","E"],["046","아침 화단의 조화","G10","EEB3B7,B5C362,8FABB0,E3CB75","E"],["047","푸른 전류","G05","82C0E7,8C529F,5D56A4,04255A","E"],["048","과일빛 포인트","G11","F9B226,D0272C,AABE29,12344A","E"],["049","블루 바이올렛 신호","G05","2AB2EC,D68EC3,2B45A2,1F2766","E"],["050","자홍빛 파동","G08","E4ACD3,AC3C93,AF2939,2E0A3D","E"],["051","오렌지 빛 도시","G11","AFAEAA,4B6A98,F99525,F35637","E"],["052","노을의 맥동","G02","FCB506,F4581E,7E234C,141544","E"],["053","유리구슬 소나타","G04","EDBDB3,DBB7D2,B0D9DF,7CC1D1","E"],["054","파우더 구름","G10","FCC8CA,B7D7D8,FEDB99,866D70","E"],["055","색채의 작은 축제","G11","FDD697,FDA103,9DCBC0,DB034D","E"],["056","보랏빛 광채","G08","FBC12F,3863BF,7654A9,300B3F","E"],["057","복숭아 시가","G06","F6BCBA,129744,F76810,8B7A73","E"],["058","오팔빛 파편","G10","ECE269,F7A689,B29DC7,A8C3D6","E"],["059","따뜻한 휴양 빛","G10","D9CB9C,F9D968,6FB7A1,ED6527","E"],["060","테라코타 산책","G10","FACB59,EF937C,EF6733,02645B","E"],["061","유리막의 안개","G04","ADDBEB,DBC5EB,8CC0E7,3E489D","E"],["062","진한 태양각","G02","FDDD3D,FCA508,E44B12,911128","E"],["063","부드러운 스펙트럼","G10","F5CCCA,B4D3E8,FBCF52,E16D3C","E"],["064","트로피컬 그래픽","G09","FDDF3F,F9938B,22B6B6,004354","E"],["065","비타민 컬러","G11","FDD416,FE8D03,E12534,1EB1B9","E"],["066","매운 황혼","G02","BCAE27,F05F0E,80191D,2E2B62","E"],["067","유리 온실의 오후","G10","B1DADE,F4AD45,AD184F,496A23","S"],["068","선명한 청록 경계","G09","034E71,65A29A,F27613,FCD651","E"],["069","붉은 마젠타 가속","G02","E50213,84024B,FDA501,F1BDD9","E"],["070","봄빛 물결","G04","ADD9DA,F9AA8C,E7A0BF,04A0AB","E"],["071","여름 바람의 연필","G09","F8C943,B4D6DF,E43837,231D67","E"],["072","색의 작은 카니발","G10","D22912,5B9EB8,FDB705,EEE58A","E"],["073","다홍빛 공명","G02","FD5C02,FEA690,BF355B,391016","E"],["074","다채로운 모자이크","G11","FEC601,2E82B9,EF4F03,6AA51A","E"],["075","코랄의 정원","G06","EF3951,FBAA29,F59DAB,6C9039","E"],["076","올리브와 주홍","G11","5E5B4A,CCCBB2,E54F02,F0AE1C","E"],["077","가을빛 접힌 종이","G11","F25714,A8B259,F7B892,252525","E"],["078","귤꽃 햇살","G02","EC4518,FBA81A,F7B09E,5F2402","E"],["079","호박색 쉼터","G02","EF7311,FBC855,424A25,1A1615","E"],["080","붉은 부엌의 그늘","G02","CC2714,F29C27,6F120A,A09F8B","E"],["081","벽돌의 결","G02","BB411E,C96B21,8E1F0E,D4AB7B","E"],["082","보랏빛 앤티크","G03","904F6F,CF4926,9B2118,341429","E"],["083","딥 레드 앤 포레스트","G03","D93F3F,F46D3D,1E451D,2A0C02","E"],["084","빛바랜 오후","G02","FCE5B3,F1A93D,6D5950,2F1609","E"],["085","오래된 나무 스펙트럼","G02","F1CF9F,EC6521,7D1403,26382A","E"],["086","노란 들꽃의 그림자","G10","9FAF72,EFC972,E96D13,212030","E"],["087","용암의 흐름","G02","9A7B80,EBB895,FB5702,911309","E"],["088","청록 운동선","G01","DADCD7,0E7284,FC4443,47566D","E"],["089","직물의 여운","G01","E7C9B5,EB936D,8D455D,353C56","E"],["090","붉은 지붕의 창","G10","CCCEC9,F3AE73,D9420E,51717B","E"],["091","거친 화단","G03","9B5466,A12929,223F20,142B40","E"],["092","청색 해안빛","G05","F7AD55,52B9DC,033357,001B37","E"],["093","팝 컬러 리듬","G11","EF1E22,5B934A,FEC504,9363AD","E"],["094","블루 앤 앰버 인더스트리","G01","39698D,CCDCE9,AC5C0F,021A26","E"],["095","노란빛 산장","G02","FDE4A1,F9AC1E,754D4E,3D4868","E"],["096","장미정원의 여백","G06","F2C1C5,E5617B,D71D31,7B7E2D","E"],["097","오렌지 블루 트랙","G11","FEC903,238BC5,D22A2A,B36525","E"],["098","보랏빛 도시의 대비","G08","5267A8,F85F1E,928596,61517B","E"],["099","차콜과 살구","G05","FDC592,657886,414246,02283F","E"],["100","푸른 그림자 속 황금","G10","9396A1,3B79A8,FEB439,A14E04","E"],["101","블루 세이지 다이닝","G01","92A5B6,5F7352,D6611E,A36127","E"]].map(x=>({id:x[0],name:x[1],group:x[2],hex:x[3].split(',').map(h=>'#'+h),confidence:x[4]==='S'?'SECONDARY_HEX_REFERENCE':'IMAGE_ESTIMATE'}));
+const S={palette:'001',room:'living',floor:'maru',mood:'natural',light:'day',selected:0,savedA:null,savedB:null,overrides:{},message:''};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+function getPalette(){return PALETTES.find(p=>p.id===S.palette)||PALETTES[0]}
+function design(){const d=recommend(getPalette(),S.room,S.floor,S.mood);d.slots.forEach(s=>{
+ const override=S.overrides[s.slot];if(override){if(override.zone)s.zone=override.zone;
+ if(override.family&&RULES[S.room][s.zone].includes(override.family))s.family=override.family;}
+ });return d;}
+function fillFor(d,zone){const s=d.slots.find(x=>x.zone===zone);return s?.hex||(({floor:'#C9B8A6',wall:'#EEE9E2',cabinet:'#B5A99A',feature:'#A5A2A0',textile:'#DBCCBF',trim:'#52585B'})[zone]);}
+function floorNote(d){if(d.floor==='maru')return d.floorNeutral?'중립 우드톤 마루 (4색 외 보조재)':'4배색 중 유사 톤 마루 후보';if(d.floor==='carpet')return d.floorNeutral?'중립 카펫타일 (4색 외 보조재)':'4배색 중 유사 톤 카펫타일 후보';return S.room==='bath'?'젖은 영역 적합성 검토 전 포세린 후보':'중립 바닥용 포세린 후보';}
+function shapeRoom(d){const col=z=>fillFor(d,z);const f=d.floor;const floorF=f==='maru'?'url(#wood)':f==='carpet'?'url(#carpet)':'url(#floorTile)';
+ const polygon=(pts,zone,fill)=>`<polygon data-zone="${zone}" points="${pts}" fill="${fill}" stroke="#554d4530" stroke-width="2"/>`;
+ const r=(x,y,w,h,zone,fill,rx=0)=>`<rect data-zone="${zone}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}"/>`;
+ const wallSlot=d.slots.find(x=>x.zone==='wall');const vividWall=!!wallSlot&&(d.allVivid||metrics(wallSlot.hex).s>.50||metrics(wallSlot.hex).v<.27);
+ const wall=vividWall?'#EDEAE4':col('wall'),wood=col('floor');
+ const smallWall=vividWall?`<rect data-zone="wall" x="703" y="166" width="126" height="163" fill="${wallSlot.hex}"/><rect data-zone="wall" x="703" y="166" width="126" height="163" fill="url(#grout)"/>`:'';
+ const built={
+ living:()=>`${r(148,275,730,95,'wall',wall)}${r(270,385,440,119,'textile',col('textile'),16)}${r(284,353,412,65,'textile',col('textile'),14)}${r(287,495,16,24,'trim',col('trim'),2)}${r(660,495,16,24,'trim',col('trim'),2)}${r(310,386,85,58,'feature',col('feature'),14)}${r(600,386,75,58,'feature',col('feature'),14)}${r(736,312,135,160,'cabinet',col('cabinet'),3)}${r(744,320,120,15,'trim',col('trim'))}${r(744,389,120,8,'trim',col('trim'))}${r(484,465,135,11,'cabinet',col('cabinet'),5)}`,
+ bedroom:()=>`${r(310,285,398,88,'cabinet',col('cabinet'),10)}${polygon('288,396 728,396 783,580 205,580','textile',col('textile'))}${r(298,398,390,41,'textile',col('textile'),15)}${r(316,395,110,52,'feature',col('feature'),10)}${r(542,395,110,52,'feature',col('feature'),10)}${r(747,346,97,148,'cabinet',col('cabinet'),3)}${r(764,361,62,20,'trim',col('trim'))}${r(215,350,66,10,'trim',col('trim'),5)}${r(222,360,45,94,'trim',col('trim'),4)}`,
+ office:()=>`${r(150,140,160,221,'feature',col('feature'),5)}${r(168,157,124,10,'trim',col('trim'))}${r(235,390,570,42,'cabinet',col('cabinet'),4)}${r(258,432,18,108,'trim',col('trim'))}${r(750,432,18,108,'trim',col('trim'))}${r(457,280,182,138,'wall',wall,6)}${r(455,450,120,92,'textile',col('textile'),16)}${r(485,540,14,51,'trim',col('trim'))}${r(433,583,112,8,'trim',col('trim'),2)}`,
+ retail:()=>`${r(140,175,125,274,'feature',col('feature'),5)}${r(650,165,170,290,'cabinet',col('cabinet'),4)}${r(664,215,142,7,'trim',col('trim'))}${r(664,304,142,7,'trim',col('trim'))}${r(664,405,142,7,'trim',col('trim'))}${r(306,415,286,50,'cabinet',col('cabinet'),6)}${r(330,357,235,60,'textile',col('textile'),6)}${r(345,308,206,49,'feature',col('feature'),3)}${r(383,332,124,14,'trim',col('trim'),5)}`,
+ kitchen:()=>`${r(120,167,730,165,'wall',wall)}${r(240,337,525,77,'feature',col('feature'))}${r(240,337,525,77,'feature','url(#grout)')}${r(240,419,525,129,'cabinet',col('cabinet'),2)}${r(240,404,525,15,'trim',col('trim'))}${r(240,216,525,119,'cabinet',col('cabinet'),3)}${r(248,335,509,4,'trim',col('trim'))}${r(492,232,4,99,'trim',col('trim'))}${r(480,471,14,8,'trim',col('trim'),4)}${r(646,471,14,8,'trim',col('trim'),4)}`,
+ bath:()=>`${r(155,126,565,257,'wall',wall)}${r(155,126,565,257,'wall','url(#grout)')}${r(230,215,122,114,'feature',col('feature'))}${r(230,215,122,114,'feature','url(#grout)')}${r(180,390,455,139,'cabinet',col('cabinet'),5)}${r(170,378,470,16,'trim',col('trim'),5)}${r(180,520,455,8,'trim',col('trim'),5)}${r(413,274,104,104,'feature','#F1EEEA',52)}${r(430,308,70,12,'trim',col('trim'),7)}${r(740,225,16,190,'trim',col('trim'),5)}${r(726,222,45,12,'trim',col('trim'),6)}`
+ };
+ const overlay={day:['#fff',0],north:['#7db4ff',.11],warm:['#ffa23f',.13],neutral:['#fff1d5',.04],cool:['#8ac6ff',.12],indirect:['#f9b05c',.17],dim:['#222a32',.23]}[S.light];
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="${ROOMS[S.room].label} 재질 조합 검토 이미지" class="mv-scene" id="mv-scene">
+ <defs><linearGradient id="wallshade" x1="0" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="${wall}"/><stop offset="1" stop-color="#bab4ad" stop-opacity=".40"/></linearGradient><pattern id="wood" width="180" height="52" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)"><rect width="180" height="52" fill="${wood}"/><path d="M0 0H180 M0 52H180 M32 13C86 2 103 25 177 13M9 38C54 18 105 50 170 35" stroke="#58391d" stroke-opacity=".23" fill="none" stroke-width="2"/><path d="M88 0V52" stroke="#c4b6a7" stroke-opacity=".5" stroke-width="2"/></pattern><pattern id="carpet" width="21" height="21" patternUnits="userSpaceOnUse"><rect width="21" height="21" fill="${wood}"/><path d="M0 0L21 21 M21 0L0 21" stroke="#1d1d1d" stroke-width="1" stroke-opacity=".08"/><path d="M0 10H21M10 0V21" stroke="#fff" stroke-opacity=".12"/></pattern><pattern id="floorTile" width="128" height="128" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)"><rect width="128" height="128" fill="${wood}"/><path d="M0 0H128V128" fill="none" stroke="#e9e8e6" stroke-width="5" stroke-opacity=".78"/></pattern><pattern id="grout" width="58" height="42" patternUnits="userSpaceOnUse"><path d="M58 0H0V42" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".45"/></pattern><filter id="softshade"><feGaussianBlur stdDeviation="11"/></filter></defs>
+ <rect width="1000" height="620" fill="#ebebe8"/><polygon points="0,0 130,78 130,386 0,458" fill="#ddd7d0"/><polygon points="1000,0 870,78 870,386 1000,458" fill="#d7d2cb"/>
+ ${r(130,78,740,312,'wall','url(#wallshade)')}
+ ${smallWall}
+ ${r(151,111,153,171,'wall','#cbd9dd',5)}<path d="M226 111V282M151 193H304" stroke="#f7f9f8" stroke-width="10" pointer-events="none"/>
+ ${polygon('0,458 130,386 870,386 1000,458 1000,620 0,620','floor',floorF)}
+ <ellipse cx="519" cy="505" rx="286" ry="34" fill="#000" opacity=".1" filter="url(#softshade)" pointer-events="none"/>
+ ${built[S.room]()}<rect width="1000" height="620" fill="${overlay[0]}" opacity="${overlay[1]}" pointer-events="none"/>
+ </svg>`;
+}
+function render(){const p=getPalette(),d=design();$('mv-room-name').textContent=p.name+' · '+ROOMS[S.room].label;
+ $('mv-scene-wrap').innerHTML=shapeRoom(d);
+ $('mv-materials').innerHTML=d.slots.map(x=>{
+ const names=RULES[S.room][x.zone],opts=names.map(f=>`<option value="${f}" ${f===x.family?'selected':''}>${FAMILIES[f].label}</option>`).join('');
+ return `<article class="mv-card ${S.selected===x.slot?'selected':''}" data-slot="${x.slot}" draggable="true"><div class="mv-row"><div class="mv-swatch ${x.family}" style="background:${x.hex}"></div><div style="flex:1;min-width:0"><div class="mv-card-top"><strong>C${x.slot} · ${ZONELABEL[x.zone]}</strong><code>${x.hex}</code></div><div class="mv-card-desc">${x.cluster.replace('-',' / ')} · ${Math.round(x.area)}% 내외 · ${x.role}</div><select aria-label="C${x.slot} 재질 변경" data-family="${x.slot}">${opts}</select></div></div></article>`;
+ }).join('');
+ $('mv-foot-text').textContent=floorNote(d)+' · '+ROOMS[S.room].note;
+ $('mv-warnings').textContent=d.warnings.join(' ')||'공간별 기본 제약 규칙에 적합한 후보입니다. 실물 제품 검증 필요.';
+ $('mv-valid').textContent='4색 모두 재질 슬롯 연결 · 금지 Zone 0건 · 제품별 색상·성능 검증 전';
+ $('mv-status').textContent=S.message||'색상 카드를 선택하고 공간 영역을 누르면 위치 변경을 검사합니다.';
+ $('mv-status').className='mv-message '+(S.message.startsWith('차단')?'mv-error':'');
+ const bar=p=>`<div class="mv-bar">${p.hex.map(x=>`<i style="background:${x}"></i>`).join('')}</div>`;
+ for(const letter of ['A','B']){const save=S['saved'+letter];$('mv-'+letter).innerHTML=`<strong>${letter}안 ${save?'저장됨':'미저장'}</strong>${save?`<div class="mv-mini">${save.scene}</div>`+bar(save.p)+`<small>NO.${save.p.id} · ${ROOMS[save.room].label} · ${save.floor==='maru'?'마루':save.floor==='carpet'?'카펫':'타일'} · ${MOODS[save.mood]}</small>`:'<small>비교할 조합을 저장하세요.</small>'}`;}
+}
+function note(s){S.message=s;render()}
+function resetOverrides(){S.overrides={};S.selected=0;S.message='';render();}
+function changeZone(zone,slot){const d=design();const a=d.slots.find(x=>x.slot===slot);if(!a)return;
+ const allowed=RULES[S.room][zone]||[];
+ if(!allowed.includes(a.family))return note('차단: '+FAMILIES[a.family].label+'은(는) '+ZONELABEL[zone]+'에 적용 가능한 후보가 아닙니다.');
+ if(zone===a.zone)return note('현재 적용 영역과 같습니다.');
+ const other=d.slots.find(x=>x.zone===zone);
+ if(other&&!RULES[S.room][a.zone].includes(other.family))return note('차단: 상대 재질과 위치를 맞바꾸면 적용 불가 영역이 발생합니다.');
+ S.overrides[a.slot]={zone,family:a.family};if(other)S.overrides[other.slot]={zone:a.zone,family:other.family};
+ S.selected=0;note('적용: 공간 적합성 검사 통과 · C'+a.slot+' → '+ZONELABEL[zone]);
+}
+function setFamily(slot,family){const d=design(),s=d.slots.find(x=>x.slot===slot);if(!s||!RULES[S.room][s.zone].includes(family))return note('차단: 해당 재질은 '+ZONELABEL[s.zone]+'에 적용할 수 없습니다.');
+ S.overrides[slot]={zone:s.zone,family};S.message='같은 색상에 '+FAMILIES[family].label+' 적용 · 제품 색상 일치 미검증';render();}
+function save(letter){const p=getPalette();S['saved'+letter]={p,room:S.room,floor:design().floor,mood:S.mood,light:S.light,slots:JSON.parse(JSON.stringify(design().slots)),scene:$('mv-scene-wrap').innerHTML};note(letter+'안 임시 저장됨 · 화면에서 A/B 색상·배치를 비교할 수 있습니다.');}
+function options(el,items){el.innerHTML=Object.entries(items).map(([value,label])=>`<option value="${value}">${label}</option>`).join('')}
+function init(){const ps=$('mv-palettes');for(const p of PALETTES){const option=document.createElement('option');option.value=p.id;option.textContent='NO.'+p.id+' · '+p.name;ps.append(option);}ps.value=S.palette;
+ options($('mv-room'),Object.fromEntries(Object.entries(ROOMS).map(([id,x])=>[id,x.label])));options($('mv-floor'),{maru:'마루',carpet:'카펫',tile:'포세린/타일'});options($('mv-light'),LIGHTS);
+ for(const key of ['palette','room','floor','light'])$('mv-'+(key==='palette'?'palettes':key)).addEventListener('change',e=>{S[key]=e.target.value;if(!ROOMS[S.room].floor.includes(S.floor)){S.floor=ROOMS[S.room].floor[0];$('mv-floor').value=S.floor;}resetOverrides();});
+ document.querySelectorAll('.mv-moods button').forEach(b=>b.addEventListener('click',()=>{S.mood=b.dataset.mood;document.querySelectorAll('.mv-moods button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));resetOverrides();}));
+ $('mv-materials').addEventListener('click',e=>{if(e.target.tagName==='SELECT')return;const c=e.target.closest('[data-slot]');if(c){S.selected=Number(c.dataset.slot);note('C'+S.selected+' 선택됨 · 공간의 적용 영역을 눌러 주세요.');}});
+ $('mv-materials').addEventListener('change',e=>{const s=e.target.closest('[data-family]');if(s)setFamily(Number(s.dataset.family),s.value)});
+ $('mv-materials').addEventListener('dragstart',e=>{const c=e.target.closest('[data-slot]');if(c){S.selected=Number(c.dataset.slot);e.dataTransfer.setData('text/plain',String(S.selected));}});
+ $('mv-scene-wrap').addEventListener('click',e=>{const z=e.target.closest('[data-zone]');if(z&&S.selected)changeZone(z.dataset.zone,S.selected);});
+ $('mv-scene-wrap').addEventListener('dragover',e=>{if(e.target.closest('[data-zone]'))e.preventDefault()});
+ $('mv-scene-wrap').addEventListener('drop',e=>{const z=e.target.closest('[data-zone]');if(z){e.preventDefault();changeZone(z.dataset.zone,Number(e.dataTransfer.getData('text/plain'))||S.selected)}});
+ $('mv-save-a').addEventListener('click',()=>save('A'));$('mv-save-b').addEventListener('click',()=>save('B'));$('mv-reset').addEventListener('click',resetOverrides);
+ render();
+}
+init();
+</script><script>'use strict';
+// V2 add-on: operates entirely in browser; no remote upload. The user explicitly defines photo masks.
+const VERIFIED_PRODUCTS = [{"id":"LX-W071","brand":"LX Z:IN","name":"강그린와이드 · 페일 화이트","sku":"FMKGA071-W01250000","family":"maru","zone":"floor","finish":"우드 125 / 페일 화이트","color_match":"UNVERIFIED","product_exists":"OFFICIAL_LISTING","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"KR","url":"https://www.lxzin.com/zin/category/a060000?mcate=a060200%2Ca060202&page=1"},{"id":"LX-W074","brand":"LX Z:IN","name":"강그린와이드 · 마일드 오크","sku":"FMKGA074-W01250000","family":"maru","zone":"floor","finish":"우드 125 / 마일드 오크","color_match":"UNVERIFIED","product_exists":"OFFICIAL_LISTING","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"KR","url":"https://www.lxzin.com/zin/category/a060000?mcate=a060200%2Ca060202&page=1"},{"id":"LX-W077","brand":"LX Z:IN","name":"강그린와이드 · 로얄 월넛","sku":"FMKGA077-W01250000","family":"maru","zone":"floor","finish":"우드 125 / 로얄 월넛","color_match":"UNVERIFIED","product_exists":"OFFICIAL_LISTING","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"KR","url":"https://www.lxzin.com/zin/category/a060000?mcate=a060200%2Ca060202&page=1"},{"id":"IN-C303014","brand":"Interface","name":"Composure · Contemplate","sku":"303014 · product 1034502500","family":"carpet","zone":"floor","finish":"50×50cm · Tufted Textured Loop","color_match":"UNVERIFIED","product_exists":"OFFICIAL_PRODUCT_PAGE","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"US · 국내 유통 미확인","url":"https://shop.interface.com/US/en-US/carpet-tile/composure/4169C.html"},{"id":"WL-1572","brand":"Wilsonart","name":"Antique White · Matte","sku":"1572-60","family":"hpl","zone":"cabinet","finish":"Solid off-white / matte, HPL","color_match":"UNVERIFIED","product_exists":"OFFICIAL_PRODUCT_PAGE","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"US · 국내 유통 미확인","url":"https://www.wilsonart.com/laminate/specialty-laminate/compact/antique-white-1572"},{"id":"MZ-CV05","brand":"Marazzi","name":"Cavatina · Aria","sku":"CV05","family":"floor_tile","zone":"floor","finish":"12×24in · Matte / 일반 실내 습윤 바닥 후보, 샤워 바닥 미승인","color_match":"UNVERIFIED","product_exists":"OFFICIAL_PRODUCT_PAGE","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"US · 국내 유통 미확인","url":"https://www.marazziusa.com/products/stone-look/cavatina/aria"},{"id":"MZ-CV06","brand":"Marazzi","name":"Cavatina · Encore","sku":"CV06","family":"floor_tile","zone":"floor","finish":"12×24in · Matte / 일반 실내 습윤 바닥 후보, 샤워 바닥 미승인","color_match":"UNVERIFIED","product_exists":"OFFICIAL_PRODUCT_PAGE","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"US · 국내 유통 미확인","url":"https://www.marazziusa.com/products/stone-look/cavatina/encore"},{"id":"MZ-MD05","brand":"Marazzi","name":"Modern Oasis · Soft Cloud","sku":"MD05","family":"wet_tile","zone":"floor","finish":"Matte / 제조사 샤워 바닥 사용 표기 (현장 적합성 재검토)","color_match":"UNVERIFIED","product_exists":"OFFICIAL_PRODUCT_PAGE","site_suitability":"PROJECT_REVIEW_REQUIRED","region":"US · 국내 유통 미확인","url":"https://www.marazziusa.com/products/stone-look/modern-oasis/soft-cloud"}];
+const X={mode:'diagram',image:null,objectURL:null,polygons:[],draft:[],zone:'wall',slot:1,opacity:0.77,scale:1,direction:0,annotations:0,products:{},stateMessage:'',photoSavedA:null,photoSavedB:null};
+const V2STATUS={HUMAN_MASK:'사용자 수동 지정',AUTO_SEGMENTATION:'NOT_IMPLEMENTED',PRODUCT_COLOR:'UNVERIFIED',COLOR_SOURCE:'IMAGE_ESTIMATE_OR_SECONDARY'};
+const zoneTitle=z=>ZONELABEL[z]||z;
+const lightTints={day:[255,255,255,0],north:[120,164,220,.105],warm:[255,185,99,.125],neutral:[255,244,220,.035],cool:[153,199,255,.12],indirect:[255,182,103,.15],dim:[28,34,45,.26]};
+const PWIDTH=1000,PHEIGHT=620;
+const areaPolygon=pts=>Math.abs(pts.reduce((a,p,i)=>{let q=pts[(i+1)%pts.length];return a+p[0]*q[1]-q[0]*p[1]},0)/2);
+function segInter(a,b,c,d){const cr=(p,q,r)=>(q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]);return cr(a,b,c)*cr(a,b,d)<0&&cr(c,d,a)*cr(c,d,b)<0;}
+function selfCross(pts){for(let i=0;i<pts.length;i++)for(let j=i+2;j<pts.length;j++){if(i===0&&j===pts.length-1)continue;if(segInter(pts[i],pts[(i+1)%pts.length],pts[j],pts[(j+1)%pts.length]))return true;}return false;}
+const $x=id=>document.getElementById(id);
+function zoneAllowed(slot,zone){return RULES[S.room]?.[zone]?.includes(slot.family)||false;}
+function getPhotoBox(){return $x('mv-photo-canvas').getBoundingClientRect()}
+function imageDraw(ctx){const im=X.image;if(!im)return;const s=Math.max(PWIDTH/im.width,PHEIGHT/im.height),w=im.width*s,h=im.height*s;ctx.drawImage(im,(PWIDTH-w)/2,(PHEIGHT-h)/2,w,h);}
+function clipPath(ctx,pts){ctx.beginPath();pts.forEach((v,i)=>i?ctx.lineTo(v[0],v[1]):ctx.moveTo(v[0],v[1]));ctx.closePath();ctx.clip();}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function hslColor(hex){const arr=hex.match(/[\da-f]{2}/gi).map(x=>parseInt(x,16));return `rgba(${arr.join(',')},${X.opacity})`}
+function materialTexture(ctx,poly,slot){const f=slot.family,pts=poly.points;const bx=Math.min(...pts.map(p=>p[0])),by=Math.min(...pts.map(p=>p[1])),bw=Math.max(...pts.map(p=>p[0]))-bx,bh=Math.max(...pts.map(p=>p[1]))-by;
+ const step=Math.max(7,Math.round((f==='maru'?46:f==='carpet'?53:f.includes('tile')?65:11)*X.scale));
+ const wood=f==='maru'||f==='wood_veneer',tile=['floor_tile','wet_tile','wall_tile'].includes(f),cloth=['carpet','fabric','acoustic','wallpaper'].includes(f);
+ ctx.save();clipPath(ctx,pts);ctx.translate(PWIDTH/2,PHEIGHT/2);ctx.rotate(X.direction*Math.PI/180);ctx.translate(-PWIDTH/2,-PHEIGHT/2);
+ if(wood){for(let i=-PWIDTH;i<PWIDTH*2;i+=step){ctx.strokeStyle='rgba(55,36,19,.18)';ctx.lineWidth=1.7;ctx.beginPath();ctx.moveTo(i,-PHEIGHT);ctx.lineTo(i,2*PHEIGHT);ctx.stroke();}
+   let seed=poly.id*997+slot.slot*13;for(let j=0;j<38;j++){seed=(seed*1664525+1013904223)>>>0;const x=seed%PWIDTH;seed=(seed*1664525+1013904223)>>>0;const y=seed%PHEIGHT;ctx.strokeStyle='rgba(52,38,19,.105)';ctx.lineWidth=1.1;ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x+18,y-5,x+45,y+8,x+110,y-2);ctx.stroke();}}
+ else if(tile){ctx.strokeStyle='rgba(252,251,248,.61)';ctx.lineWidth=Math.max(1,3*X.scale);for(let i=-PWIDTH;i<PWIDTH*2;i+=step){ctx.beginPath();ctx.moveTo(i,-PHEIGHT);ctx.lineTo(i,2*PHEIGHT);ctx.stroke()}for(let j=-PHEIGHT;j<PHEIGHT*2;j+=step){ctx.beginPath();ctx.moveTo(-PWIDTH,j);ctx.lineTo(2*PWIDTH,j);ctx.stroke()}}
+ else if(cloth){ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=.7;const d=Math.max(3,step/7);for(let x=-PWIDTH;x<PWIDTH*2;x+=d){ctx.beginPath();ctx.moveTo(x,-PHEIGHT);ctx.lineTo(x,2*PHEIGHT);ctx.stroke()}for(let y=-PHEIGHT;y<PHEIGHT*2;y+=d){ctx.beginPath();ctx.moveTo(-PWIDTH,y);ctx.lineTo(2*PWIDTH,y);ctx.stroke()}}
+ else if(f==='mineral'){for(let j=0;j<150;j++){const x=(j*853)%PWIDTH,y=(j*593)%PHEIGHT;ctx.fillStyle='rgba(255,255,255,.075)';ctx.fillRect(x,y,5,3);}}
+ else if(f==='steel'||f==='stainless'){for(let j=0;j<PWIDTH;j+=4){ctx.fillStyle=j%8===0?'rgba(255,255,255,.11)':'rgba(0,0,0,.025)';ctx.fillRect(j,0,1,PHEIGHT);}}
+ else if(f==='hpl'||f==='compact'){for(let j=0;j<PHEIGHT;j+=35){ctx.strokeStyle='rgba(0,0,0,.035)';ctx.beginPath();ctx.moveTo(-PWIDTH,j);ctx.lineTo(2*PWIDTH,j);ctx.stroke()}}
+ ctx.restore();}
+function drawPhoto(){const canvas=$x('mv-photo-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,PWIDTH,PHEIGHT);
+ ctx.fillStyle='#e8ebeb';ctx.fillRect(0,0,PWIDTH,PHEIGHT);
+ if(!X.image){ctx.fillStyle='#7f8588';ctx.font='20px sans-serif';ctx.textAlign='center';ctx.fillText('공간 사진을 올리면 영역을 지정할 수 있습니다.',500,290);ctx.font='14px sans-serif';ctx.fillText('사진은 브라우저에서만 처리되며 전송되지 않습니다.',500,322);return}
+ imageDraw(ctx);const d=design();if(typeof drawAutoOverlays==='function')drawAutoOverlays(ctx,d);
+ for(const poly of X.polygons){const slot=d.slots.find(s=>s.slot===poly.slot);if(!slot)continue;
+  const ok=zoneAllowed(slot,poly.zone);ctx.save();clipPath(ctx,poly.points);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+  if(ok){ctx.fillStyle=hslColor(slot.hex);ctx.fillRect(0,0,PWIDTH,PHEIGHT);ctx.globalAlpha=.2;ctx.globalCompositeOperation='multiply';imageDraw(ctx);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;materialTexture(ctx,poly,slot);}
+  else {ctx.fillStyle='rgba(170,40,25,.13)';ctx.fillRect(0,0,PWIDTH,PHEIGHT)}ctx.restore();
+  ctx.lineWidth=ok?2.2:3;ctx.strokeStyle=ok?'rgba(255,255,255,.9)':'#ce3c2d';ctx.beginPath();poly.points.forEach((v,i)=>i?ctx.lineTo(...v):ctx.moveTo(...v));ctx.closePath();ctx.stroke();
+  const pt=poly.points[0];ctx.fillStyle=ok?'#28383a':'#b32d22';ctx.fillRect(pt[0],pt[1]-24,140,22);ctx.fillStyle='#fff';ctx.textAlign='left';ctx.font='bold 13px sans-serif';ctx.fillText((ok?'':'X ')+`C${poly.slot} · ${zoneTitle(poly.zone)}`,pt[0]+7,pt[1]-8);
+ }
+ if(X.draft.length){ctx.strokeStyle='#ffdd92';ctx.lineWidth=3;ctx.beginPath();X.draft.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.stroke();for(const p of X.draft){ctx.fillStyle='#ffe6a4';ctx.beginPath();ctx.arc(p[0],p[1],5,0,Math.PI*2);ctx.fill();}}
+ const t=lightTints[S.light]||lightTints.day;if(t[3]){ctx.fillStyle=`rgba(${t[0]},${t[1]},${t[2]},${t[3]})`;ctx.fillRect(0,0,PWIDTH,PHEIGHT)}
+}
+function productsFor(slot,zone){return VERIFIED_PRODUCTS.filter(p=>p.family===slot?.family&&p.zone===zone);}
+function photoAnalysis(){const d=design();const notes=[],errors=[];let assigned=new Set(),vividArea=0,darkArea=0,totalArea=0;
+ X.polygons.forEach(p=>{const slot=d.slots.find(s=>s.slot===p.slot);if(!slot){errors.push('없는 슬롯');return}if(!zoneAllowed(slot,p.zone)){errors.push(`C${p.slot} ${zoneTitle(p.zone)} 적용 차단`);return}assigned.add(p.slot);const a=areaPolygon(p.points)/(PWIDTH*PHEIGHT);totalArea+=a;if(metrics(slot.hex).s>.55)vividArea+=a;if(metrics(slot.hex).lum<.15)darkArea+=a;});
+ if(X.image&&assigned.size<4)notes.push(`사진상 4색 검토 미완료 · 현재 ${assigned.size}/4색 영역 지정`);
+ if(vividArea>.25)notes.push('강한 색상의 적용 면적이 넓습니다. 중립면 확보 권장');
+ if(darkArea>.35)notes.push('저명도 면적이 넓습니다. 기존 조도와 반사율 확인');
+ if(totalArea>1.01)notes.push('마스크 중복 가능성: 영역 겹침 확인');
+ if(X.image&&X.polygons.length===0)notes.push('AI 영역 후보 확인 또는 수동 영역 지정 필요');
+ if(d.sourceColor!=='SECONDARY_HEX_REFERENCE')notes.push('원본 컬러칩 HEX 추정값 · 실물 비교 필수');
+ notes.push('물성·방염·미끄럼·내수성 현장 검증 전');
+ return {assigned:assigned.size,polygonCount:X.polygons.length,errors,notes,coverage:Math.round(totalArea*100),vividArea:Math.round(vividArea*100)};
+}
+function sourcePanel(){const d=design();const picked=d.slots.find(s=>s.slot===X.slot)||d.slots[0];const candidates=productsFor(picked,picked.zone);const extra=S.room==='bath'?VERIFIED_PRODUCTS.filter(p=>p.family==='wet_tile'):d.floor==='maru'?VERIFIED_PRODUCTS.filter(p=>p.family==='maru'):d.floor==='carpet'?VERIFIED_PRODUCTS.filter(p=>p.family==='carpet'):d.floor==='tile'?VERIFIED_PRODUCTS.filter(p=>p.family==='floor_tile'):[];
+ const pool=[...new Map([...candidates,...extra].map(p=>[p.id,p])).values()];
+ const rows=pool.map(p=>`<article class="mv-product"><span class="mv-product-tag">제조사 제품 확인</span><strong>${esc(p.brand)} · ${esc(p.name)}</strong><small>${esc(p.sku)} · ${esc(p.finish)}</small><small>색상 일치 미검증 · 현장 적합성 미승인 · ${esc(p.region)}</small><a href="${p.url}" rel="noopener noreferrer" target="_blank" aria-label="${esc(p.name)} 공식 자료 보기">제조사 공식 자료</a></article>`).join('');
+ $x('mv-product-grid').innerHTML=rows||'<p class="mv-muted">해당 슬롯에 확인된 제조사 후보가 없습니다. 재질 분류 시각화만 제공합니다.</p>';
+ $x('mv-product-intro').textContent=`현재 C${picked.slot} · ${FAMILIES[picked.family].label} / ${zoneTitle(picked.zone)} · 제조사 존재 확인 ${pool.length}건 · 정확한 컬러 샘플 매칭 0건`;
+}
+function refreshExtra(){const d=design(),an=photoAnalysis();
+ $x('mv-photo-wrap').hidden=X.mode!=='photo';$x('mv-scene-wrap').hidden=X.mode!=='diagram';
+ $x('mv-photo-tools').hidden=X.mode!=='photo';
+ $x('mv-mode-diagram').setAttribute('aria-pressed',String(X.mode==='diagram'));
+ $x('mv-mode-photo').setAttribute('aria-pressed',String(X.mode==='photo'));
+ $x('mv-polygon-count').textContent=X.image?`영역 ${an.polygonCount}개 · ${an.assigned}/4색 적용 · 약 ${an.coverage}% 면적`:'사진을 등록하지 않았습니다.';
+ $x('mv-photo-message').textContent=X.stateMessage||'사진 → AI 영역 후보 인식 → 검토·배치 또는 다각형 수동 추가';
+ $x('mv-photo-status').textContent=an.errors.length?'제약 위반: '+an.errors.join(' / '):X.image&&an.assigned===4?'4색 영역 지정 완료 · 시각화 검토 단계':'사진 4색 동시 배치 검토 미완료';
+ $x('mv-photo-status').className=an.errors.length?'mv-alert':'mv-safe';
+ $x('mv-safety-list').textContent=an.notes.join(' / ');
+ $x('mv-photo-slot').value=String(X.slot);$x('mv-photo-zone').value=X.zone;
+ sourcePanel();if(X.mode==='photo')drawPhoto();if(typeof refreshV3Panels==='function')refreshV3Panels();
+}
+function photoNote(s){X.stateMessage=s;refreshExtra()}
+function setMode(mode){X.mode=mode;refreshExtra()}
+function addPoint(e){if(window.MV3_EDIT_ERASE)return;if(!X.image)return photoNote('먼저 사진을 등록해 주세요.');const rect=getPhotoBox();const p=[clamp((e.clientX-rect.left)/rect.width*PWIDTH,0,PWIDTH),clamp((e.clientY-rect.top)/rect.height*PHEIGHT,0,PHEIGHT)];if(X.draft.length>=15)return photoNote('한 영역의 꼭짓점은 15개까지입니다.');X.draft.push(p);photoNote(`꼭짓점 ${X.draft.length}개 지정 · 다각형을 닫으려면 [영역 확정]`)}
+function finishPolygon(){if(X.draft.length<3)return photoNote('꼭짓점 3개 이상을 지정해야 합니다.');if(areaPolygon(X.draft)<500)return photoNote('영역이 너무 작습니다. 다시 지정해 주세요.');if(selfCross(X.draft))return photoNote('영역 외곽선이 교차합니다. 꼭짓점을 다시 지정해 주세요.');
+ const slot=design().slots.find(s=>s.slot===X.slot);if(!zoneAllowed(slot,X.zone))return photoNote(`차단: C${X.slot} ${FAMILIES[slot.family].label}은(는) ${zoneTitle(X.zone)} 적용 불가`);
+ X.polygons.push({id:(X.polygons.at(-1)?.id||0)+1,slot:X.slot,zone:X.zone,points:X.draft.map(p=>p.slice())});X.draft=[];photoNote(`영역 확정 · C${X.slot} ${zoneTitle(X.zone)} 지정`)}
+function snapshotPhoto(letter){if(!X.image)return photoNote('공간 사진을 먼저 등록해 주세요.');const a=photoAnalysis();if(a.errors.length)return photoNote('적용 제한 오류가 남아 있어 저장할 수 없습니다.');const canvas=$x('mv-photo-canvas');const target={palette:S.palette,room:S.room,floor:S.floor,mood:S.mood,light:S.light,regions:X.polygons.map(p=>({...p,points:p.points.map(c=>c.slice())})),autoRegions:(X.autoCandidates||[]).filter(c=>c.enabled).map(c=>({zone:c.zone,slot:c.slot,source:c.labels.join(', '),area:c.coverage})),image:canvas.toDataURL('image/jpeg',.78),coverage:a.assigned};X['photoSaved'+letter]=target;
+ const node=$x('mv-photo-save-'+letter);node.querySelector('.mv-saved-image').src=target.image;node.querySelector('.mv-saved-meta').textContent=`NO.${target.palette} · ${ROOMS[target.room].label} · 적용 ${target.coverage}/4색`;
+ photoNote(`${letter}안 사진 합성 결과 임시 저장 · ${a.assigned}/4색 영역 적용`)}
+function buildStatusOptions(){const zones=$x('mv-photo-zone');zones.innerHTML=Object.keys(RULES[S.room]).map(z=>`<option value="${z}">${zoneTitle(z)}</option>`).join('');if(!RULES[S.room][X.zone])X.zone='wall';zones.value=X.zone;}
+function initExtra(){buildStatusOptions();
+ const file=$x('mv-photo-upload');file.addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith('image/'))return photoNote('이미지만 업로드할 수 있습니다.');if(f.size>18*1024*1024)return photoNote('18MB 이하 사진을 사용해 주세요.');if(X.objectURL)URL.revokeObjectURL(X.objectURL);const url=URL.createObjectURL(f);X.objectURL=url;const im=new Image();im.onload=()=>{X.image=im;X.polygons=[];X.draft=[];X.autoCandidates=[];X.photoRevision=(X.photoRevision||0)+1;X.autoSelectedId=null;photoNote(`${f.name} 불러옴 · 공간 영역은 직접 지정해 주세요.`)};im.onerror=()=>photoNote('이미지를 읽지 못했습니다.');im.src=url;});
+ $x('mv-mode-diagram').addEventListener('click',()=>setMode('diagram'));$x('mv-mode-photo').addEventListener('click',()=>setMode('photo'));
+ $x('mv-photo-slot').addEventListener('change',e=>{X.slot=Number(e.target.value);refreshExtra()});
+ $x('mv-photo-zone').addEventListener('change',e=>{X.zone=e.target.value;refreshExtra()});
+ $x('mv-photo-opacity').addEventListener('input',e=>{X.opacity=Number(e.target.value)/100;drawPhoto()});
+ $x('mv-photo-scale').addEventListener('input',e=>{X.scale=Number(e.target.value)/100;drawPhoto()});
+ $x('mv-photo-direction').addEventListener('change',e=>{X.direction=Number(e.target.value);drawPhoto()});
+ $x('mv-photo-canvas').addEventListener('click',addPoint);
+ $x('mv-poly-finish').addEventListener('click',finishPolygon);
+ $x('mv-poly-undo').addEventListener('click',()=>{if(X.draft.length)X.draft.pop();else X.polygons.pop();photoNote('마지막 꼭짓점 또는 영역을 되돌렸습니다.')});
+ $x('mv-poly-clear').addEventListener('click',()=>{X.draft=[];X.polygons=[];photoNote('표시한 영역을 모두 초기화했습니다.')});
+ for(const letter of ['A','B'])$x('mv-photo-store-'+letter).addEventListener('click',()=>snapshotPhoto(letter));
+ // Original stage rendering calls this extension after every existing UI state change.
+ const original=render;render=function(){original();buildStatusOptions();refreshExtra()};
+ $x('mv-materials').addEventListener('click',e=>{const c=e.target.closest('[data-slot]');if(c&&e.target.tagName!=='SELECT'){X.slot=Number(c.dataset.slot);refreshExtra()}});
+ // If space changes, old photo masks remain in editor but invalid polys are flagged and not applied.
+ for(const k of ['mv-room','mv-floor','mv-palettes'])$x(k).addEventListener('change',()=>{X.draft=[];refreshExtra()});
+ refreshExtra();
+}
+initExtra();
+</script><script>'use strict';
+/* EMOVIA V3: optional human-in-the-loop semantic segmentation.
+   Model: Xenova/segformer-b0-finetuned-ade-512-512 (ADE20K), Transformers.js 3.8.1.
+   No uploaded photo is posted to an EMOVIA backend. Model and runtime load from third-party CDNs
+   only on demand. This is a candidate segmentation, NOT verified spatial understanding. */
+const V3={version:'V3_CANDIDATE', model:'Xenova/segformer-b0-finetuned-ade-512-512', autoStatus:'NOT_RUN', predictor:null, busy:false, selectingMask:false, eraseMode:false, erasePointer:false, loadedRevision:-1, message:'', lastResultCount:0};
+window.MV3_EDIT_ERASE=false;
+X.autoCandidates=[]; X.photoRevision=0; X.autoSelectedId=null;
+function v3Escape(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function v3Zone(label){let v=label.toLowerCase().replace(/[_-]/g,' ').trim();
+ if(v==='floor')return 'floor';
+ if(v==='wall')return 'wall';
+ if(['cabinet','wardrobe','chest of drawers','bookcase','shelf','cupboard'].includes(v))return 'cabinet';
+ if(['sofa','armchair','chair','cushion','pillow','curtain','bed','seat'].includes(v))return 'textile';
+ return null;
+}
+const v3ModelStatus={UNAVAILABLE:'추론 모델 실행 실패 · 수동 지정은 정상 사용 가능',NOT_RUN:'AI 인식 미실행',INFERRED:'AI 후보 생성됨 · 인간 검토 필수'};
+function v3MaskCanvas(mask){if(!mask||!mask.width||!mask.height||!mask.data)throw new Error('마스크 픽셀 데이터 형식 미지원');
+ const w=mask.width,h=mask.height,c=mask.channels||1,src=mask.data, out=document.createElement('canvas');out.width=w;out.height=h;const cx=out.getContext('2d',{willReadFrequently:true});const im=cx.createImageData(w,h);
+ let max=0;for(let i=0;i<Math.min(src.length,80000);i+=c)max=Math.max(max,src[i]);const threshold=max<=1?0.5:127;
+ for(let i=0;i<w*h;i++){const val=src[i*c];const on=val>threshold;im.data[i*4]=255;im.data[i*4+1]=255;im.data[i*4+2]=255;im.data[i*4+3]=on?255:0;}
+ cx.putImageData(im,0,0);return out;
+}
+function v3MaskStats(canvas){const c=document.createElement('canvas');c.width=100;c.height=62;const cx=c.getContext('2d',{willReadFrequently:true});cx.drawImage(canvas,0,0,100,62);const d=cx.getImageData(0,0,100,62).data;let n=0,x=0,y=0;for(let i=0;i<6200;i++){if(d[i*4+3]>160){const ix=i%100,iy=Math.floor(i/100);n++;x+=ix;y+=iy;}}return{area:n/6200,centroid:n?[x/n/100*PWIDTH,y/n/62*PHEIGHT]:[PWIDTH*.5,PHEIGHT*.5]};}
+function v3FlattenRaw(results){const grouped={};for(const res of results||[]){const zone=v3Zone(res.label||'');if(!zone||!res.mask)continue;
+  const raw=v3MaskCanvas(res.mask),stat=v3MaskStats(raw);if(stat.area<0.006)continue;
+  if(!grouped[zone]){const canvas=document.createElement('canvas');canvas.width=PWIDTH;canvas.height=PHEIGHT;grouped[zone]={zone,labels:[],maskCanvas:canvas};}
+  grouped[zone].labels.push(String(res.label));const cx=grouped[zone].maskCanvas.getContext('2d');cx.drawImage(raw,0,0,PWIDTH,PHEIGHT);
+ }
+ return Object.values(grouped).map((p,i)=>{const s=v3MaskStats(p.maskCanvas);return {...p,id:`ai-${i+1}`,coverage:Math.round(s.area*100),centroid:s.centroid,slot:null,enabled:false,source:'ADE20K_SEMANTIC',score_state:'NOT_CALIBRATED'};}).filter(x=>x.coverage>=1).slice(0,8);
+}
+function v3AcceptModelResults(results){if(!X.image)return {count:0,reason:'NO_IMAGE'};
+ X.autoCandidates=v3FlattenRaw(results);X.autoSelectedId=null;V3.lastResultCount=X.autoCandidates.length;
+ V3.autoStatus='INFERRED';V3.message=X.autoCandidates.length?`AI가 영역 ${X.autoCandidates.length}종을 찾았습니다. 목록에서 적용 색상을 선택하거나 [4배색 자동 배치]를 누르고 결과를 확인하세요.`:'이 사진에서 지원하는 벽·바닥·가구·패브릭 영역을 구분하지 못했습니다. 수동 다각형을 사용하세요.';
+ X.stateMessage=V3.message;refreshExtra();return {count:X.autoCandidates.length,zones:X.autoCandidates.map(x=>x.zone)};
+}
+function v3CandidateColor(c){const d=design();const used=new Set(X.autoCandidates.filter(a=>a.enabled&&a!==c).map(a=>a.slot));
+ const choices=d.slots.filter(s=>zoneAllowed(s,c.zone));choices.sort((a,b)=> (a.zone!==c.zone)-(b.zone!==c.zone) || (used.has(a.slot)?1:0)-(used.has(b.slot)?1:0) || (a.slot-b.slot));return choices[0]?.slot??null;
+}
+function v3SetAutoEnabled(id,flag,slotNo){const cand=X.autoCandidates.find(x=>x.id===id);if(!cand)return false;
+ if(!flag){cand.enabled=false;cand.slot=null;V3.message=`${zoneTitle(cand.zone)} 자동 후보를 미적용 상태로 전환했습니다.`;refreshExtra();return true;}
+ const slot=design().slots.find(s=>s.slot===Number(slotNo));if(!slot||!zoneAllowed(slot,cand.zone)){V3.message=`차단: C${slotNo}의 재질은 ${zoneTitle(cand.zone)} 영역에 사용할 수 없습니다.`;refreshExtra();return false;}
+ cand.slot=slot.slot;cand.enabled=true;V3.message=`C${slot.slot} · ${zoneTitle(cand.zone)}에 AI 후보 적용. 사진의 경계를 확인해 주세요.`;refreshExtra();return true;
+}
+function v3AutoAssign(){if(!X.image||!X.autoCandidates.length){V3.message='분석된 후보가 없습니다.';refreshExtra();return 0;}
+ const d=design();const used=new Set(X.polygons.map(p=>p.slot));let applied=0;
+ for(const c of X.autoCandidates.slice().sort((a,b)=>['floor','wall','cabinet','textile'].indexOf(a.zone)-['floor','wall','cabinet','textile'].indexOf(b.zone))){
+  const choices=d.slots.filter(s=>zoneAllowed(s,c.zone));choices.sort((a,b)=>(used.has(a.slot)?1:0)-(used.has(b.slot)?1:0) || (a.zone!==c.zone)-(b.zone!==c.zone) || a.slot-b.slot);
+  if(choices.length){const p=choices[0];c.slot=p.slot;c.enabled=true;used.add(p.slot);applied++;}else{c.slot=null;c.enabled=false;}
+ }
+ V3.message=applied?`${applied}개 영역에 4배색 중 적용 가능한 재질만 자동 배치했습니다. 미인식·잔여 색상은 다각형으로 보완하세요.`:'해당 공간/재질 규칙에서 자동 배치 가능한 후보가 없습니다.';
+ refreshExtra();return applied;
+}
+function v3ToneColor(ctx,canvas,slot){const layer=document.createElement('canvas');layer.width=PWIDTH;layer.height=PHEIGHT;const lc=layer.getContext('2d');
+ lc.fillStyle=slot.hex;lc.globalAlpha=.54*X.opacity+.12;lc.fillRect(0,0,PWIDTH,PHEIGHT);lc.globalAlpha=.38;lc.globalCompositeOperation='multiply';imageDraw(lc);lc.globalCompositeOperation='source-over';lc.globalAlpha=.64;
+ const fake={id:83,points:[[0,0],[PWIDTH,0],[PWIDTH,PHEIGHT],[0,PHEIGHT]]};materialTexture(lc,fake,slot);lc.globalAlpha=1;lc.globalCompositeOperation='destination-in';lc.drawImage(canvas,0,0,PWIDTH,PHEIGHT);
+ ctx.drawImage(layer,0,0);
+}
+function drawAutoOverlays(ctx,d){for(const c of X.autoCandidates||[]){const slot=d.slots.find(s=>s.slot===c.slot);const valid=c.enabled&&slot&&zoneAllowed(slot,c.zone);if(valid){v3ToneColor(ctx,c.maskCanvas,slot);}else if(!c.enabled){ctx.save();ctx.globalAlpha=.11;ctx.drawImage(c.maskCanvas,0,0,PWIDTH,PHEIGHT);ctx.restore();}
+  else {const tmp=document.createElement('canvas');tmp.width=PWIDTH;tmp.height=PHEIGHT;const cx=tmp.getContext('2d');cx.fillStyle='rgba(180,44,28,.23)';cx.fillRect(0,0,PWIDTH,PHEIGHT);cx.globalCompositeOperation='destination-in';cx.drawImage(c.maskCanvas,0,0,PWIDTH,PHEIGHT);ctx.drawImage(tmp,0,0);}
+  const [cx,cy]=c.centroid;ctx.fillStyle=valid?'rgba(35,67,53,.87)':'rgba(44,53,55,.78)';ctx.fillRect(Math.max(2,cx-58),Math.max(15,cy-23),116,22);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.font='bold 12px sans-serif';ctx.fillText((valid?'C'+c.slot+' · ':'인식 · ')+zoneTitle(c.zone),cx,Math.max(30,cy-8));
+ }}
+function v3MaskRasterCoverage(){const SW=200,SH=124,buf=new Uint8Array(SW*SH),conflicts=new Set();const d=design();let high=0,dark=0;
+ function stamp(mask,slot,zone){const c=document.createElement('canvas');c.width=SW;c.height=SH;const cx=c.getContext('2d',{willReadFrequently:true});if(mask instanceof HTMLCanvasElement)cx.drawImage(mask,0,0,SW,SH);else {cx.fillStyle='#fff';cx.beginPath();mask.forEach((pt,i)=>i?cx.lineTo(pt[0]/PWIDTH*SW,pt[1]/PHEIGHT*SH):cx.moveTo(pt[0]/PWIDTH*SW,pt[1]/PHEIGHT*SH));cx.closePath();cx.fill()}
+ const a=cx.getImageData(0,0,SW,SH).data;for(let i=0;i<buf.length;i++)if(a[i*4+3]>160){if(buf[i]&&buf[i]!==slot)conflicts.add(`${buf[i]}-${slot}`);buf[i]=slot;}}
+ for(const m of X.autoCandidates||[])if(m.enabled&&d.slots.some(s=>s.slot===m.slot&&zoneAllowed(s,m.zone)))stamp(m.maskCanvas,m.slot,m.zone);
+ for(const p of X.polygons)if(d.slots.some(s=>s.slot===p.slot&&zoneAllowed(s,p.zone)))stamp(p.points,p.slot,p.zone);
+ const slots=new Set(),counts={};let count=0;for(const v of buf){if(!v)continue;count++;slots.add(v);counts[v]=(counts[v]||0)+1;const s=d.slots.find(z=>z.slot===v);if(s&&metrics(s.hex).s>.55)high++;if(s&&metrics(s.hex).lum<.15)dark++;}
+ return {coverage:Math.round(count/buf.length*100),assigned:slots.size,slotCoverage:counts,highArea:Math.round(high/buf.length*100),darkArea:Math.round(dark/buf.length*100),overlapConflicts:conflicts.size};
+}
+const v3BasePhotoAnalysis=photoAnalysis;
+photoAnalysis=function(){const a=v3BasePhotoAnalysis(),rast=v3MaskRasterCoverage(),d=design();a.notes=a.notes.filter(x=>!x.includes('AI 영역 후보')&&!x.includes('마스크 중복 가능성')&&!x.includes('사진상 4색 검토 미완료'));
+ a.errors=[];for(const p of X.polygons){const s=d.slots.find(z=>z.slot===p.slot);if(!s||!zoneAllowed(s,p.zone))a.errors.push(`수동 C${p.slot} / ${zoneTitle(p.zone)} 차단`);}
+ for(const c of X.autoCandidates)if(c.enabled){const s=d.slots.find(z=>z.slot===c.slot);if(!s||!zoneAllowed(s,c.zone))a.errors.push(`자동 C${c.slot} / ${zoneTitle(c.zone)} 차단`);}
+ a.assigned=rast.assigned;a.polygonCount=X.polygons.length+X.autoCandidates.filter(c=>c.enabled).length;a.coverage=rast.coverage;a.vividArea=rast.highArea;a.darkArea=rast.darkArea;a.raster=rast;
+ if(X.image&&a.assigned<4)a.notes.unshift(`4색 동시 배치 미완료: ${a.assigned}/4`);
+ if(rast.highArea>22)a.notes.unshift('고채도 색의 사진 내 면적 22% 초과 · 중립 면적 검토');
+ if(rast.darkArea>35)a.notes.unshift('저명도 색의 사진 내 면적 35% 초과 · 조도 검토');
+ if(rast.overlapConflicts)a.notes.unshift(`서로 다른 색의 영역 중첩 ${rast.overlapConflicts}종 · 마스크 수정 필요`);
+ if(X.autoCandidates.length)a.notes.push('AI 분할 정확도 검증 전 · 인식 경계 사용자 확인 필요');
+ if(a.assigned===4&&X.image&&!a.errors.length)a.notes.push('4색 배치됨 · 시각적 조화와 실물 재질 성능은 별도 확인');
+ return a;
+};
+function v3QualityChecks(){const a=photoAnalysis(),d=design(),slots=d.slots;const allCovered=a.assigned===4;
+ const tests=[
+ {name:'4색 동시 배치',ok:allCovered,state:allCovered?'pass':'check',detail:`${a.assigned}/4색 · 미인식 영역은 수동 보완`},
+ {name:'재질·공간 Zone',ok:a.errors.length===0,state:a.errors.length?'block':'pass',detail:a.errors.length?a.errors.join(' / '):'선택한 후보의 금지 규칙 위반 없음'},
+ {name:'고채도 면적 균형',ok:a.vividArea<=22,state:a.vividArea>22?'check':'pass',detail:`사진 점유 면적 약 ${a.vividArea}% · 내부 임시 경고선 22%`},
+ {name:'저명도·조명',ok:a.darkArea<=35,state:a.darkArea>35?'check':'pass',detail:`저명도 면적 약 ${a.darkArea}% · 내부 임시 기준 35%, 조도 검토`},
+ {name:'영역 중첩',ok:a.raster.overlapConflicts===0,state:a.raster.overlapConflicts?'check':'pass',detail:a.raster.overlapConflicts?`${a.raster.overlapConflicts}개 색상 교차 검토`:'교차 샘플 검출 없음'},
+ {name:'실물 제품·시공',ok:false,state:'check',detail:'정확한 SKU 색상 · 미끄럼 · 내수 · 방염 검증 필요'}
+ ];
+ $x('mv3-quality').innerHTML=tests.map(t=>`<div class="mv3-check" data-state="${t.state}"><strong>${t.name}</strong><b>${t.state==='pass'?'규칙 검사 통과':t.state==='block'?'적용 차단':'검토 필요'}</b><small>${v3Escape(t.detail)}</small></div>`).join('');
+ return {checks:tests,analysis:a};
+}
+function refreshV3Panels(){const hasImage=!!X.image;const text=V3.message||(hasImage?'AI 후보 분석 버튼을 선택하거나 수동 영역을 지정해 주세요.':'사진 업로드 후 자동 영역 후보 인식을 실행할 수 있습니다.');
+ $x('mv3-ai-status').textContent=(V3.busy?'AI 모델을 불러오고 추론하는 중 · 브라우저 환경에 따라 지연될 수 있습니다.':text);
+ $x('mv3-ai-run').disabled=!hasImage||V3.busy;$x('mv3-ai-assign').disabled=!hasImage||V3.busy||X.autoCandidates.length===0;
+ $x('mv3-ai-list').innerHTML=X.autoCandidates.map(c=>{const options=design().slots.filter(s=>zoneAllowed(s,c.zone));const chosen=c.slot??v3CandidateColor(c);
+  return `<article class="mv3-auto-item ${c.enabled?'is-accepted':''} ${X.autoSelectedId===c.id?'is-selected':''}" data-auto-row="${v3Escape(c.id)}"><strong>${v3Escape(zoneTitle(c.zone))} · ${v3Escape(c.labels.join(', '))}</strong><small>AI 예측 면적 약 ${c.coverage}% · 신뢰도 미보정 · ${c.enabled?'색상 적용 중':'후보, 미적용'}</small><select data-v3-slot="${v3Escape(c.id)}" aria-label="${v3Escape(zoneTitle(c.zone))} 적용할 컬러">${options.length?options.map(s=>`<option value="${s.slot}" ${s.slot===chosen?'selected':''}>C${s.slot} · ${v3Escape(FAMILIES[s.family].label)}</option>`).join(''):'<option value="">적용 가능한 색상 없음</option>'}</select><div class="mv3-item-actions"><button type="button" data-v3-apply="${v3Escape(c.id)}" ${options.length?'':'disabled'}>${c.enabled?'적용 변경':'이 색상 적용'}</button><button type="button" data-v3-remove="${v3Escape(c.id)}">${c.enabled?'적용 취소':'후보 삭제'}</button><button type="button" data-v3-edit="${v3Escape(c.id)}">경계 보정</button></div></article>`;
+ }).join('')||'<p class="mv-muted">AI가 확인한 후보가 없습니다. AI 영역 분석을 실행하거나 다각형을 직접 그리세요.</p>';
+ $x('mv3-mode-polygon').setAttribute('aria-pressed',String(!V3.eraseMode));$x('mv3-mode-erase').setAttribute('aria-pressed',String(V3.eraseMode));
+ $x('mv-photo-canvas').style.cursor=V3.eraseMode?'cell':'crosshair';$x('mv-photo-canvas').style.touchAction=V3.eraseMode?'none':'manipulation';
+ v3QualityChecks();
+}
+let v3PredictorPromise=null;
+async function v3RunAI(){if(V3.busy)return;if(!X.image){V3.message='공간 사진을 먼저 등록해 주세요.';refreshExtra();return;}
+ V3.busy=true;V3.autoStatus='LOADING';V3.message='모델 파일 로딩 중';const revision=X.photoRevision;refreshExtra();
+ try{if(!v3PredictorPromise){v3PredictorPromise=import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1').then(m=>m.pipeline('image-segmentation',V3.model));}
+  const model=await v3PredictorPromise;if(revision!==X.photoRevision)throw Error('사진이 바뀌어 이전 분석을 취소했습니다.');
+  V3.message='사진 영역 추론 중';refreshExtra();
+  const photo=document.createElement('canvas');photo.width=PWIDTH;photo.height=PHEIGHT;imageDraw(photo.getContext('2d'));
+  const results=await model(photo);if(revision!==X.photoRevision)throw Error('사진이 바뀌어 이전 분석 결과를 폐기했습니다.');v3AcceptModelResults(results);
+ }catch(e){V3.autoStatus='UNAVAILABLE';V3.message=`AI 분석 실패: ${e?.message||'네트워크/기기 환경을 확인해 주세요.'} · 다각형 편집은 계속 사용할 수 있습니다.`;v3PredictorPromise=null;}
+ finally{V3.busy=false;refreshExtra();}
+}
+function v3Clear(){X.autoCandidates=[];X.autoSelectedId=null;V3.message='자동 인식 후보를 초기화했습니다. 수동 지정한 영역은 유지됩니다.';refreshExtra();}
+function v3RevalidateAssignments(){const slots=design().slots;let removed=0;for(const c of X.autoCandidates||[]){if(!c.enabled)continue;const slot=slots.find(s=>s.slot===c.slot);if(!slot||!zoneAllowed(slot,c.zone)){c.slot=null;c.enabled=false;removed++;}}
+ if(removed)V3.message=`공간·재질 조건이 변경되어 부적합한 자동 적용 ${removed}건을 해제했습니다. 재배치를 검토해 주세요.`;
+ return removed;}
+function v3CanvasCoordinate(e){const r=getPhotoBox();return [clamp((e.clientX-r.left)/r.width*PWIDTH,0,PWIDTH),clamp((e.clientY-r.top)/r.height*PHEIGHT,0,PHEIGHT)];}
+function v3ErasePoint(e){const c=X.autoCandidates.find(x=>x.id===X.autoSelectedId);if(!c){V3.message='목록에서 [경계 보정]으로 대상을 먼저 선택하세요.';return;}
+ const [x,y]=v3CanvasCoordinate(e),ctx=c.maskCanvas.getContext('2d');ctx.save();ctx.globalCompositeOperation='destination-out';ctx.fillStyle='#000';ctx.beginPath();ctx.arc(x,y,Number($x('mv3-erase-size').value),0,Math.PI*2);ctx.fill();ctx.restore();drawPhoto();}
+function v3EnableErase(enabled){V3.eraseMode=enabled;window.MV3_EDIT_ERASE=enabled;if(enabled&&!X.autoSelectedId){V3.message='자동 후보 목록에서 [경계 보정]을 먼저 선택해 주세요.';}refreshExtra();}
+function initV3(){const panel=$x('mv3-ai-list');
+ $x('mv3-ai-run').addEventListener('click',v3RunAI);
+ $x('mv3-ai-assign').addEventListener('click',v3AutoAssign);
+ $x('mv3-ai-clear').addEventListener('click',v3Clear);
+ $x('mv3-mode-polygon').addEventListener('click',()=>v3EnableErase(false));
+ $x('mv3-mode-erase').addEventListener('click',()=>v3EnableErase(true));
+ panel.addEventListener('click',e=>{const ap=e.target.closest('[data-v3-apply]'),rm=e.target.closest('[data-v3-remove]'),edit=e.target.closest('[data-v3-edit]');
+  if(ap){const c=X.autoCandidates.find(z=>z.id===ap.dataset.v3Apply),select=panel.querySelector('[data-v3-slot="'+ap.dataset.v3Apply+'"]');if(c&&select)v3SetAutoEnabled(c.id,true,select.value);}
+  if(rm){const c=X.autoCandidates.find(z=>z.id===rm.dataset.v3Remove);if(c){if(c.enabled)v3SetAutoEnabled(c.id,false);else{X.autoCandidates=X.autoCandidates.filter(z=>z!==c);refreshExtra();}}}
+  if(edit){X.autoSelectedId=edit.dataset.v3Edit;v3EnableErase(true)}
+ });
+ const canvas=$x('mv-photo-canvas');canvas.addEventListener('pointerdown',e=>{if(!V3.eraseMode||!X.image)return;V3.erasePointer=true;canvas.setPointerCapture(e.pointerId);v3ErasePoint(e);e.preventDefault()});
+ canvas.addEventListener('pointermove',e=>{if(!V3.eraseMode||!V3.erasePointer)return;v3ErasePoint(e);e.preventDefault()});
+ const end=()=>{if(V3.erasePointer){V3.erasePointer=false;X.autoCandidates.forEach(c=>{const s=v3MaskStats(c.maskCanvas);c.coverage=Math.round(s.area*100);c.centroid=s.centroid;});refreshExtra();}};
+ canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+ $x('mv-photo-upload').addEventListener('change',()=>{V3.message='새 사진을 등록하면 [AI 영역 분석]을 다시 실행해야 합니다.';X.autoSelectedId=null;V3.eraseMode=false;window.MV3_EDIT_ERASE=false;refreshV3Panels()});
+ for(const id of ['mv-room','mv-floor','mv-palettes'])$x(id).addEventListener('change',()=>{const removed=v3RevalidateAssignments();if(!removed)V3.message='공간 또는 재질 변경 후 자동 후보 배치를 재검토해 주세요.';refreshExtra()});
+ $x('mv-materials').addEventListener('change',()=>{v3RevalidateAssignments();refreshExtra()});
+ document.querySelectorAll('.mv-moods button').forEach(b=>b.addEventListener('click',()=>{v3RevalidateAssignments();refreshExtra()}));
+ refreshExtra();
+}
+initV3();
+</script></body></html>
