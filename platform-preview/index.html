@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="EMOVIA 기존 연구 기반 전문 서비스 통합 고객흐름 설계 시뮬레이션. 실제 접수·결제·AI 생성 불가.">
+  <title>EMOVIA | 서비스 통합흐름 설계 시뮬레이션</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">EMOVIA</span><span>서비스 통합흐름 검토</span></div>
+    <span class="status-pill">DESIGN SIMULATION · 비운영</span>
+  </header>
+  <main class="page" id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="overline">11. 플랫폼 프로젝트 · 08 DOMAIN FLOW INTEGRATION</p>
+      <h1 id="hero-title">고객 서비스 흐름 검토</h1>
+      <p>기존 연구의 11개 서비스, 7개 담당 영역, 공통 고객 Flow를 연결한 <strong>설계 검토용 화면</strong>입니다. 실제 상담·CASE 접수, 유료 결제, AI 분석이나 이미지 생성은 수행하지 않습니다.</p>
+      <div class="facts" aria-label="설계 기준">
+        <span>서비스 <strong>11</strong></span>
+        <span>Domain <strong>7</strong></span>
+        <span>공통 Flow <strong>11단계</strong></span>
+        <span>공통 Component <strong>19개 연구 항목</strong></span>
+      </div>
+    </section>
+    <section class="work-area" aria-label="서비스 입력 시뮬레이션">
+      <div class="main-column">
+        <section class="panel" aria-labelledby="select-heading">
+          <div class="panel-head"><span class="step">01</span><h2 id="select-heading">서비스 및 진입 방식</h2></div>
+          <div class="form-grid">
+            <label>서비스 선택
+              <select id="service-select" autocomplete="off"></select>
+            </label>
+            <label>진입 경로
+              <select id="entry-mode" autocomplete="off">
+                <option value="ALL_SERVICES">전체 서비스</option>
+                <option value="SPACE">공간에서 시작</option>
+                <option value="PURPOSE">목적에서 시작</option>
+                <option value="SPACE_PURPOSE">공간 + 목적</option>
+                <option value="DIRECT_SERVICE">서비스 직접 선택</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-grid route-extra" id="route-extra" hidden>
+            <label>선택 공간 ID<input id="space-id" type="text" value="RESIDENTIAL_BATHROOM" spellcheck="false"></label>
+            <label>선택 목적 ID<input id="purpose-id" type="text" value="PREVIEW_PRODUCT" spellcheck="false"></label>
+          </div>
+          <p class="hint" id="service-description">담당 서비스와 입력 항목을 불러옵니다.</p>
+          <div class="field-status" id="route-status" role="status" aria-live="polite"></div>
+        </section>
+        <section class="panel" aria-labelledby="input-heading">
+          <div class="panel-head"><span class="step">02</span><h2 id="input-heading">최소 입력 및 전문 입력</h2></div>
+          <p class="hint">아래 텍스트는 브라우저 메모리에만 유지되며 전송·저장되지 않습니다. 개인정보, 주소, 도면 원본, 권리 제한 자료를 입력하지 마세요.</p>
+          <label>요청 목적 <span class="required">필수 · 10자 이상</span>
+            <textarea id="goal-input" rows="3" maxlength="800" placeholder="예: 욕실 전체 분위기 변경과 수납 개선 시안 비교를 검토하고 싶습니다."></textarea>
+          </label>
+          <div id="domain-fields" class="domain-fields"></div>
+          <p class="hint">사진·도면·로고 업로드, 제품 스펙 검증 및 실제 공간 Geometry 인식은 이 미리보기에서 실행하지 않습니다.</p>
+          <div class="controls">
+            <button type="button" id="review-button">입력 검토</button>
+            <button type="button" id="reset-button" class="button-subtle">처음부터</button>
+          </div>
+          <p id="input-status" role="status" aria-live="polite" class="field-status"></p>
+        </section>
+        <section class="panel" aria-labelledby="review-heading">
+          <div class="panel-head"><span class="step">03</span><h2 id="review-heading">고객 검토 / 모의 접수</h2></div>
+          <div id="review-content" class="review-content" aria-live="polite">
+            <p class="hint">입력을 확인하면 검토 요약이 표시됩니다.</p>
+          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="acknowledge" disabled>
+            <span>이 요청은 실제 접수·결제·분석·이미지 생성 없이 진행되는 모의 흐름임을 이해했습니다.</span>
+          </label>
+          <button type="button" id="simulate-button" disabled>모의 접수 흐름 확인</button>
+          <div id="simulation-result" role="status" aria-live="polite" class="simulation-result"></div>
+        </section>
+      </div>
+      <aside class="side-column" aria-label="계약 및 검증 상태">
+        <section class="panel side-panel">
+          <h2>현재 운영 판정</h2>
+          <dl class="status-list">
+            <div><dt>공통 Source</dt><dd>REVIEW_REQUIRED</dd></div>
+            <div><dt>Master 승인</dt><dd>PENDING</dd></div>
+            <div><dt>CASE / 결제</dt><dd>미연결</dd></div>
+            <div><dt>AI Capability</dt><dd>UNVERIFIED</dd></div>
+            <div><dt>최종 +95</dt><dd>PENDING</dd></div>
+          </dl>
+          <p class="notice">SVC_011 브랜드 브로셔는 담당 Domain이 정해지지 않아 이 모의 흐름에서도 신청이 차단됩니다.</p>
+        </section>
+        <section class="panel side-panel">
+          <h2>공통 Flow 진행 표시</h2>
+          <ol id="flow-stages" class="stage-list"></ol>
+          <p class="hint">AI 분석은 항상 미실행, CASE·Pipeline·Result는 운영 권한 없이 차단됩니다.</p>
+        </section>
+        <section class="panel side-panel">
+          <h2>현재 검토 범위</h2>
+          <p>연구 시나리오 <strong id="scenario-count">35</strong>건 / 오류 복구 유형 <strong id="fault-count">20</strong>건</p>
+          <p class="hint">35개 시나리오와 20개 오류 유형을 코드 레지스트리로 연결했습니다. 실제 고객 시험을 통과했다는 의미는 아닙니다.</p>
+        </section>
+      </aside>
+    </section>
+    <section class="footer-note">
+      <h2>이 화면의 명확한 한계</h2>
+      <p>검토용 모의 접수번호는 실제 CASE 번호가 아니며 서버에 저장되지 않습니다. 비회원 인증, 결제, 파일 업로드, CAD, 실측 확인, 이미지 생성, 결과 공개는 검증 및 Master 승인 이전에 활성화하지 않습니다. 기존 EMOVIA 소개 홈페이지는 변경하지 않았습니다.</p>
+    </section>
+  </main>
+</body>
+</html>
