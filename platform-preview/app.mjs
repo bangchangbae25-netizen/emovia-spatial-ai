@@ -69,7 +69,8 @@ function makeRoute(){
   return resolveSelection({
     service_id:ui.service.value,entry_mode:ui.mode.value,
     catalog_version:CONTROL.catalog_version,selection_confirmed:true,
-    space_id:ui.space.value.trim()||null,purpose_id:ui.purpose.value.trim()||null
+    space_id:["SPACE","SPACE_PURPOSE"].includes(ui.mode.value)?(ui.space.value.trim()||null):null,
+    purpose_id:["PURPOSE","SPACE_PURPOSE"].includes(ui.mode.value)?(ui.purpose.value.trim()||null):null
   });
 }
 function currentInput(){
@@ -106,7 +107,10 @@ function showStages(){
   });
 }
 function updateRoute(){
-  ui.routeExtra.hidden=ui.mode.value!=="SPACE_PURPOSE";
+  const mode=ui.mode.value;
+  ui.routeExtra.hidden=mode!=="SPACE_PURPOSE"&&mode!=="SPACE"&&mode!=="PURPOSE";
+  ui.space.parentElement.hidden=mode!=="SPACE_PURPOSE"&&mode!=="SPACE";
+  ui.purpose.parentElement.hidden=mode!=="SPACE_PURPOSE"&&mode!=="PURPOSE";
   const service=selectedService();
   if(service){
     ui.serviceDescription.textContent=
@@ -179,7 +183,7 @@ function requestSimulation(){
   if(!flow.ok){message(ui.simulationResult,flow.code,"error");return;}
   simulationAttempt+=1;
   const request={
-    ...activeReview.route,selection_confirmed:true,mode:"DESIGN_SIMULATION",
+    ...activeReview.route,selection_confirmed:true,catalog_version:CONTROL.catalog_version,mode:"DESIGN_SIMULATION",
     input:activeReview.input,input_revision:inputRevision,submission_revision:activeReview.inputRevision,
     review_confirmed:true,simulation_acknowledged:true,
     idempotency_key:"SIM_ATTEMPT_"+String(simulationAttempt)
