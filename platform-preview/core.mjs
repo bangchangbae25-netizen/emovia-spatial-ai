@@ -143,6 +143,8 @@ export function resolveSelection(request) {
   const s=serviceById(request.service_id||request.selected_service_id);
   if (!s) return deny("SERVICE_NOT_FOUND");
   if (!s.domain_id) return deny("DOMAIN_OWNER_MISSING");
+  if (request.entry_mode==="SPACE" && !request.space_id) return deny("SPACE_INPUT_REQUIRED");
+  if (request.entry_mode==="PURPOSE" && !request.purpose_id) return deny("PURPOSE_INPUT_REQUIRED");
   if (request.entry_mode==="SPACE_PURPOSE" && (!request.space_id||!request.purpose_id)) return deny("SPACE_PURPOSE_INPUT_REQUIRED");
   return {ok:true,simulation:true,service_id:s.id,domain_id:s.domain_id,
     entry_mode:request.entry_mode,source_entry_mode:request.entry_mode,
