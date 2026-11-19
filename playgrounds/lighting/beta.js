@@ -28,7 +28,7 @@ PRODUCT:{name:'제품을 돋보이게',icon:'◈',phase:'NIGHT',tone:'NATURAL',b
 DAY:{name:'맑은 낮',icon:'◇',phase:'DAY',tone:'COOL',brightness:88,focus:30}
 };
 let state={room:'LIVING',photo:null,phase:'NIGHT',mood:'EVENING',fixture:'LINEAR',zone:'CEILING',tone:'WARM',brightness:61,focus:40};
-let photoUrl=null,source=[],comparison=false,aState=null,saved=[],split=50;
+let photoUrl=null,source=[],sourceManifest=null,comparison=false,aState=null,saved=[],split=50;
 const clone=x=>JSON.parse(JSON.stringify(x));
 const sameBase=(a,b)=>a&&b&&a.room===b.room&&a.photo===b.photo;
 const ft=()=>types.find(x=>x.id===state.fixture)||types[0];
@@ -149,17 +149,19 @@ try{localStorage.setItem('emovia_lighting_beta_v02',JSON.stringify(saved));toast
 renderSaved();
 });
 $('btn-copy').addEventListener('click',()=>{
-const payload={channel_id:'CH_EMOVIA_LIGHTING_PLAYGROUND_V1',version:'VISUAL_BETA_0.2',room:state.room,fixture_type:state.fixture,lighting_zone:state.zone,mood:state.mood,tone:state.tone,brightness_ui:state.brightness,focus_ui:state.focus,day_night:state.phase,geometry_lock:true,camera_lock:true,product_brand:null,merchant_reference:'VITTZ',result_type:'QUALITATIVE',photometric_validation:'NOT_RUN',physical_product_application:'NOT_APPLIED'};
+const payload={channel_id:'CH_EMOVIA_LIGHTING_PLAYGROUND_V1',version:'VISUAL_BETA_0.2',room:state.room,fixture_type:state.fixture,lighting_zone:state.zone,mood:state.mood,tone:state.tone,brightness_ui:state.brightness,focus_ui:state.focus,day_night:state.phase,geometry_lock:false,camera_lock:false,geometry_preservation_intent:true,camera_preservation_intent:true,geometry_validation:'NOT_RUN',camera_validation:'NOT_RUN',product_brand:null,merchant_reference:'VITTZ',result_type:'QUALITATIVE',photometric_validation:'NOT_RUN',physical_product_application:'NOT_APPLIED',source_reference:sourceManifest,source_application:'NOT_APPLIED',production_ready:false,validation_95:'PENDING'};
 const value=JSON.stringify(payload,null,2);
 if(!navigator.clipboard?.writeText)return toast('이 브라우저에서는 클립보드 복사를 지원하지 않습니다.');
 navigator.clipboard.writeText(value).then(()=>toast('선택 조합을 JSON으로 복사했습니다.')).catch(()=>toast('클립보드 사용이 차단되었습니다.'));
 });
 $('main-photo').addEventListener('error',()=>toast('공간 이미지 로딩 실패: 인터넷 연결을 확인해 주세요.'));
 fetch('./data/vittz-products.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{
+sourceManifest={source_pack_id:data.source_pack_id||null,version:data.version||null,source_status:data.source_status||'UNKNOWN',registry_tier:data.registry_tier||'UNKNOWN',source_owner:data.source_owner||null,application_status:'NOT_APPLIED'};
 const keys=new Set();source=(data.products||[]).filter(p=>{
-if(!p.catalog_product_id||!p.product_name||keys.has(p.catalog_product_id))return false;
+if(!p||!p.catalog_product_id||!p.product_name||keys.has(p.catalog_product_id))return false;
+if(typeof p.official_source_url!=='string'||!p.official_source_url.startsWith('https://www.vittz.co.kr/')||p.source_status!=='FOUND'||p.registry_status!=='CANDIDATE'||p.activation_status!=='INACTIVE'||p.applied_status!=='NOT_APPLIED')return false;
 keys.add(p.catalog_product_id);
-return p.official_source_url.startsWith('https://www.vittz.co.kr/')&&p.activation_status==='INACTIVE'&&p.applied_status==='NOT_APPLIED';
+return true;
 });renderSources();
 }).catch(()=>{$('source-results').innerHTML='<p class="source-disclosure">판매처 제품정보를 불러오지 못했습니다. 범용 조명 체험은 사용 가능합니다.</p>'});
 readSaved();draw();
