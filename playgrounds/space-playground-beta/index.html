@@ -74,8 +74,23 @@ ctx.restore();}
 function render(){if(!ready)return;paintCount++;ctx.putImageData(new ImageData(state.showOriginal?new Uint8ClampedArray(baseRGBA):new Uint8ClampedArray(cacheColors()),canvas.width,canvas.height),0,0);if(state.tab==='light'&&!state.showOriginal)visualLight();refreshMarkers()}
 function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;render()})}
 function preserve(){try{localStorage.setItem('emovia_color_light_shared_v21_approved',JSON.stringify({...state,showOriginal:false}))}catch(e){}}
-function recover(){try{let s=localStorage.getItem('emovia_color_light_shared_v21_approved');if(s){let o=JSON.parse(s);if(DB[String(o.palette)]?.available&&[...o.rates].sort((a,b)=>a-b).join()==RATES.join()){
-state={...state,...o,saved:o.saved||state.saved,fixture:{...state.fixture,...o.fixture},strength:{...state.strength,...o.strength},showOriginal:false};}}
+function validStoredState(o){
+if(!o||typeof o!=='object'||Array.isArray(o))return false;
+const rateOk=a=>Array.isArray(a)&&a.length===RATES.length&&a.every(Number.isInteger)&&a.slice().sort((x,y)=>x-y).join()===RATES.join();
+if(!DB[String(o.palette)]?.available||!DB[String(o.saved?.palette)]?.available||!rateOk(o.rates)||!rateOk(o.saved?.rates))return false;
+if(!['color','light','material'].includes(o.tab)||!['day','evening','night'].includes(o.time))return false;
+if(!Number.isInteger(o.kelvin)||o.kelvin<2000||o.kelvin>6000||(o.kelvin-2000)%100!==0)return false;
+if(!Number.isInteger(o.brightness)||o.brightness<5||o.brightness>100)return false;
+const keys=metas.map(m=>m[0]);
+if(!keys.includes(o.selected)||!o.fixture||typeof o.fixture!=='object'||Array.isArray(o.fixture)||!o.strength||typeof o.strength!=='object'||Array.isArray(o.strength))return false;
+return keys.every(k=>typeof o.fixture[k]==='boolean'&&Number.isInteger(o.strength[k])&&o.strength[k]>=0&&o.strength[k]<=100&&o.strength[k]%5===0);
+}
+function recover(){try{
+const raw=localStorage.getItem('emovia_color_light_shared_v21_approved');
+if(!raw)return;
+const o=JSON.parse(raw);
+if(!validStoredState(o))return;
+state={...state,...o,rates:[...o.rates],saved:{palette:o.saved.palette,rates:[...o.saved.rates]},fixture:{...o.fixture},strength:{...o.strength},showOriginal:false};
 }catch(e){} }
 function onEdit(){if(state.showOriginal){state.showOriginal=false;toggleViews()}preserve();schedule()}
 function changeTab(tab){if(!['color','light','material'].includes(tab))return;if(tab==='light'&&state.tab==='color')saveColor(false);state.tab=tab;
