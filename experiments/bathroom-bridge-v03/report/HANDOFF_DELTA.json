@@ -1,0 +1,26 @@
+{
+  "checkpoint_id": "CP_BATHROOM_BRIDGE_V03_20261121",
+  "date": "2026-11-21",
+  "project": "1.주거공간 PROJECT",
+  "channel": "CH_EMOVIA_BATHROOM_SPECIALIST_V1",
+  "source_owner_preserved": true,
+  "research_branch": "research/bathroom-bridge-v03-20261119",
+  "source_reference": {
+    "id": "REFERENCE_1000026121_USER_ARCHIVE",
+    "sha256": "d7ba11207566c3cf04536179d083ac1dde90ca0bb5070603576f1ddb3dc65d0e",
+    "geometry": "PIXEL_ONLY_OBSERVED_CANDIDATE",
+    "room_ids": ["R1000026121_BATH_LEFT", "R1000026121_BATH_RIGHT"]
+  },
+  "new_capability": "LOCAL_BROWSER_RESEARCH_UI_AND_FAIL_CLOSED_GUARD",
+  "integration_tests": {"node_gate": "53_OF_53", "browser_ui": "16_OF_16", "single_file_smoke": "PASS"},
+  "actual_r01_r02": "NOT_CONNECTED",
+  "geometry_lock": "RESEARCH_CANDIDATE_ONLY",
+  "LH_66D": "OFFICIAL_AREA_ONLY_GEOMETRY_SOURCE_GAP",
+  "image_generation": "NOT_RUN_STRUCTURAL_EVIDENCE_MISSING",
+  "image_postvalidation": "MANUAL_QA_ONLY_NOT_INDEPENDENT",
+  "customer_release": "BLOCKED",
+  "master_approval": "PENDING",
+  "+95": "PENDING",
+  "result": "RESEARCH_DELTA_REVIEW_REQUIRED",
+  "next": "Obtain approved Core Plan State, R01/R02 runtime + signed ACK, camera/depth/mask adapter, same-space image QA."
+}
