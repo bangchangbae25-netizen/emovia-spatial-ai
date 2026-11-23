@@ -1,0 +1,185 @@
+{
+  "output_id": "EMOVIA_CH07_RESEARCH_BACKEND_V2_CANDIDATE",
+  "project": "11.플랫폼 프로젝트",
+  "channel_id": "CH_EMOVIA_PIPELINE_BINDING_ARCHITECTURE_V1",
+  "parent_master": "CH_EMOVIA_PLATFORM_CUSTOMER_FLOW_MASTER_V1",
+  "channel_topology": {
+    "master": 1,
+    "specialists": 8,
+    "new_channel_created": false
+  },
+  "version": "2.0.0-CANDIDATE",
+  "baseline": {
+    "design": "EMOVIA_CH07_UNIFIED_DESIGN_V1.md",
+    "master_return": "EMOVIA_CH07_MASTER_RETURN_V1.json",
+    "runtime": "platform-backend/mvp.py"
+  },
+  "source_trace": [
+    {
+      "source_id": "EMOVIA_CH07_UNIFIED_DESIGN_V1",
+      "version": "1.0.0",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "job_state",
+        "snapshot",
+        "outbox",
+        "handoff",
+        "ownership"
+      ],
+      "status": "DESIGN_BASELINE",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK01_REGISTRY_V2",
+      "version": "V2",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "source_id",
+        "version",
+        "owner",
+        "trace"
+      ],
+      "status": "DESIGN_REFERENCE_ONLY",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK02_SPATIAL_V1",
+      "version": "V1",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "field_verify",
+        "lock_gate"
+      ],
+      "status": "DESIGN_REFERENCE_ONLY",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK03_RESEARCH_V1",
+      "version": "V1",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "failure_delta",
+        "candidate_only"
+      ],
+      "status": "DESIGN_REFERENCE_ONLY",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK04_PIPELINE_V1",
+      "version": "V1",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "job_trace",
+        "handoff",
+        "owner"
+      ],
+      "status": "DESIGN_REFERENCE_ONLY",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK05_JSON_V1",
+      "version": "V1",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "engine_usage_trace",
+        "source_applied_gate"
+      ],
+      "status": "DESIGN_REFERENCE_ONLY",
+      "production_source_applied": false,
+      "owner_preserved": true
+    },
+    {
+      "source_id": "PACK06_GATEWAY_V4",
+      "version": "FINAL_V4",
+      "applied_stage": "DESIGN_ANALYSIS_AND_CODE_VALIDATION",
+      "applied_fields": [
+        "registry",
+        "checkpoint",
+        "delta",
+        "found_not_applied"
+      ],
+      "status": "REVIEW_REQUIRED_NOT_APPLIED",
+      "production_source_applied": false,
+      "owner_preserved": true
+    }
+  ],
+  "service_binding": {
+    "service_count": 11,
+    "domain_count": 7,
+    "unresolved_service": "SVC_011",
+    "demo_only_service": "SVC_003",
+    "all_capabilities_production_verified": false
+  },
+  "core_engine_trace": {
+    "signature": "6.5.30.7.210",
+    "engines": [
+      "Recognition",
+      "Analysis",
+      "Decision",
+      "Recommendation",
+      "Generation",
+      "Validation",
+      "Learning"
+    ],
+    "actual_engine_execution": "NOT_EXECUTED"
+  },
+  "owners": {
+    "CH02": "service/domain catalog",
+    "CH03": "customer flow review",
+    "CH04": "input validation/provenance",
+    "CH05": "case/auth/payment/consent/entitlement",
+    "CH06": "result/version/release",
+    "CH07": "snapshot/job/events/outbox/handoff",
+    "CH08": "domain capability/validation"
+  },
+  "implementation_delta": [
+    "source version check/trace/checkpoint; all NOT_APPLIED",
+    "catalog/schema/version pinning in immutable snapshot",
+    "mock CASE+consent, mock CH05 entitlement, mock CH08 capability",
+    "job/outbox atomic commit, lease/ack/retry/deadletter",
+    "event idempotency/sequence/gap reconciliation",
+    "7 engine NOT_EXECUTED trace",
+    "candidate failure delta and checkpoint link",
+    "CH06 mock handoff ack after outbox ack; release always blocked",
+    "revision failure protects prior hidden candidate",
+    "local HTTP contract and concurrency/restart tests"
+  ],
+  "validation_result": {
+    "mode": "LOCAL_DESIGN_SIMULATION",
+    "tests_run": 90,
+    "tests_passed": 90,
+    "tests_failed": 0,
+    "real_provider_tested": false,
+    "real_payment_tested": false,
+    "real_security_audit": false,
+    "real_customer_e2e": false,
+    "production_ready": false
+  },
+  "unresolved": [
+    "PACK06_OFFICIAL_STATUS",
+    "CH05_REAL_AUTH_ENTITLEMENT_PAYMENT_CONSENT",
+    "CH06_RESULT_REGISTRY_RELEASE",
+    "CH08_BATHROOM_GEOMETRY_CAPABILITY",
+    "SVC_011_OWNER",
+    "SERVICE_ENTRY_ALIAS_CONTRACT",
+    "QUEUE_PROVIDER_WEBHOOK_AND_WORKER",
+    "ASSET_AND_PRIVACY_SECURITY",
+    "COST_RATE_LIMITS_OBSERVABILITY"
+  ],
+  "master_integration_status": "PENDING_REVIEW",
+  "final_95": "PENDING",
+  "source_activation": "NOT_APPLIED_TO_PRODUCTION",
+  "checkpoint": {
+    "last_loaded_design_version": "1.0.0",
+    "new_candidate_version": "2.0.0-CANDIDATE",
+    "last_applied_official_version": null,
+    "validation_state": "LOCAL_SIMULATION_PASS",
+    "next_action": "MASTER_AND_DOMAIN_OWNER_REVIEW"
+  },
+  "next_execution": "Connect actual CH05/CH06/CH08 only after approved contracts and separate real E2E tests"
+}
